@@ -33,11 +33,14 @@ interface PosterStore {
 const clone = <T,>(v: T): T => JSON.parse(JSON.stringify(v));
 
 export const usePoster = create<PosterStore>((set) => ({
-  view: { center: [4.8203, 52.6665], zoom: 15, bearing: 0 },
+  view: { center: [-0.151396, 51.51153], zoom: 15, bearing: 0 },
   jumpToken: 0,
-  spec: clone(STYLES[0]),
-  title: "Stad van de Zon",
-  subtitle: "Heerhugowaard, Netherlands",
+  // `?style=<id>` opens a specific style directly.
+  spec: clone(
+    STYLES.find((s) => s.id === new URLSearchParams(location.search).get("style")) ?? STYLES[0],
+  ),
+  title: "Grosvenor Square",
+  subtitle: "London, UK",
   showCoords: true,
   showText: true,
   textScale: 1,

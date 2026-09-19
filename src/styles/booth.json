@@ -1,0 +1,50 @@
+{
+  "id": "booth",
+  "name": "Booth",
+  "credit": "After Charles Booth's Descriptive Map of London Poverty (1889)",
+  "colors": {
+    "land": "#E8E0CD",
+    "water": "#C7D0C9",
+    "waterDots": "#C7D0C9",
+    "green": "#D3D5B4",
+    "forest": "#C3C9A2",
+    "sand": "#E2D9BF",
+    "buildings": [
+      "#DDD4BF"
+    ],
+    "outline": "#8A8171",
+    "road": "#7FA6C9",
+    "roadCasing": "#4F473D",
+    "rail": "#4F473D",
+    "frame": "#E8E0CD",
+    "text": "#2F2922"
+  },
+  "roadColors": {
+    "motorway": "#E6C246",
+    "trunk": "#E6C246",
+    "primary": "#D8443A",
+    "secondary": "#E58B8B",
+    "tertiary": "#8C579C",
+    "minor": "#7FA6C9",
+    "service": "#2E4A7D",
+    "path": "#2B2B2B"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 5,
+    "service": 3.5,
+    "path": 1.2
+  },
+  "casingRatio": 0.1,
+  "outlineWidth": 0.4,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Libre Baskerville",
+    "subtitle": "Libre Baskerville"
+  },
+  "frameWidth": 0.04
+}

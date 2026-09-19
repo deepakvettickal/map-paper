@@ -1,0 +1,53 @@
+{
+  "id": "soviet-topo",
+  "name": "Soviet Topo",
+  "credit": "After Soviet military topographic maps",
+  "colors": {
+    "land": "#F3EEDF",
+    "water": "#86B7D6",
+    "waterDots": "#86B7D6",
+    "green": "#D2E2B8",
+    "forest": "#AFCF93",
+    "sand": "#EDE0B5",
+    "buildings": [
+      "#3A332D",
+      "#D98C4A"
+    ],
+    "outline": "#3A332D",
+    "road": "#FFFFFF",
+    "roadCasing": "#3A332D",
+    "rail": "#3A332D",
+    "frame": "#F3EEDF",
+    "text": "#2A2521"
+  },
+  "roadColors": {
+    "motorway": "#E8702A",
+    "trunk": "#E8702A",
+    "primary": "#F2A33A",
+    "secondary": "#F6D35A",
+    "tertiary": "#F6D35A"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 4.5,
+    "service": 3,
+    "path": 1
+  },
+  "casingRatio": 0.12,
+  "outlineWidth": 0.5,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Russo One",
+    "subtitle": "PT Mono"
+  },
+  "frameWidth": 0.035,
+  "grid": {
+    "color": "#2A2521",
+    "opacity": 0.22,
+    "spacing": 10
+  }
+}

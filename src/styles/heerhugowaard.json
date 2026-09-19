@@ -9,7 +9,13 @@
     "green": "#8BB174",
     "forest": "#64B96A",
     "sand": "#F2E3A6",
-    "buildings": ["#433633", "#FF5E5B", "#FF5E5B"],
+    "buildings": [
+      "#433633",
+      "#FF5E5B",
+      "#433633",
+      "#FF5E5B",
+      "#FF5E5B"
+    ],
     "outline": "#2F3737",
     "road": "#2F3737",
     "roadCasing": "#2F3737",
@@ -30,6 +36,9 @@
   "casingRatio": 0.25,
   "outlineWidth": 0.8,
   "waterPattern": true,
-  "fonts": { "title": "Permanent Marker", "subtitle": "IBM Plex Mono" },
+  "fonts": {
+    "title": "Permanent Marker",
+    "subtitle": "IBM Plex Mono"
+  },
   "frameWidth": 0.012
 }

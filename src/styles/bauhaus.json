@@ -1,0 +1,47 @@
+{
+  "id": "bauhaus",
+  "name": "Bauhaus",
+  "credit": "After the Bauhaus school and Swiss International Style",
+  "colors": {
+    "land": "#F1ECDF",
+    "water": "#1F4FA3",
+    "waterDots": "#1F4FA3",
+    "green": "#E6DFCB",
+    "forest": "#E6DFCB",
+    "sand": "#F1ECDF",
+    "buildings": [
+      "#D6322C",
+      "#F2C12E",
+      "#1F4FA3",
+      "#1B1B1B",
+      "#F1ECDF"
+    ],
+    "outline": "#1B1B1B",
+    "road": "#1B1B1B",
+    "roadCasing": "#1B1B1B",
+    "rail": "#1B1B1B",
+    "frame": "#F1ECDF",
+    "text": "#1B1B1B"
+  },
+  "roadWidths": {
+    "motorway": 10,
+    "trunk": 10,
+    "primary": 9,
+    "secondary": 8,
+    "tertiary": 7,
+    "minor": 5,
+    "service": 3,
+    "path": 1
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Josefin Sans",
+    "subtitle": "Josefin Sans"
+  },
+  "frameWidth": 0.05,
+  "textPanel": {
+    "height": 16
+  }
+}

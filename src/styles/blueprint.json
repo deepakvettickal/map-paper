@@ -1,0 +1,45 @@
+{
+  "id": "blueprint",
+  "name": "Blueprint",
+  "credit": "After architectural cyanotype blueprints",
+  "colors": {
+    "land": "#1E4F8F",
+    "water": "#173F75",
+    "waterDots": "#2A5C9C",
+    "green": "#22579A",
+    "forest": "#22579A",
+    "sand": "#1E4F8F",
+    "buildings": [
+      "#1E4F8F"
+    ],
+    "outline": "#DCE8FA",
+    "road": "#1E4F8F",
+    "roadCasing": "#DCE8FA",
+    "rail": "#DCE8FA",
+    "frame": "#1E4F8F",
+    "text": "#EAF2FF"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 5,
+    "service": 3,
+    "path": 1
+  },
+  "casingRatio": 0.14,
+  "outlineWidth": 0.8,
+  "waterPattern": true,
+  "fonts": {
+    "title": "Architects Daughter",
+    "subtitle": "Share Tech Mono"
+  },
+  "frameWidth": 0.03,
+  "grid": {
+    "color": "#DCE8FA",
+    "opacity": 0.12,
+    "spacing": 5
+  }
+}

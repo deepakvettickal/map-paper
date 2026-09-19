@@ -49,6 +49,17 @@ function roadWidth(spec: StyleSpec, factor = 1): ExpressionSpecification {
   ];
 }
 
+function roadColor(spec: StyleSpec): ExpressionSpecification | string {
+  const entries = Object.entries(spec.roadColors ?? {});
+  if (!entries.length) return spec.colors.road;
+  return [
+    "match",
+    ["get", "class"],
+    ...entries.flat(),
+    spec.colors.road,
+  ] as unknown as ExpressionSpecification;
+}
+
 const roadFilter: ExpressionSpecification = [
   "all",
   ["==", ["geometry-type"], "LineString"],
@@ -142,7 +153,16 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
           ? c.buildings[0]
           : [
               "match",
-              ["%", ["floor", ["abs", ["to-number", ["id"], 0]]], c.buildings.length],
+              // Tile ids are OSM id × 10 + type, and neighbouring buildings often have
+              // consecutive OSM ids. Golden-ratio hashing scatters consecutive ids evenly.
+              [
+                "floor",
+                [
+                  "*",
+                  ["%", ["*", ["floor", ["/", ["abs", ["to-number", ["id"], 0]], 10]], 0.6180339887], 1],
+                  c.buildings.length,
+                ],
+              ],
               ...c.buildings.slice(0, -1).flatMap((col, i) => [i, col]),
               c.buildings[c.buildings.length - 1],
             ]) as unknown as ExpressionSpecification,
@@ -155,6 +175,24 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       "source-layer": "building",
       paint: { "line-color": c.outline, "line-width": spec.outlineWidth },
     },
+    ...(spec.roadGlow
+      ? [
+          {
+            id: "road-glow",
+            type: "line",
+            source: SRC,
+            "source-layer": "transportation",
+            filter: roadFilter,
+            layout: roadLayout,
+            paint: {
+              "line-color": spec.roadGlow.color,
+              "line-opacity": spec.roadGlow.opacity,
+              "line-width": roadWidth(spec, spec.roadGlow.widthFactor),
+              "line-blur": roadWidth(spec, spec.roadGlow.widthFactor / 2),
+            },
+          } satisfies LayerSpecification,
+        ]
+      : []),
     {
       id: "road-casing",
       type: "line",
@@ -174,7 +212,7 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       "source-layer": "transportation",
       filter: roadFilter,
       layout: roadLayout,
-      paint: { "line-color": c.road, "line-width": roadWidth(spec) },
+      paint: { "line-color": roadColor(spec), "line-width": roadWidth(spec) },
     },
     {
       id: "rail",

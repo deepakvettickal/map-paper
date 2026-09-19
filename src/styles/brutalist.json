@@ -1,0 +1,45 @@
+{
+  "id": "brutalist",
+  "name": "Brutalist",
+  "credit": "An original style: raw concrete architecture",
+  "colors": {
+    "land": "#CDC9C2",
+    "water": "#8D9398",
+    "waterDots": "#8D9398",
+    "green": "#B4B6AC",
+    "forest": "#A9AC9F",
+    "sand": "#CDC9C2",
+    "buildings": [
+      "#8C8A86",
+      "#7A7874",
+      "#9B9995"
+    ],
+    "outline": "#3A3937",
+    "road": "#ECEAE5",
+    "roadCasing": "#3A3937",
+    "rail": "#3A3937",
+    "frame": "#2B2A28",
+    "text": "#ECEAE5"
+  },
+  "roadWidths": {
+    "motorway": 11,
+    "trunk": 11,
+    "primary": 10,
+    "secondary": 9,
+    "tertiary": 8,
+    "minor": 6,
+    "service": 4,
+    "path": 1.5
+  },
+  "casingRatio": 0.06,
+  "outlineWidth": 0.8,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Archivo Black",
+    "subtitle": "IBM Plex Mono"
+  },
+  "frameWidth": 0.03,
+  "textPanel": {
+    "height": 17
+  }
+}

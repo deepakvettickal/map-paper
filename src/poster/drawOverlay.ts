@@ -27,8 +27,28 @@ export function drawOverlay(
   const c = spec.colors;
   const u = Math.min(w, h) / 100; // 1 unit = 1% of the shorter side
 
-  // Frame: fill the border band around the edge.
   const f = spec.frameWidth * w;
+
+  if (spec.grid) {
+    const step = spec.grid.spacing * u;
+    ctx.save();
+    ctx.globalAlpha = spec.grid.opacity;
+    ctx.strokeStyle = spec.grid.color;
+    ctx.lineWidth = Math.max(1, 0.08 * u);
+    ctx.beginPath();
+    for (let x = f + step; x < w - f; x += step) {
+      ctx.moveTo(x, f);
+      ctx.lineTo(x, h - f);
+    }
+    for (let y = f + step; y < h - f; y += step) {
+      ctx.moveTo(f, y);
+      ctx.lineTo(w - f, y);
+    }
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Frame: fill the border band around the edge.
   ctx.fillStyle = c.frame;
   ctx.fillRect(0, 0, w, f);
   ctx.fillRect(0, h - f, w, f);
@@ -38,13 +58,25 @@ export function drawOverlay(
   ctx.lineWidth = Math.max(1, 0.15 * u);
   ctx.strokeRect(f, f, w - 2 * f, h - 2 * f);
 
+  const panel = text.show && spec.textPanel ? spec.textPanel.height * u * text.scale : 0;
+  if (panel) {
+    ctx.fillStyle = c.frame;
+    ctx.fillRect(f, h - f - panel, w - 2 * f, panel);
+    ctx.strokeStyle = c.outline;
+    ctx.lineWidth = Math.max(1, 0.15 * u);
+    ctx.beginPath();
+    ctx.moveTo(f, h - f - panel);
+    ctx.lineTo(w - f, h - f - panel);
+    ctx.stroke();
+  }
+
   // Credit note: tiny, bottom-right corner inside the frame.
   const noteSize = 0.9 * u;
   ctx.font = `${noteSize}px "${spec.fonts.subtitle}"`;
   ctx.textAlign = "right";
   ctx.textBaseline = "alphabetic";
   ctx.lineJoin = "round";
-  drawHaloText(ctx, CREDIT, w - f - 1.2 * u, h - f - 1.2 * u, noteSize * 0.45, c.land, c.text);
+  drawHaloText(ctx, CREDIT, w - f - 1.2 * u, h - f - 1.2 * u, noteSize * 0.45, panel ? c.frame : c.land, c.text);
 
   if (!text.show) return;
 
@@ -56,12 +88,13 @@ export function drawOverlay(
   if (text.coords) lines.push({ text: text.coords, font: spec.fonts.subtitle, size: 1.8 * u * k });
 
   ctx.textAlign = "center";
-  let y = h - f - 6 * u;
+  const haloColor = panel ? c.frame : c.land;
+  let y = h - f - (panel ? Math.max(4 * u, panel * 0.3) : 6 * u);
   for (let i = lines.length - 1; i >= 0; i--) {
     const l = lines[i];
     ctx.font = `${l.size}px "${l.font}"`;
     const halo = l.size * (l.font === spec.fonts.title ? 0.28 : 0.5);
-    drawHaloText(ctx, l.text, w / 2, y, halo, c.land, c.text);
+    drawHaloText(ctx, l.text, w / 2, y, halo, haloColor, c.text);
     y -= l.size * (i > 0 && lines[i - 1].font === spec.fonts.title ? 1.5 : 1.35);
   }
 }

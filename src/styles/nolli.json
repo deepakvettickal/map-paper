@@ -1,0 +1,43 @@
+{
+  "id": "nolli",
+  "name": "Nolli",
+  "credit": "After Giambattista Nolli, Nuova Pianta di Roma (1748)",
+  "colors": {
+    "land": "#EFE6D2",
+    "water": "#CBD3C7",
+    "waterDots": "#B9C3B5",
+    "green": "#E4DBC3",
+    "forest": "#DCD2B7",
+    "sand": "#EAE0C6",
+    "buildings": [
+      "#2A2521"
+    ],
+    "outline": "#2A2521",
+    "road": "#EFE6D2",
+    "roadCasing": "#EFE6D2",
+    "rail": "#2A2521",
+    "frame": "#EFE6D2",
+    "text": "#2A2521"
+  },
+  "roadWidths": {
+    "motorway": 10,
+    "trunk": 10,
+    "primary": 9,
+    "secondary": 8,
+    "tertiary": 7,
+    "minor": 6,
+    "service": 4,
+    "path": 2
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.5,
+  "waterPattern": true,
+  "fonts": {
+    "title": "IM Fell English",
+    "subtitle": "Cormorant Garamond"
+  },
+  "frameWidth": 0.04,
+  "textPanel": {
+    "height": 15
+  }
+}

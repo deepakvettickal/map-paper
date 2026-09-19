@@ -1,0 +1,43 @@
+{
+  "id": "snow",
+  "name": "Snow",
+  "credit": "After John Snow's cholera map of Soho (1854)",
+  "colors": {
+    "land": "#F3EAD6",
+    "water": "#D5D9CF",
+    "waterDots": "#D5D9CF",
+    "green": "#EAE0C8",
+    "forest": "#E2D8BD",
+    "sand": "#EFE5CC",
+    "buildings": [
+      "#E4D8BE"
+    ],
+    "outline": "#3B3129",
+    "road": "#F3EAD6",
+    "roadCasing": "#3B3129",
+    "rail": "#3B3129",
+    "frame": "#F3EAD6",
+    "text": "#2B231D"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 5,
+    "service": 3,
+    "path": 1
+  },
+  "casingRatio": 0.1,
+  "outlineWidth": 0.5,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Libre Baskerville",
+    "subtitle": "Libre Baskerville"
+  },
+  "frameWidth": 0.04,
+  "textPanel": {
+    "height": 15
+  }
+}

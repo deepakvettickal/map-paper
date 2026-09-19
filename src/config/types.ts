@@ -38,6 +38,14 @@ export interface StyleSpec {
   fonts: { title: string; subtitle: string };
   /** Frame thickness as a fraction of poster width. */
   frameWidth: number;
+  /** Optional per-class road colours; classes not listed use `colors.road`. */
+  roadColors?: Partial<Record<RoadClass, string>>;
+  /** Optional solid band behind the title block (uses `colors.frame`); height as % of the shorter side. */
+  textPanel?: { height: number };
+  /** Optional soft glow drawn under the roads (neon / night styles). */
+  roadGlow?: { color: string; widthFactor: number; opacity: number };
+  /** Optional grid drawn over the map (drafting / blueprint styles). */
+  grid?: { color: string; opacity: number; /** spacing as % of the shorter side */ spacing: number };
 }
 
 export interface SizePreset {

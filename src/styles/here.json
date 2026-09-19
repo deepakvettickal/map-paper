@@ -1,0 +1,44 @@
+{
+  "id": "here",
+  "name": "Here",
+  "credit": "Inspired by the design philosophy of HERE Maps",
+  "colors": {
+    "land": "#ECEFF2",
+    "water": "#9BB6CA",
+    "waterDots": "#9BB6CA",
+    "green": "#D3DECE",
+    "forest": "#C4D3BF",
+    "sand": "#ECEFF2",
+    "buildings": [
+      "#DCE0E5"
+    ],
+    "outline": "#C9CFD6",
+    "road": "#FFFFFF",
+    "roadCasing": "#C2C9D1",
+    "rail": "#9AA4AF",
+    "frame": "#ECEFF2",
+    "text": "#1F2A36"
+  },
+  "roadColors": {
+    "motorway": "#48BFB7",
+    "trunk": "#48BFB7"
+  },
+  "roadWidths": {
+    "motorway": 8,
+    "trunk": 8,
+    "primary": 7,
+    "secondary": 6,
+    "tertiary": 5,
+    "minor": 4,
+    "service": 2.5,
+    "path": 0.8
+  },
+  "casingRatio": 0.1,
+  "outlineWidth": 0.4,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Space Grotesk",
+    "subtitle": "Space Grotesk"
+  },
+  "frameWidth": 0.025
+}

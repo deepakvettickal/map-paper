@@ -1,0 +1,54 @@
+{
+  "id": "circuit",
+  "name": "Circuit",
+  "credit": "An original style: printed circuit boards",
+  "colors": {
+    "land": "#0D3A23",
+    "water": "#092A19",
+    "waterDots": "#092A19",
+    "green": "#0F4129",
+    "forest": "#0F4129",
+    "sand": "#0D3A23",
+    "buildings": [
+      "#12492D"
+    ],
+    "outline": "#2B7A4B",
+    "road": "#E0AE55",
+    "roadCasing": "#0D3A23",
+    "rail": "#8A6A30",
+    "frame": "#0D3A23",
+    "text": "#EAC77A"
+  },
+  "roadColors": {
+    "motorway": "#EBC57A",
+    "trunk": "#EBC57A"
+  },
+  "roadWidths": {
+    "motorway": 4,
+    "trunk": 4,
+    "primary": 3.5,
+    "secondary": 3,
+    "tertiary": 2.5,
+    "minor": 1.8,
+    "service": 1.1,
+    "path": 0.5
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.6,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Share Tech Mono",
+    "subtitle": "Share Tech Mono"
+  },
+  "frameWidth": 0.03,
+  "grid": {
+    "color": "#2B7A4B",
+    "opacity": 0.18,
+    "spacing": 3
+  },
+  "roadGlow": {
+    "color": "#E0AE55",
+    "widthFactor": 3,
+    "opacity": 0.22
+  }
+}
