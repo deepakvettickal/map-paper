@@ -14,7 +14,7 @@ const browser = await puppeteer.launch({
 for (const id of ids.length ? ids : ["heerhugowaard"]) {
   const page = await browser.newPage();
   page.on("pageerror", (e) => console.error(id, e.message));
-  await page.goto(`http://localhost:5173/?style=${id}`, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.goto(`http://localhost:5173/?style=${id}${process.env.VIEW ?? ""}`, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.waitForFunction(() => window.__map?.loaded() && window.__map.areTilesLoaded() && window.__map.queryRenderedFeatures().length > 50, {
     timeout: 60000,
     polling: 500,

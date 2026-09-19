@@ -1,0 +1,87 @@
+{
+  "id": "starry-night",
+  "name": "Starry Night",
+  "credit": "After Vincent van Gogh, The Starry Night (1889)",
+  "colors": {
+    "land": "#1B3A7A",
+    "water": "#0E2350",
+    "waterDots": "#2E5AA8",
+    "green": "#20507F",
+    "forest": "#1A4468",
+    "sand": "#3C6B9E",
+    "buildings": [
+      "#12295C",
+      "#1A3A72",
+      "#0E2350"
+    ],
+    "outline": "#2E5AA8",
+    "road": "#F3C34B",
+    "roadCasing": "#14295A",
+    "rail": "#8FA9DA",
+    "frame": "#14264F",
+    "text": "#F6DE9B",
+    "landuse": "#1E4185",
+    "waterway": "#4A7BC4",
+    "aeroway": "#24498C",
+    "transit": "#8FA9DA"
+  },
+  "roadColors": {
+    "motorway": "#FFE08A",
+    "trunk": "#FFE08A",
+    "primary": "#F3C34B"
+  },
+  "roadWidths": {
+    "motorway": 5,
+    "trunk": 5,
+    "primary": 4.5,
+    "secondary": 4,
+    "tertiary": 3.5,
+    "minor": 2.4,
+    "service": 1.4,
+    "path": 0.7
+  },
+  "casingRatio": 0.1,
+  "outlineWidth": 0.5,
+  "waterPattern": false,
+  "patterns": {
+    "water": {
+      "type": "waves",
+      "color": "#5C8AD6",
+      "bg": "#0E2350",
+      "spacing": 9,
+      "width": 1.1
+    },
+    "green": {
+      "type": "waves",
+      "color": "#3E77B2",
+      "bg": "#20507F",
+      "spacing": 7,
+      "width": 0.9
+    },
+    "forest": {
+      "type": "waves",
+      "color": "#356A9E",
+      "bg": "#1A4468",
+      "spacing": 6,
+      "width": 0.8
+    }
+  },
+  "roadGlow": {
+    "color": "#FFD66B",
+    "widthFactor": 5,
+    "opacity": 0.35
+  },
+  "fonts": {
+    "title": "Caveat",
+    "subtitle": "Caveat"
+  },
+  "frameWidth": 0.035,
+  "effects": {
+    "wobble": 0.0045,
+    "wobbleScale": 7,
+    "grain": 0.07,
+    "paper": 0.35,
+    "paperColor": "#0A1C44",
+    "vignette": 0.4
+  }
+}

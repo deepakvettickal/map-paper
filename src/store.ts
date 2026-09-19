@@ -40,18 +40,30 @@ interface PosterStore {
   jumpTo: (center: [number, number], zoom?: number) => void;
   setSpec: (spec: StyleSpec) => void;
   setColor: (key: keyof StyleSpec["colors"], value: string | string[]) => void;
+  /** Ink colour of a pattern fill (the background follows the layer's colour). */
+  setPatternColor: (layer: keyof NonNullable<StyleSpec["patterns"]>, value: string) => void;
+  setRoadColor: (cls: string, value: string) => void;
   set: (patch: Partial<Pick<PosterStore, Editable>>) => void;
 }
 
 const clone = <T,>(v: T): T => JSON.parse(JSON.stringify(v));
 
+const params = new URLSearchParams(location.search);
+const num = (k: string, fallback: number) => {
+  const v = Number(params.get(k));
+  return Number.isFinite(v) && params.has(k) ? v : fallback;
+};
+
 export const usePoster = create<PosterStore>((set) => ({
-  view: { center: [-0.151396, 51.51153], zoom: 15, bearing: 0 },
+  // `?lat=&lng=&zoom=` opens a specific view (handy for comparing styles).
+  view: {
+    center: [num("lng", -0.151396), num("lat", 51.51153)],
+    zoom: num("zoom", 15),
+    bearing: num("bearing", 0),
+  },
   jumpToken: 0,
   // `?style=<id>` opens a specific style directly.
-  spec: clone(
-    STYLES.find((s) => s.id === new URLSearchParams(location.search).get("style")) ?? STYLES[0],
-  ),
+  spec: clone(STYLES.find((s) => s.id === params.get("style")) ?? STYLES[0]),
   title: "Grosvenor Square",
   subtitle: "London, UK",
   showCoords: true,
@@ -70,8 +82,19 @@ export const usePoster = create<PosterStore>((set) => ({
   setSpec: (spec) => set({ spec: clone(spec) }),
   setColor: (key, value) =>
     set((s) => ({ spec: { ...s.spec, colors: { ...s.spec.colors, [key]: value } } })),
+  setPatternColor: (layer, value) =>
+    set((s) => ({
+      spec: {
+        ...s.spec,
+        patterns: { ...s.spec.patterns, [layer]: { ...s.spec.patterns![layer]!, color: value } },
+      },
+    })),
+  setRoadColor: (cls, value) =>
+    set((s) => ({ spec: { ...s.spec, roadColors: { ...s.spec.roadColors, [cls]: value } } })),
   set: (patch) => set(patch),
 }));
+
+if (import.meta.env.DEV) (window as unknown as { __store: unknown }).__store = usePoster;
 
 export function formatCoords([lng, lat]: [number, number]) {
   const ns = lat >= 0 ? "N" : "S";

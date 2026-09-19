@@ -14,12 +14,14 @@ import s_bauhaus from "./bauhaus.json";
 import s_art_deco from "./art-deco.json";
 import s_ukiyo_e from "./ukiyo-e.json";
 import s_stained_glass from "./stained-glass.json";
+import s_starry_night from "./starry-night.json";
 import s_risograph from "./risograph.json";
 import s_linocut from "./linocut.json";
 import s_pencil from "./pencil.json";
 import s_watercolor from "./watercolor.json";
 import s_toner from "./toner.json";
 import s_night from "./night.json";
+import s_gmaps_dark from "./gmaps-dark.json";
 import s_search from "./search.json";
 import s_drive from "./drive.json";
 import s_here from "./here.json";
@@ -45,12 +47,14 @@ export const STYLES = [
   s_art_deco,
   s_ukiyo_e,
   s_stained_glass,
+  s_starry_night,
   s_risograph,
   s_linocut,
   s_pencil,
   s_watercolor,
   s_toner,
   s_night,
+  s_gmaps_dark,
   s_search,
   s_drive,
   s_here,

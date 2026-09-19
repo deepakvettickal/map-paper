@@ -10,27 +10,27 @@
     "forest": "#E2D8BD",
     "sand": "#EFE5CC",
     "buildings": [
-      "#E4D8BE"
+      "#DCCFB0"
     ],
-    "outline": "#3B3129",
+    "outline": "#2A221B",
     "road": "#F3EAD6",
-    "roadCasing": "#3B3129",
+    "roadCasing": "#2A221B",
     "rail": "#3B3129",
     "frame": "#F3EAD6",
     "text": "#2B231D"
   },
   "roadWidths": {
-    "motorway": 9,
-    "trunk": 9,
-    "primary": 8,
-    "secondary": 7,
-    "tertiary": 6,
-    "minor": 5,
-    "service": 3,
-    "path": 1
+    "motorway": 10,
+    "trunk": 10,
+    "primary": 9,
+    "secondary": 8,
+    "tertiary": 7,
+    "minor": 5.5,
+    "service": 3.5,
+    "path": 1.2
   },
-  "casingRatio": 0.1,
-  "outlineWidth": 0.5,
+  "casingRatio": 0.14,
+  "outlineWidth": 0.8,
   "waterPattern": false,
   "fonts": {
     "title": "Libre Baskerville",
@@ -41,9 +41,9 @@
     "height": 15
   },
   "effects": {
-    "paper": 0.45,
+    "paper": 0.4,
     "paperColor": "#c4b28c",
-    "grain": 0.08,
+    "grain": 0.07,
     "wobble": 0.0008,
     "wobbleScale": 35,
     "vignette": 0.3

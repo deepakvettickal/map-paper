@@ -12,9 +12,9 @@
     "buildings": [
       "#F5F3EE"
     ],
-    "outline": "#4a4a48",
+    "outline": "#3c3c3a",
     "road": "#F5F3EE",
-    "roadCasing": "#555553",
+    "roadCasing": "#464644",
     "rail": "#6a6a68",
     "frame": "#F5F3EE",
     "text": "#333331"
@@ -30,15 +30,15 @@
     "path": 0.8
   },
   "casingRatio": 0.08,
-  "outlineWidth": 0.7,
+  "outlineWidth": 0.9,
   "waterPattern": false,
   "patterns": {
     "buildings": {
       "type": "hatch",
-      "color": "#8a8a86",
-      "bg": "#F5F3EE",
+      "color": "#6e6e6a",
+      "bg": "#F2F0EA",
       "spacing": 4,
-      "width": 0.5
+      "width": 0.6
     },
     "water": {
       "type": "waves",

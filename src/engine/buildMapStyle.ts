@@ -66,9 +66,15 @@ const roadSort: ExpressionSpecification = ["index-of", ["get", "class"], ["liter
 
 type PatternLayer = "water" | "green" | "forest" | "buildings";
 
+/** The style colour a pattern sits on, so editing that colour still changes the map. */
+function patternBg(spec: StyleSpec, layer: PatternLayer) {
+  const c = spec.colors;
+  return layer === "water" ? c.water : layer === "green" ? c.green : layer === "forest" ? c.forest : c.buildings[0];
+}
+
 function patternFor(spec: StyleSpec, layer: PatternLayer): PatternSpec | undefined {
   const p = spec.patterns?.[layer];
-  if (p) return p;
+  if (p) return { ...p, bg: patternBg(spec, layer) };
   if (layer === "water" && spec.waterPattern) {
     return { type: "dots", color: spec.colors.waterDots, bg: spec.colors.water, spacing: 8, width: 0.65 };
   }
@@ -81,8 +87,35 @@ function fill(spec: StyleSpec, layer: PatternLayer, color: string | ExpressionSp
   return p ? { "fill-pattern": patternId(p) } : { "fill-color": color };
 }
 
+/** Mixes two hex colours; used to derive optional colours a style has not set. */
+export function mix(a: string, b: string, t: number) {
+  const hex = (x: string) => parseInt(x.replace("#", ""), 16);
+  const [A, B] = [hex(a), hex(b)];
+  const ch = (sh: number) =>
+    Math.round((((A >> sh) & 255) * (1 - t) + ((B >> sh) & 255) * t))
+      .toString(16)
+      .padStart(2, "0");
+  return `#${ch(16)}${ch(8)}${ch(0)}`;
+}
+
+/** Resolved values for the optional element colours, for display in the editor. */
+export function derivedColors(spec: StyleSpec) {
+  const c = spec.colors;
+  return {
+    landuse: c.landuse ?? mix(c.land, c.outline, 0.07),
+    aeroway: c.aeroway ?? mix(c.land, c.outline, 0.16),
+    waterway: c.waterway ?? c.water,
+    transit: c.transit ?? c.rail,
+  };
+}
+
 export function buildMapStyle(spec: StyleSpec): StyleSpecification {
   const c = spec.colors;
+  // Optional element colours fall back to a subtle tint of the style's own palette.
+  const landuseColor = c.landuse ?? mix(c.land, c.outline, 0.07);
+  const aerowayColor = c.aeroway ?? mix(c.land, c.outline, 0.16);
+  const waterwayColor = c.waterway ?? c.water;
+  const transitColor = c.transit ?? c.rail;
   const roadLayout = {
     "line-cap": "round",
     "line-join": "round",
@@ -91,6 +124,19 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
 
   const layers: LayerSpecification[] = [
     { id: "land", type: "background", paint: { "background-color": c.land } },
+    {
+      // Built-up and institutional areas: hospitals, schools, industry, cemeteries, retail.
+      id: "landuse",
+      type: "fill",
+      source: SRC,
+      "source-layer": "landuse",
+      filter: [
+        "in",
+        ["get", "class"],
+        ["literal", ["residential", "commercial", "industrial", "retail", "cemetery", "hospital", "school", "university", "stadium", "railway", "quarry"]],
+      ],
+      paint: { "fill-color": landuseColor },
+    },
     {
       id: "landcover-green",
       type: "fill",
@@ -130,6 +176,14 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       paint: { "line-color": c.outline, "line-width": spec.outlineWidth },
     },
     {
+      id: "aeroway-area",
+      type: "fill",
+      source: SRC,
+      "source-layer": "aeroway",
+      filter: ["==", ["geometry-type"], "Polygon"],
+      paint: { "fill-color": aerowayColor },
+    },
+    {
       id: "water",
       type: "fill",
       source: SRC,
@@ -148,9 +202,29 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       type: "line",
       source: SRC,
       "source-layer": "waterway",
+      // Rivers, canals, streams and ditches, sized by class.
       paint: {
-        "line-color": c.water,
-        "line-width": ["interpolate", ["exponential", 2], ["zoom"], 12, 1, 18, 24],
+        "line-color": waterwayColor,
+        "line-width": [
+          "interpolate",
+          ["exponential", 2],
+          ["zoom"],
+          12,
+          ["match", ["get", "class"], "river", 1.6, "canal", 1.2, 0.5],
+          18,
+          ["match", ["get", "class"], "river", 26, "canal", 18, ["literal", 7]],
+        ],
+      },
+    },
+    {
+      id: "pier",
+      type: "line",
+      source: SRC,
+      "source-layer": "transportation",
+      filter: ["in", ["get", "class"], ["literal", ["pier", "ferry"]]],
+      paint: {
+        "line-color": c.outline,
+        "line-width": ["interpolate", ["exponential", 2], ["zoom"], 12, 0.4, 18, 5],
       },
     },
     {
@@ -226,6 +300,38 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       filter: roadFilter,
       layout: roadLayout,
       paint: { "line-color": roadColor(spec), "line-width": roadWidth(spec) },
+    },
+    {
+      id: "aeroway-line",
+      type: "line",
+      source: SRC,
+      "source-layer": "aeroway",
+      filter: ["==", ["geometry-type"], "LineString"],
+      paint: {
+        "line-color": aerowayColor,
+        "line-width": [
+          "interpolate",
+          ["exponential", 2],
+          ["zoom"],
+          11,
+          ["match", ["get", "class"], "runway", 2, 0.6],
+          16,
+          ["match", ["get", "class"], "runway", 26, ["literal", 8]],
+        ],
+      },
+    },
+    {
+      id: "transit",
+      type: "line",
+      source: SRC,
+      "source-layer": "transportation",
+      filter: ["in", ["get", "class"], ["literal", ["transit"]]],
+      paint: {
+        "line-color": transitColor,
+        "line-width": ["interpolate", ["exponential", 2], ["zoom"], 12, 0.4, 18, 4],
+        "line-dasharray": [2, 2],
+        "line-opacity": 0.8,
+      },
     },
     {
       id: "rail",

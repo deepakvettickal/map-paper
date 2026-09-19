@@ -61,6 +61,11 @@ export interface StyleSpec {
     rail: string;
     frame: string;
     text: string;
+    /** Optional element colours; each falls back to a tint of the palette. */
+    landuse?: string;
+    aeroway?: string;
+    waterway?: string;
+    transit?: string;
   };
   /** Road widths in px at zoom 16 (scaled exponentially with zoom). */
   roadWidths: Record<RoadClass, number>;

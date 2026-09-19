@@ -103,9 +103,18 @@ Status key: ✅ done · 🚧 flat version done; full look needs a later engine p
 | 44 | Stained Glass | Original | Gothic stained glass | Blocks as jewel-coloured glass, lead-came streets | F, C, T | 2 | ✅ |
 | 45 | Knitted | Original | Knitwear | Knit-stitch texture, wool palette | T | 2 | ⬜ |
 | 46 | 8-bit | Original | Pixel-art video games | Pixelated palette-limited render | T | 2 | ✅ |
+| 48 | Starry Night | Original | Vincent van Gogh, *The Starry Night* (1889) | Swirling cobalt brushwork, golden glowing streets | F, C, T | 2 | ✅ |
+| 49 | GMaps Dark | Provider-inspired | The dark mode of Google Maps | Near-black land, grey road hierarchy, deep green parks, navy water | F, C | 1 | ✅ |
 | 47 | Constellation | Original | Star charts | Intersections as stars, streets as faint lines on night sky | F, T | 2 | ⬜ |
 
 More vintage references from the project owner will be added here as they come in.
+
+## Map elements drawn
+Land, built-up landuse (residential, industrial, retail, cemeteries, hospitals, schools, stadiums), grass, farmland,
+wetland, wood, sand, parks, water, rivers/canals/streams, piers and ferries, buildings, roads by 8 classes
+(with casing and optional glow), tram/subway lines, railways, airport runways, taxiways and aprons.
+
+Not yet drawn: place labels, contours and terrain (Phase 3), building heights (Phase 3), ornaments (Phase 4).
 
 ## Verification (v1)
 1. `npm install && npm run dev`, then open http://localhost:5173.

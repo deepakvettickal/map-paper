@@ -7,9 +7,11 @@ npm install
 npm run dev     # http://localhost:5173
 ```
 
-Search for a place, pan and zoom the poster, change colours and text, and export a print-resolution PNG.
+30 styles, from historic cartography to modern map apps and original ideas. Search for a place, pan and zoom the poster, change colours and text, and export a print-resolution PNG.
 Styles are plain JSON files in `src/styles/`. An art renderer adds paper texture, grain, hand-drawn wobble,
 ink misregistration and hatched fills, and you can switch it off or change its strength in the sidebar.
+
+Deep links: `?style=nolli&lat=51.5&lng=-0.12&zoom=14`.
 
 To review styles visually: `node scripts/snap.mjs <dir> <style ids…>` then `node scripts/contact-sheet.mjs <dir>`.
 

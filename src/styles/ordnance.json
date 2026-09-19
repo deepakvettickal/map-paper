@@ -10,9 +10,9 @@
     "forest": "#F8F4E8",
     "sand": "#F0E6C8",
     "buildings": [
-      "#8E8A84"
+      "#C9C2B2"
     ],
-    "outline": "#3b3834",
+    "outline": "#4a463f",
     "road": "#FFFFFF",
     "roadCasing": "#3b3834",
     "rail": "#3b3834",
@@ -40,10 +40,10 @@
   "patterns": {
     "buildings": {
       "type": "hatch",
-      "color": "#5d5a55",
-      "bg": "#EDE7D6",
+      "color": "#7d766c",
+      "bg": "#D8D2C4",
       "spacing": 3,
-      "width": 0.45
+      "width": 0.4
     },
     "forest": {
       "type": "stipple",

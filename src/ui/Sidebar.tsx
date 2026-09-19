@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { activeEffects, formatCoords, usePoster } from "../store";
 import { hasEffects } from "../engine/effects";
+import { derivedColors } from "../engine/buildMapStyle";
 import { STYLES } from "../styles";
 import { SIZES, pixelSize } from "../config/sizes";
 import { searchPlaces, type Place } from "../services/geocode";
@@ -22,6 +23,20 @@ const COLOR_LABELS: [keyof StyleSpec["colors"], string][] = [
   ["frame", "Frame"],
   ["text", "Text"],
 ];
+
+const EXTRA_LABELS: [keyof StyleSpec["colors"], string][] = [
+  ["landuse", "Built-up areas"],
+  ["waterway", "Rivers & canals"],
+  ["aeroway", "Airports"],
+  ["transit", "Tram & subway"],
+];
+
+const PATTERN_LABELS: Record<string, string> = {
+  water: "Water ink",
+  green: "Parks ink",
+  forest: "Forest ink",
+  buildings: "Buildings ink",
+};
 
 function LocationSearch() {
   const jumpTo = usePoster((s) => s.jumpTo);
@@ -80,6 +95,7 @@ export function Sidebar() {
   const s = usePoster();
   const [status, setStatus] = useState<string | null>(null);
   const size = SIZES.find((z) => z.id === s.sizeId)!;
+  const derived = derivedColors(s.spec);
   const px = pixelSize(size, s.dpi);
 
   const doExport = async () => {
@@ -214,6 +230,32 @@ export function Sidebar() {
                 onChange={(e) => s.setColor(key, e.target.value)}
               />
               {label}
+            </label>
+          ))}
+          {EXTRA_LABELS.map(([key, label]) => (
+            <label key={key}>
+              <input
+                type="color"
+                value={(s.spec.colors[key] as string) ?? derived[key as keyof typeof derived]}
+                onChange={(e) => s.setColor(key, e.target.value)}
+              />
+              {label}
+            </label>
+          ))}
+          {Object.keys(s.spec.patterns ?? {}).map((layer) => (
+            <label key={`p${layer}`}>
+              <input
+                type="color"
+                value={s.spec.patterns![layer as "water"]!.color}
+                onChange={(e) => s.setPatternColor(layer as "water", e.target.value)}
+              />
+              {PATTERN_LABELS[layer] ?? layer}
+            </label>
+          ))}
+          {Object.entries(s.spec.roadColors ?? {}).map(([cls, col]) => (
+            <label key={`r${cls}`}>
+              <input type="color" value={col} onChange={(e) => s.setRoadColor(cls, e.target.value)} />
+              {cls} roads
             </label>
           ))}
           {s.spec.colors.buildings.map((col, i) => (
