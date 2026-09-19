@@ -19,8 +19,10 @@ import s_risograph from "./risograph.json";
 import s_linocut from "./linocut.json";
 import s_pencil from "./pencil.json";
 import s_watercolor from "./watercolor.json";
+import s_pastel from "./pastel.json";
 import s_toner from "./toner.json";
 import s_night from "./night.json";
+import s_neon from "./neon.json";
 import s_gmaps_dark from "./gmaps-dark.json";
 import s_search from "./search.json";
 import s_drive from "./drive.json";
@@ -52,8 +54,10 @@ export const STYLES = [
   s_linocut,
   s_pencil,
   s_watercolor,
+  s_pastel,
   s_toner,
   s_night,
+  s_neon,
   s_gmaps_dark,
   s_search,
   s_drive,

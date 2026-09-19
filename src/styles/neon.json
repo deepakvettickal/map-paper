@@ -1,0 +1,75 @@
+{
+  "id": "neon",
+  "name": "Neon",
+  "credit": "An original style: neon signs after dark",
+  "colors": {
+    "land": "#07070F",
+    "landuse": "#0C0C18",
+    "water": "#0A1030",
+    "waterDots": "#1B2A66",
+    "green": "#0A1A16",
+    "forest": "#08150F",
+    "sand": "#12121E",
+    "buildings": [
+      "#12122A",
+      "#0E0E20",
+      "#161634"
+    ],
+    "outline": "#2A1A55",
+    "road": "#00F0FF",
+    "roadCasing": "#07070F",
+    "rail": "#FF2BD6",
+    "waterway": "#1D7BFF",
+    "transit": "#FF2BD6",
+    "aeroway": "#12122A",
+    "frame": "#07070F",
+    "text": "#39FF9E"
+  },
+  "roadColors": {
+    "motorway": "#FF2BD6",
+    "trunk": "#FF2BD6",
+    "primary": "#FF9F1C",
+    "secondary": "#00F0FF",
+    "tertiary": "#00F0FF",
+    "minor": "#00C2CC",
+    "service": "#0C8A93",
+    "path": "#0A6A72"
+  },
+  "roadWidths": {
+    "motorway": 4.5,
+    "trunk": 4.5,
+    "primary": 4,
+    "secondary": 3.4,
+    "tertiary": 2.8,
+    "minor": 1.8,
+    "service": 1.1,
+    "path": 0.5
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.5,
+  "waterPattern": false,
+  "patterns": {
+    "water": {
+      "type": "lines",
+      "color": "#1D7BFF",
+      "bg": "#0A1030",
+      "spacing": 5,
+      "width": 0.5
+    }
+  },
+  "roadGlow": {
+    "color": "#00F0FF",
+    "widthFactor": 5,
+    "opacity": 0.45
+  },
+  "fonts": {
+    "title": "Monoton",
+    "subtitle": "Share Tech Mono"
+  },
+  "frameWidth": 0.03,
+  "effects": {
+    "vignette": 0.5,
+    "grain": 0.04,
+    "misregister": 0.0006
+  }
+}

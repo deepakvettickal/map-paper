@@ -1,0 +1,59 @@
+{
+  "id": "pastel",
+  "name": "Pastel",
+  "credit": "An original style: soft pastels on warm beige",
+  "colors": {
+    "land": "#F3E9DA",
+    "landuse": "#EFE2D0",
+    "water": "#BBD3DE",
+    "waterDots": "#A9C6D4",
+    "green": "#CCDCC2",
+    "forest": "#BCD0B0",
+    "sand": "#F0DCB4",
+    "buildings": [
+      "#E9B9B4",
+      "#D9C3DE",
+      "#F0D3A8",
+      "#BFD3D8",
+      "#E3C9BC"
+    ],
+    "outline": "#C9B4A0",
+    "road": "#FFFFFF",
+    "roadCasing": "#DCC9B4",
+    "rail": "#C6B2A0",
+    "waterway": "#A9C6D4",
+    "transit": "#C6B2A0",
+    "aeroway": "#E7DAC8",
+    "frame": "#F3E9DA",
+    "text": "#6E5B4A"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 4.5,
+    "service": 2.6,
+    "path": 1
+  },
+  "casingRatio": 0.14,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Josefin Sans",
+    "subtitle": "Josefin Sans"
+  },
+  "frameWidth": 0.035,
+  "textPanel": {
+    "height": 14
+  },
+  "effects": {
+    "paper": 0.25,
+    "paperColor": "#d9c7ac",
+    "grain": 0.04,
+    "wobble": 0.0004,
+    "wobbleScale": 40,
+    "vignette": 0.08
+  }
+}

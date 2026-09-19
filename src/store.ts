@@ -70,8 +70,8 @@ export const usePoster = create<PosterStore>((set) => ({
   showText: true,
   textScale: 1,
   fxOn: true,
-  fxAmount: 1,
-  sizeId: SIZES[0].id,
+  fxAmount: 0.5,
+  sizeId: SIZES.find((z) => z.id === params.get("size"))?.id ?? SIZES[0].id,
   dpi: 300,
   setView: (view) => set({ view }),
   jumpTo: (center, zoom) =>

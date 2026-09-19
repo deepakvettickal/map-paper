@@ -27,7 +27,7 @@ export function drawOverlay(
   const c = spec.colors;
   const u = Math.min(w, h) / 100; // 1 unit = 1% of the shorter side
 
-  const f = spec.frameWidth * w;
+  const f = spec.frameWidth * Math.min(w, h);
 
   if (spec.grid) {
     const step = spec.grid.spacing * u;
@@ -72,11 +72,9 @@ export function drawOverlay(
   let blockHeight = lines.length ? lines[0].size * 0.8 : 0;
   for (let i = 1; i < lines.length; i++) blockHeight += gapAbove(i);
 
-  const pad = 4.5 * u;
-  const panel =
-    lines.length && spec.textPanel
-      ? Math.max(spec.textPanel.height * u * k, blockHeight + pad * 2)
-      : 0;
+  // The panel hugs the text: a fixed height would leave a huge band on wide posters.
+  const pad = 3.5 * u * Math.min(1, k);
+  const panel = lines.length && spec.textPanel ? blockHeight + pad * 2 : 0;
   if (panel) {
     ctx.fillStyle = c.frame;
     ctx.fillRect(f, h - f - panel, w - 2 * f, panel);
