@@ -40,5 +40,29 @@
     "title": "Permanent Marker",
     "subtitle": "IBM Plex Mono"
   },
-  "frameWidth": 0.012
+  "frameWidth": 0.012,
+  "effects": {
+    "paper": 0.22,
+    "paperColor": "#d9cfa6",
+    "grain": 0.045,
+    "wobble": 0.0006,
+    "wobbleScale": 30,
+    "vignette": 0.1
+  },
+  "patterns": {
+    "green": {
+      "type": "dots",
+      "color": "#76a060",
+      "bg": "#8BB174",
+      "spacing": 7,
+      "width": 0.7
+    },
+    "forest": {
+      "type": "dots",
+      "color": "#55a45b",
+      "bg": "#64B96A",
+      "spacing": 7,
+      "width": 0.7
+    }
+  }
 }

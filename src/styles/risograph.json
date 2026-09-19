@@ -1,0 +1,74 @@
+{
+  "id": "risograph",
+  "name": "Risograph",
+  "credit": "After risograph and screenprinted zines",
+  "colors": {
+    "land": "#F4EFE6",
+    "water": "#0078BF",
+    "waterDots": "#0078BF",
+    "green": "#FF48B0",
+    "forest": "#FF48B0",
+    "sand": "#F4EFE6",
+    "buildings": [
+      "#FF48B0",
+      "#0078BF",
+      "#F4EFE6",
+      "#FF48B0"
+    ],
+    "outline": "#0078BF",
+    "road": "#0078BF",
+    "roadCasing": "#F4EFE6",
+    "rail": "#0078BF",
+    "frame": "#F4EFE6",
+    "text": "#0078BF"
+  },
+  "roadWidths": {
+    "motorway": 6,
+    "trunk": 6,
+    "primary": 5,
+    "secondary": 4.5,
+    "tertiary": 4,
+    "minor": 3,
+    "service": 2,
+    "path": 0.8
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "patterns": {
+    "water": {
+      "type": "lines",
+      "color": "#0078BF",
+      "bg": "#F4EFE6",
+      "spacing": 3,
+      "width": 0.9
+    },
+    "green": {
+      "type": "dots",
+      "color": "#FF48B0",
+      "bg": "#F4EFE6",
+      "spacing": 5,
+      "width": 1.1
+    },
+    "forest": {
+      "type": "dots",
+      "color": "#FF48B0",
+      "bg": "#F4EFE6",
+      "spacing": 4,
+      "width": 1.2
+    }
+  },
+  "fonts": {
+    "title": "Archivo Black",
+    "subtitle": "Space Grotesk"
+  },
+  "frameWidth": 0.035,
+  "effects": {
+    "misregister": 0.0018,
+    "grain": 0.11,
+    "paper": 0.2,
+    "paperColor": "#d9d0c0",
+    "wobble": 0.0005,
+    "wobbleScale": 40
+  }
+}

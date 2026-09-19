@@ -41,5 +41,9 @@
     "color": "#FF9F1C",
     "widthFactor": 4,
     "opacity": 0.35
+  },
+  "effects": {
+    "vignette": 0.45,
+    "grain": 0.03
   }
 }

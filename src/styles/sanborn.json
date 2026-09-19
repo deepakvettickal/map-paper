@@ -43,5 +43,13 @@
   "frameWidth": 0.03,
   "textPanel": {
     "height": 15
+  },
+  "effects": {
+    "paper": 0.3,
+    "paperColor": "#d5c9a8",
+    "grain": 0.05,
+    "wobble": 0.0004,
+    "wobbleScale": 40,
+    "vignette": 0.15
   }
 }

@@ -43,5 +43,13 @@
   "frameWidth": 0.05,
   "textPanel": {
     "height": 16
+  },
+  "effects": {
+    "paper": 0.25,
+    "paperColor": "#d8cfb8",
+    "grain": 0.07,
+    "misregister": 0.0009,
+    "wobble": 0.0003,
+    "wobbleScale": 40
   }
 }

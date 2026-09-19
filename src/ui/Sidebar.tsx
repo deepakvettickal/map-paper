@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { formatCoords, usePoster } from "../store";
+import { activeEffects, formatCoords, usePoster } from "../store";
+import { hasEffects } from "../engine/effects";
 import { STYLES } from "../styles";
 import { SIZES, pixelSize } from "../config/sizes";
 import { searchPlaces, type Place } from "../services/geocode";
@@ -98,6 +99,7 @@ export function Sidebar() {
         previewWidth: previewSize.width,
         previewHeight: previewSize.height,
         ...px,
+        fx: activeEffects(s),
       });
       const slug = (s.title || "map").toLowerCase().replace(/[^a-z0-9]+/g, "-");
       downloadBlob(blob, `${slug}-${s.spec.id}-${px.width}x${px.height}.png`);
@@ -133,6 +135,33 @@ export function Sidebar() {
         <button className="link" onClick={() => s.setSpec(STYLES.find((st) => st.id === s.spec.id)!)}>
           Reset colours
         </button>
+      </section>
+
+      <section>
+        <h2>Art renderer</h2>
+        {hasEffects(s.spec.effects) ? (
+          <>
+            <label className="check">
+              <input type="checkbox" checked={s.fxOn} onChange={(e) => s.set({ fxOn: e.target.checked })} />
+              Paper, grain &amp; ink effects
+            </label>
+            <label className="range">
+              Strength
+              <input
+                type="range"
+                min={0}
+                max={2}
+                step={0.05}
+                value={s.fxAmount}
+                disabled={!s.fxOn}
+                onChange={(e) => s.set({ fxAmount: Number(e.target.value) })}
+              />
+              <span>{Math.round(s.fxAmount * 100)}%</span>
+            </label>
+          </>
+        ) : (
+          <div className="hint">This style is intentionally clean and digital.</div>
+        )}
       </section>
 
       <section>

@@ -31,7 +31,7 @@
   },
   "casingRatio": 0,
   "outlineWidth": 0.5,
-  "waterPattern": true,
+  "waterPattern": false,
   "fonts": {
     "title": "IM Fell English",
     "subtitle": "Cormorant Garamond"
@@ -39,5 +39,36 @@
   "frameWidth": 0.04,
   "textPanel": {
     "height": 15
+  },
+  "effects": {
+    "paper": 0.35,
+    "paperColor": "#cbbd98",
+    "grain": 0.07,
+    "wobble": 0.0008,
+    "wobbleScale": 35,
+    "vignette": 0.25
+  },
+  "patterns": {
+    "buildings": {
+      "type": "hatch",
+      "color": "#4a423a",
+      "bg": "#2A2521",
+      "spacing": 3,
+      "width": 0.45
+    },
+    "green": {
+      "type": "stipple",
+      "color": "#9e9277",
+      "bg": "#E4DBC3",
+      "spacing": 7,
+      "width": 0.5
+    },
+    "water": {
+      "type": "lines",
+      "color": "#aab5a7",
+      "bg": "#CBD3C7",
+      "spacing": 3,
+      "width": 0.4
+    }
   }
 }

@@ -51,5 +51,10 @@
     "color": "#FF3CAC",
     "opacity": 0.07,
     "spacing": 6
+  },
+  "effects": {
+    "vignette": 0.5,
+    "grain": 0.05,
+    "misregister": 0.0012
   }
 }

@@ -1,9 +1,10 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { buildMapStyle, registerPatternProvider } from "../engine/buildMapStyle";
 import { drawOverlay, loadFonts } from "./drawOverlay";
-import { formatCoords, usePoster } from "../store";
+import { activeEffects, formatCoords, usePoster } from "../store";
+import { EffectsRenderer } from "../engine/effects";
 import { SIZES } from "../config/sizes";
 
 /** CSS size of the on-screen poster, read by the exporter to reproduce the framing. */
@@ -13,6 +14,8 @@ export function Poster() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const mapEl = useRef<HTMLDivElement>(null);
   const overlayEl = useRef<HTMLCanvasElement>(null);
+  const fxEl = useRef<HTMLCanvasElement>(null);
+  const fxRef = useRef<EffectsRenderer | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [box, setBox] = useState({ width: 0, height: 0 });
 
@@ -25,6 +28,10 @@ export function Poster() {
   const showText = usePoster((s) => s.showText);
   const textScale = usePoster((s) => s.textScale);
   const center = usePoster((s) => s.view.center);
+  const fxOn = usePoster((s) => s.fxOn);
+  const fxAmount = usePoster((s) => s.fxAmount);
+  const fx = useMemo(() => activeEffects({ spec, fxOn, fxAmount }), [spec, fxOn, fxAmount]);
+  const fxKey = JSON.stringify(fx);
 
   // Fit the poster's aspect ratio into the available area.
   const size = SIZES.find((s) => s.id === sizeId)!;
@@ -54,8 +61,11 @@ export function Poster() {
       zoom: view.zoom,
       bearing: view.bearing,
       attributionControl: false,
+      // The art renderer reads the map canvas as a texture after each frame.
+      canvasContextAttributes: { preserveDrawingBuffer: true },
     });
-    registerPatternProvider(map, () => usePoster.getState().spec);
+    registerPatternProvider(map);
+    map.on("render", () => scheduleFx.current());
     map.on("error", (e) => console.error("map error:", e.error?.message ?? e));
     map.on("moveend", () => {
       const c = map.getCenter();
@@ -109,17 +119,43 @@ export function Poster() {
         show: showText,
         scale: textScale,
       });
+      scheduleFx.current();
     });
     return () => {
       cancelled = true;
     };
   }, [box, spec, title, subtitle, showCoords, showText, textScale, center]);
 
+  // Art renderer: composite map + overlay through the effects shader, at most once per frame.
+  const scheduleFx = useRef<() => void>(() => {});
+  useEffect(() => {
+    let frame = 0;
+    scheduleFx.current = () => {
+      if (!fx || frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const map = mapRef.current;
+        const overlay = overlayEl.current;
+        if (!map || !overlay || !fxEl.current || !overlay.width) return;
+        fxRef.current ??= new EffectsRenderer(fxEl.current);
+        const c = map.getCanvas();
+        fxRef.current.render(c, overlay, c.width, c.height, fx);
+      });
+    };
+    scheduleFx.current();
+    return () => cancelAnimationFrame(frame);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fxKey]);
+
   return (
     <div ref={wrapRef} className="poster-wrap">
-      <div className="poster" style={{ width: box.width, height: box.height }}>
+      <div
+        className={`poster${fx ? " fx-on" : ""}`}
+        style={{ width: box.width, height: box.height }}
+      >
         <div ref={mapEl} className="poster-map" />
         <canvas ref={overlayEl} className="poster-overlay" />
+        <canvas ref={fxEl} className="poster-fx" />
       </div>
     </div>
   );

@@ -49,5 +49,8 @@
   "frameWidth": 0.02,
   "textPanel": {
     "height": 15
+  },
+  "effects": {
+    "grain": 0.015
   }
 }

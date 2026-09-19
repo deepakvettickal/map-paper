@@ -41,5 +41,13 @@
     "title": "Cinzel",
     "subtitle": "Cinzel"
   },
-  "frameWidth": 0.045
+  "frameWidth": 0.045,
+  "effects": {
+    "grain": 0.07,
+    "vignette": 0.5,
+    "wobble": 0.0015,
+    "wobbleScale": 25,
+    "paper": 0.35,
+    "paperColor": "#3a3a3a"
+  }
 }

@@ -39,5 +39,22 @@
   "frameWidth": 0.04,
   "textPanel": {
     "height": 15
+  },
+  "effects": {
+    "paper": 0.45,
+    "paperColor": "#c4b28c",
+    "grain": 0.08,
+    "wobble": 0.0008,
+    "wobbleScale": 35,
+    "vignette": 0.3
+  },
+  "patterns": {
+    "water": {
+      "type": "lines",
+      "color": "#b7bdb0",
+      "bg": "#D5D9CF",
+      "spacing": 3,
+      "width": 0.4
+    }
   }
 }

@@ -36,5 +36,11 @@
     "title": "Poiret One",
     "subtitle": "Josefin Sans"
   },
-  "frameWidth": 0.05
+  "frameWidth": 0.05,
+  "effects": {
+    "grain": 0.04,
+    "vignette": 0.4,
+    "paper": 0.25,
+    "paperColor": "#050a12"
+  }
 }

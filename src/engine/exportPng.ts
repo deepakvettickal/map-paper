@@ -1,5 +1,6 @@
 import maplibregl from "maplibre-gl";
-import type { StyleSpec } from "../config/types";
+import type { EffectsSpec, StyleSpec } from "../config/types";
+import { EffectsRenderer } from "./effects";
 import { buildMapStyle, registerPatternProvider } from "./buildMapStyle";
 import { drawOverlay, loadFonts, type OverlayText } from "../poster/drawOverlay";
 import type { ViewState } from "../store";
@@ -14,6 +15,8 @@ interface ExportOptions {
   /** Output size in pixels. */
   width: number;
   height: number;
+  /** Art-renderer effects to apply, already scaled; null for a clean render. */
+  fx: EffectsSpec | null;
 }
 
 /**
@@ -50,7 +53,7 @@ export async function renderPoster(opts: ExportOptions): Promise<Blob> {
     fadeDuration: 0,
     canvasContextAttributes: { preserveDrawingBuffer: true },
   });
-  registerPatternProvider(map, () => opts.spec);
+  registerPatternProvider(map);
 
   try {
     // Individual tile errors are non-fatal, so wait for idle with a safety timeout.
@@ -73,8 +76,22 @@ export async function renderPoster(opts: ExportOptions): Promise<Blob> {
     out.width = opts.width;
     out.height = opts.height;
     const ctx = out.getContext("2d")!;
-    ctx.drawImage(mapCanvas, 0, 0, opts.width, opts.height);
-    drawOverlay(ctx, opts.width, opts.height, opts.spec, opts.text);
+    if (opts.fx) {
+      const overlay = document.createElement("canvas");
+      overlay.width = opts.width;
+      overlay.height = opts.height;
+      drawOverlay(overlay.getContext("2d")!, opts.width, opts.height, opts.spec, opts.text);
+      const fx = new EffectsRenderer();
+      try {
+        fx.render(mapCanvas, overlay, opts.width, opts.height, opts.fx);
+        ctx.drawImage(fx.canvas, 0, 0);
+      } finally {
+        fx.dispose();
+      }
+    } else {
+      ctx.drawImage(mapCanvas, 0, 0, opts.width, opts.height);
+      drawOverlay(ctx, opts.width, opts.height, opts.spec, opts.text);
+    }
 
     return await new Promise<Blob>((resolve, reject) =>
       out.toBlob((b) => (b ? resolve(b) : reject(new Error("PNG encoding failed"))), "image/png"),

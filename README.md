@@ -8,7 +8,12 @@ npm run dev     # http://localhost:5173
 ```
 
 Search for a place, pan and zoom the poster, change colours and text, and export a print-resolution PNG.
-Styles are plain JSON files in `src/styles/`. See [PLAN.md](PLAN.md) for the roadmap and the full style list.
+Styles are plain JSON files in `src/styles/`. An art renderer adds paper texture, grain, hand-drawn wobble,
+ink misregistration and hatched fills, and you can switch it off or change its strength in the sidebar.
+
+To review styles visually: `node scripts/snap.mjs <dir> <style ids…>` then `node scripts/contact-sheet.mjs <dir>`.
+
+ See [PLAN.md](PLAN.md) for the roadmap and the full style list.
 
 ## Tribute
 map-paper stands on the shoulders of these open source projects. Thank you!

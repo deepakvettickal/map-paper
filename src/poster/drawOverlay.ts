@@ -58,7 +58,25 @@ export function drawOverlay(
   ctx.lineWidth = Math.max(1, 0.15 * u);
   ctx.strokeRect(f, f, w - 2 * f, h - 2 * f);
 
-  const panel = text.show && spec.textPanel ? spec.textPanel.height * u * text.scale : 0;
+  // Title block lines, bottom-up layout computed first so a text panel can fit around it.
+  const k = text.scale;
+  const lines: { text: string; font: string; size: number }[] = [];
+  if (text.show) {
+    if (text.title) lines.push({ text: text.title, font: spec.fonts.title, size: 5.2 * u * k });
+    if (text.subtitle) lines.push({ text: text.subtitle, font: spec.fonts.title, size: 3.6 * u * k });
+    if (text.coords) lines.push({ text: text.coords, font: spec.fonts.subtitle, size: 1.8 * u * k });
+  }
+  const gapAbove = (i: number) =>
+    lines[i].size * (i > 0 && lines[i - 1].font === spec.fonts.title ? 1.5 : 1.35);
+  // Distance from the last baseline up to the top of the first line's capitals.
+  let blockHeight = lines.length ? lines[0].size * 0.8 : 0;
+  for (let i = 1; i < lines.length; i++) blockHeight += gapAbove(i);
+
+  const pad = 4.5 * u;
+  const panel =
+    lines.length && spec.textPanel
+      ? Math.max(spec.textPanel.height * u * k, blockHeight + pad * 2)
+      : 0;
   if (panel) {
     ctx.fillStyle = c.frame;
     ctx.fillRect(f, h - f - panel, w - 2 * f, panel);
@@ -78,24 +96,18 @@ export function drawOverlay(
   ctx.lineJoin = "round";
   drawHaloText(ctx, CREDIT, w - f - 1.2 * u, h - f - 1.2 * u, noteSize * 0.45, panel ? c.frame : c.land, c.text);
 
-  if (!text.show) return;
-
-  // Title block, stacked upward from the bottom centre, each line haloed in the land colour.
-  const k = text.scale;
-  const lines: { text: string; font: string; size: number }[] = [];
-  if (text.title) lines.push({ text: text.title, font: spec.fonts.title, size: 5.2 * u * k });
-  if (text.subtitle) lines.push({ text: text.subtitle, font: spec.fonts.title, size: 3.6 * u * k });
-  if (text.coords) lines.push({ text: text.coords, font: spec.fonts.subtitle, size: 1.8 * u * k });
+  if (!lines.length) return;
 
   ctx.textAlign = "center";
   const haloColor = panel ? c.frame : c.land;
-  let y = h - f - (panel ? Math.max(4 * u, panel * 0.3) : 6 * u);
+  // In a panel, centre the block vertically; otherwise sit it above the bottom edge.
+  let y = panel ? h - f - (panel - blockHeight) / 2 : h - f - 6 * u;
   for (let i = lines.length - 1; i >= 0; i--) {
     const l = lines[i];
     ctx.font = `${l.size}px "${l.font}"`;
     const halo = l.size * (l.font === spec.fonts.title ? 0.28 : 0.5);
     drawHaloText(ctx, l.text, w / 2, y, halo, haloColor, c.text);
-    y -= l.size * (i > 0 && lines[i - 1].font === spec.fonts.title ? 1.5 : 1.35);
+    y -= gapAbove(i);
   }
 }
 

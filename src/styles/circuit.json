@@ -50,5 +50,9 @@
     "color": "#E0AE55",
     "widthFactor": 3,
     "opacity": 0.22
+  },
+  "effects": {
+    "vignette": 0.35,
+    "grain": 0.035
   }
 }

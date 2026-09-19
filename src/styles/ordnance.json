@@ -1,0 +1,79 @@
+{
+  "id": "ordnance",
+  "name": "Ordnance",
+  "credit": "After the Ordnance Survey first edition (1840s-80s)",
+  "colors": {
+    "land": "#F8F4E8",
+    "water": "#C4DCEA",
+    "waterDots": "#C4DCEA",
+    "green": "#E6EBD4",
+    "forest": "#F8F4E8",
+    "sand": "#F0E6C8",
+    "buildings": [
+      "#8E8A84"
+    ],
+    "outline": "#3b3834",
+    "road": "#FFFFFF",
+    "roadCasing": "#3b3834",
+    "rail": "#3b3834",
+    "frame": "#F8F4E8",
+    "text": "#2b2824"
+  },
+  "roadColors": {
+    "motorway": "#F0C9A0",
+    "trunk": "#F0C9A0",
+    "primary": "#F0C9A0"
+  },
+  "roadWidths": {
+    "motorway": 8,
+    "trunk": 8,
+    "primary": 7,
+    "secondary": 6,
+    "tertiary": 5,
+    "minor": 4,
+    "service": 2.5,
+    "path": 0.8
+  },
+  "casingRatio": 0.1,
+  "outlineWidth": 0.5,
+  "waterPattern": false,
+  "patterns": {
+    "buildings": {
+      "type": "hatch",
+      "color": "#5d5a55",
+      "bg": "#EDE7D6",
+      "spacing": 3,
+      "width": 0.45
+    },
+    "forest": {
+      "type": "stipple",
+      "color": "#4E8A3E",
+      "bg": "#F8F4E8",
+      "spacing": 6,
+      "width": 0.7
+    },
+    "water": {
+      "type": "lines",
+      "color": "#8fb6cf",
+      "bg": "#C4DCEA",
+      "spacing": 3,
+      "width": 0.4
+    }
+  },
+  "fonts": {
+    "title": "IM Fell English",
+    "subtitle": "Old Standard TT"
+  },
+  "frameWidth": 0.04,
+  "textPanel": {
+    "height": 15
+  },
+  "effects": {
+    "paper": 0.35,
+    "paperColor": "#d6c9a6",
+    "grain": 0.06,
+    "wobble": 0.0005,
+    "wobbleScale": 40,
+    "vignette": 0.2
+  }
+}

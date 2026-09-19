@@ -3,7 +3,8 @@ import type {
   LayerSpecification,
   StyleSpecification,
 } from "maplibre-gl";
-import type { RoadClass, StyleSpec } from "../config/types";
+import type { PatternSpec, RoadClass, StyleSpec } from "../config/types";
+import { makePattern, parsePatternId, patternId } from "./patterns";
 
 // OpenFreeMap serves OpenMapTiles-schema vector tiles for the whole planet, no API key.
 const TILES_URL = "https://tiles.openfreemap.org/planet";
@@ -20,11 +21,6 @@ const ROAD_CLASSES: RoadClass[] = [
   "trunk",
   "motorway",
 ];
-
-/** Name of the generated water-dot pattern image; encodes colours so a colour change yields a new image. */
-export function waterPatternId(spec: StyleSpec) {
-  return `dots:${spec.colors.water}:${spec.colors.waterDots}`;
-}
 
 /** Width expression: per-class base width at z16, doubling with every zoom level. */
 function roadWidth(spec: StyleSpec, factor = 1): ExpressionSpecification {
@@ -68,6 +64,23 @@ const roadFilter: ExpressionSpecification = [
 
 const roadSort: ExpressionSpecification = ["index-of", ["get", "class"], ["literal", ROAD_CLASSES]];
 
+type PatternLayer = "water" | "green" | "forest" | "buildings";
+
+function patternFor(spec: StyleSpec, layer: PatternLayer): PatternSpec | undefined {
+  const p = spec.patterns?.[layer];
+  if (p) return p;
+  if (layer === "water" && spec.waterPattern) {
+    return { type: "dots", color: spec.colors.waterDots, bg: spec.colors.water, spacing: 8, width: 0.65 };
+  }
+  return undefined;
+}
+
+/** Fill paint for a layer: its pattern if the style defines one, else the flat colour. */
+function fill(spec: StyleSpec, layer: PatternLayer, color: string | ExpressionSpecification) {
+  const p = patternFor(spec, layer);
+  return p ? { "fill-pattern": patternId(p) } : { "fill-color": color };
+}
+
 export function buildMapStyle(spec: StyleSpec): StyleSpecification {
   const c = spec.colors;
   const roadLayout = {
@@ -84,7 +97,7 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       source: SRC,
       "source-layer": "landcover",
       filter: ["in", ["get", "class"], ["literal", ["grass", "farmland", "wetland"]]],
-      paint: { "fill-color": c.green },
+      paint: fill(spec, "green", c.green),
     },
     {
       id: "landcover-forest",
@@ -92,7 +105,7 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       source: SRC,
       "source-layer": "landcover",
       filter: ["==", ["get", "class"], "wood"],
-      paint: { "fill-color": c.forest },
+      paint: fill(spec, "forest", c.forest),
     },
     {
       id: "landcover-sand",
@@ -107,7 +120,7 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       type: "fill",
       source: SRC,
       "source-layer": "park",
-      paint: { "fill-color": c.green },
+      paint: fill(spec, "green", c.green),
     },
     {
       id: "green-outline",
@@ -121,9 +134,7 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       type: "fill",
       source: SRC,
       "source-layer": "water",
-      paint: spec.waterPattern
-        ? { "fill-pattern": waterPatternId(spec) }
-        : { "fill-color": c.water },
+      paint: fill(spec, "water", c.water),
     },
     {
       id: "water-outline",
@@ -147,9 +158,11 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
       type: "fill",
       source: SRC,
       "source-layer": "building",
-      paint: {
-        // Alternate the palette by feature id, like prettymaps' random building colours.
-        "fill-color": (c.buildings.length === 1
+      // Alternate the palette by feature id, like prettymaps' random building colours.
+      paint: fill(
+        spec,
+        "buildings",
+        (c.buildings.length === 1
           ? c.buildings[0]
           : [
               "match",
@@ -166,7 +179,7 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
               ...c.buildings.slice(0, -1).flatMap((col, i) => [i, col]),
               c.buildings[c.buildings.length - 1],
             ]) as unknown as ExpressionSpecification,
-      },
+      ),
     },
     {
       id: "building-outline",
@@ -235,35 +248,10 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
   };
 }
 
-/** Draws a tileable dot-pattern image for water. Registered lazily on `styleimagemissing`. */
-export function makeWaterPattern(spec: StyleSpec): ImageData {
-  const size = 16;
-  const canvas = document.createElement("canvas");
-  canvas.width = canvas.height = size;
-  const ctx = canvas.getContext("2d")!;
-  ctx.fillStyle = spec.colors.water;
-  ctx.fillRect(0, 0, size, size);
-  ctx.fillStyle = spec.colors.waterDots;
-  for (const [x, y] of [
-    [4, 4],
-    [12, 12],
-  ]) {
-    ctx.beginPath();
-    ctx.arc(x, y, 1.3, 0, Math.PI * 2);
-    ctx.fill();
-  }
-  return ctx.getImageData(0, 0, size, size);
-}
-
-/** Wires a map so the water pattern for the current spec is generated on demand. */
-export function registerPatternProvider(
-  map: import("maplibre-gl").Map,
-  getSpec: () => StyleSpec,
-) {
+/** Wires a map so pattern images referenced by the style are generated on demand. */
+export function registerPatternProvider(map: import("maplibre-gl").Map) {
   map.on("styleimagemissing", (e) => {
-    const spec = getSpec();
-    if (e.id === waterPatternId(spec) && !map.hasImage(e.id)) {
-      map.addImage(e.id, makeWaterPattern(spec), { pixelRatio: 2 });
-    }
+    const p = parsePatternId(e.id);
+    if (p && !map.hasImage(e.id)) map.addImage(e.id, makePattern(p), { pixelRatio: 2 });
   });
 }

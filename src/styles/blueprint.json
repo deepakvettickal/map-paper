@@ -41,5 +41,13 @@
     "color": "#DCE8FA",
     "opacity": 0.12,
     "spacing": 5
+  },
+  "effects": {
+    "paper": 0.5,
+    "paperColor": "#0c2d5c",
+    "grain": 0.05,
+    "wobble": 0.0004,
+    "wobbleScale": 45,
+    "vignette": 0.25
   }
 }

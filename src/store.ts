@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import type { StyleSpec } from "./config/types";
+import type { EffectsSpec, StyleSpec } from "./config/types";
+import { hasEffects, scaleEffects } from "./engine/effects";
 import { SIZES } from "./config/sizes";
 import { STYLES } from "./styles";
 
@@ -9,7 +10,16 @@ export interface ViewState {
   bearing: number;
 }
 
-type Editable = "title" | "subtitle" | "showCoords" | "showText" | "textScale" | "sizeId" | "dpi";
+type Editable =
+  | "title"
+  | "subtitle"
+  | "showCoords"
+  | "showText"
+  | "textScale"
+  | "fxOn"
+  | "fxAmount"
+  | "sizeId"
+  | "dpi";
 
 interface PosterStore {
   view: ViewState;
@@ -21,6 +31,9 @@ interface PosterStore {
   showCoords: boolean;
   showText: boolean;
   textScale: number;
+  /** Art renderer on/off and overall strength (0–2). */
+  fxOn: boolean;
+  fxAmount: number;
   sizeId: string;
   dpi: number;
   setView: (v: ViewState) => void;
@@ -44,6 +57,8 @@ export const usePoster = create<PosterStore>((set) => ({
   showCoords: true,
   showText: true,
   textScale: 1,
+  fxOn: true,
+  fxAmount: 1,
   sizeId: SIZES[0].id,
   dpi: 300,
   setView: (view) => set({ view }),
@@ -62,4 +77,10 @@ export function formatCoords([lng, lat]: [number, number]) {
   const ns = lat >= 0 ? "N" : "S";
   const ew = lng >= 0 ? "E" : "W";
   return `${Math.abs(lat).toFixed(4)}° ${ns}, ${Math.abs(lng).toFixed(4)}° ${ew}`;
+}
+
+/** The effects to render right now, or null when the art renderer is off or unused. */
+export function activeEffects(s: { spec: StyleSpec; fxOn: boolean; fxAmount: number }): EffectsSpec | null {
+  if (!s.fxOn || !hasEffects(s.spec.effects)) return null;
+  return scaleEffects(s.spec.effects, s.fxAmount);
 }

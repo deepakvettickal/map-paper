@@ -36,5 +36,10 @@
     "title": "Archivo Black",
     "subtitle": "IBM Plex Mono"
   },
-  "frameWidth": 0.02
+  "frameWidth": 0.02,
+  "effects": {
+    "grain": 0.05,
+    "wobble": 0.0003,
+    "wobbleScale": 50
+  }
 }

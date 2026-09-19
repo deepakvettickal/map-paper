@@ -33,10 +33,28 @@
   },
   "casingRatio": 0,
   "outlineWidth": 0.6,
-  "waterPattern": true,
+  "waterPattern": false,
   "fonts": {
     "title": "Shippori Mincho",
     "subtitle": "Shippori Mincho"
   },
-  "frameWidth": 0.035
+  "frameWidth": 0.035,
+  "effects": {
+    "paper": 0.45,
+    "paperColor": "#cdb88f",
+    "grain": 0.09,
+    "wobble": 0.001,
+    "wobbleScale": 30,
+    "misregister": 0.0005,
+    "vignette": 0.15
+  },
+  "patterns": {
+    "water": {
+      "type": "waves",
+      "color": "#6f8fbd",
+      "bg": "#2E4A7A",
+      "spacing": 10,
+      "width": 0.8
+    }
+  }
 }

@@ -68,3 +68,7 @@ button.link { background: none; border: none; padding: 0; width: auto; color: va
 .range { display: flex; align-items: center; gap: 8px; }
 .range input { flex: 1; accent-color: var(--accent); }
 .range span { color: var(--muted); font-size: 11px; width: 36px; text-align: right; }
+.poster-fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; display: none; }
+/* With the art renderer on, the effects canvas shows the composite; the map stays interactive underneath. */
+.poster.fx-on .poster-fx { display: block; }
+.poster.fx-on .poster-overlay, .poster.fx-on .poster-map canvas { opacity: 0; }

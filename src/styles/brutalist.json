@@ -41,5 +41,10 @@
   "frameWidth": 0.03,
   "textPanel": {
     "height": 17
+  },
+  "effects": {
+    "grain": 0.1,
+    "paper": 0.5,
+    "paperColor": "#9a978f"
   }
 }
