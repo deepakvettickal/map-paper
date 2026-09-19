@@ -3,42 +3,52 @@
   "name": "Here",
   "credit": "Inspired by the design philosophy of HERE Maps",
   "colors": {
-    "land": "#ECEFF2",
-    "water": "#9BB6CA",
+    "land": "#EDF1F5",
+    "water": "#A8C6DE",
     "waterDots": "#9BB6CA",
-    "green": "#D3DECE",
-    "forest": "#C4D3BF",
-    "sand": "#ECEFF2",
+    "green": "#DCE8D4",
+    "forest": "#CFE0C6",
+    "sand": "#EFEADC",
     "buildings": [
-      "#DCE0E5"
+      "#E0E6EC",
+      "#DDE3EA"
     ],
-    "outline": "#C9CFD6",
+    "outline": "#EDF1F5",
     "road": "#FFFFFF",
-    "roadCasing": "#C2C9D1",
-    "rail": "#9AA4AF",
-    "frame": "#ECEFF2",
-    "text": "#1F2A36"
+    "roadCasing": "#CBD4DE",
+    "rail": "#B4BEC9",
+    "frame": "#EDF1F5",
+    "text": "#2B3A47",
+    "landuse": "#E7ECF1",
+    "waterway": "#8FB6D4",
+    "transit": "#2FB3AD",
+    "aeroway": "#E3E7EC"
   },
   "roadColors": {
-    "motorway": "#48BFB7",
-    "trunk": "#48BFB7"
+    "motorway": "#F2F7FB",
+    "trunk": "#F2F7FB",
+    "primary": "#FFFFFF"
   },
   "roadWidths": {
-    "motorway": 8,
-    "trunk": 8,
+    "motorway": 9,
+    "trunk": 8.5,
     "primary": 7,
     "secondary": 6,
     "tertiary": 5,
-    "minor": 4,
-    "service": 2.5,
+    "minor": 3.6,
+    "service": 2.2,
     "path": 0.8
   },
-  "casingRatio": 0.1,
-  "outlineWidth": 0.4,
+  "casingRatio": 0.16,
+  "outlineWidth": 0,
   "waterPattern": false,
   "fonts": {
-    "title": "Space Grotesk",
-    "subtitle": "Space Grotesk"
+    "title": "Inter",
+    "subtitle": "Inter"
   },
-  "frameWidth": 0.025
+  "frameWidth": 0.025,
+  "textPanel": {
+    "height": 15
+  },
+  "effects": {}
 }
