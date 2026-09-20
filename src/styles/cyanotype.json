@@ -50,5 +50,14 @@
     "uppercase": true,
     "letterSpacing": 0.25,
     "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      4.89,
+      52.372
+    ],
+    "zoom": 14.4,
+    "title": "Amsterdam",
+    "subtitle": "Netherlands"
   }
 }

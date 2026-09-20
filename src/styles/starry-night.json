@@ -88,5 +88,14 @@
     "uppercase": true,
     "letterSpacing": 0.25,
     "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      4.832,
+      43.7887
+    ],
+    "zoom": 14.6,
+    "title": "Saint-Rémy-de-Provence",
+    "subtitle": "France"
   }
 }

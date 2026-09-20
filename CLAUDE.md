@@ -38,6 +38,8 @@ through one WebGL pass; the same function serves the preview and `renderPoster()
 
 ## Conventions
 
+- **Every style carries its own place.** `defaultView` sets the centre, zoom and text a style opens at, and
+  picking a style in the sidebar moves there. The gallery screenshots use it too.
 - **Styles are data.** A new style is a new JSON file plus an entry in `src/styles/index.ts`. Never
   special-case a style in engine code; add an optional field to `StyleSpec` instead.
 - **Poster units.** Effect sizes and overlay measurements are fractions of the poster's shorter side, so the

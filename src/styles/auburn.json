@@ -1,0 +1,73 @@
+{
+  "id": "auburn",
+  "name": "Auburn",
+  "credit": "The Auburn theme from prettymapp by Christoph Rieke",
+  "colors": {
+    "land": "#F2F4CB",
+    "water": "#A8E1E6",
+    "waterDots": "#9BC3D4",
+    "green": "#8BB174",
+    "forest": "#64B96A",
+    "sand": "#F2E3A6",
+    "buildings": [
+      "#433633",
+      "#FF5E5B",
+      "#FF5E5B"
+    ],
+    "outline": "#2F3737",
+    "road": "#2F3737",
+    "roadCasing": "#F2F4CB",
+    "rail": "#2F3737",
+    "frame": "#F2F4CB",
+    "text": "#2F3737"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 5,
+    "service": 3,
+    "path": 1.5
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.7,
+  "waterPattern": true,
+  "patterns": {
+    "green": {
+      "type": "dots",
+      "color": "#A7C497",
+      "bg": "#8BB174",
+      "spacing": 7,
+      "width": 0.7
+    }
+  },
+  "fonts": {
+    "title": "Permanent Marker",
+    "subtitle": "IBM Plex Mono"
+  },
+  "frameWidth": 0.03,
+  "effects": {
+    "paper": 0.2,
+    "paperColor": "#d9cfa6",
+    "grain": 0.04,
+    "wobble": 0.0006,
+    "wobbleScale": 30,
+    "vignette": 0.1
+  },
+  "labels": {
+    "uppercase": true,
+    "letterSpacing": 0.2,
+    "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      2.177,
+      41.393
+    ],
+    "zoom": 15.0,
+    "title": "Eixample",
+    "subtitle": "Barcelona, Spain"
+  }
+}

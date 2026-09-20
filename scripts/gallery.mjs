@@ -5,8 +5,8 @@ import puppeteer from "puppeteer-core";
 import { STYLE_IDS } from "./style-ids.mjs";
 
 const CHROME = process.env.CHROME ?? "C:/Program Files/Google/Chrome/Application/chrome.exe";
-// Desktop-4K framing (16:9) so every gallery image has the same shape and size.
-const VIEW = "&lat=51.5083&lng=-0.1520&zoom=14&size=desktop";
+// Desktop-4K shape for every image; the place comes from each style's own default view.
+const VIEW = "&size=desktop";
 const OUT = "docs/gallery";
 mkdirSync(OUT, { recursive: true });
 

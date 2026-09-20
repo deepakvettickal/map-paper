@@ -53,5 +53,14 @@
   "effects": {},
   "labels": {
     "scale": 0.9
+  },
+  "defaultView": {
+    "center": [
+      13.39,
+      52.512
+    ],
+    "zoom": 13.6,
+    "title": "Mitte",
+    "subtitle": "Berlin, Germany"
   }
 }

@@ -52,5 +52,14 @@
     "uppercase": true,
     "letterSpacing": 0.15,
     "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      -0.115,
+      51.506
+    ],
+    "zoom": 15.2,
+    "title": "South Bank",
+    "subtitle": "London, UK"
   }
 }

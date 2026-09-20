@@ -52,5 +52,14 @@
   },
   "labels": {
     "scale": 0.9
+  },
+  "defaultView": {
+    "center": [
+      -122.084,
+      37.387
+    ],
+    "zoom": 14.2,
+    "title": "Mountain View",
+    "subtitle": "California, USA"
   }
 }

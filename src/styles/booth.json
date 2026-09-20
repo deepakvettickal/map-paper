@@ -59,5 +59,14 @@
     "uppercase": true,
     "letterSpacing": 0.25,
     "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      -0.07,
+      51.518
+    ],
+    "zoom": 14.4,
+    "title": "Whitechapel",
+    "subtitle": "London, UK"
   }
 }

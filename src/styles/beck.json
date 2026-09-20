@@ -60,5 +60,14 @@
   },
   "labels": {
     "scale": 0.9
+  },
+  "defaultView": {
+    "center": [
+      -0.124,
+      51.531
+    ],
+    "zoom": 14.0,
+    "title": "King's Cross",
+    "subtitle": "London, UK"
   }
 }

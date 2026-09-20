@@ -1,0 +1,73 @@
+{
+  "id": "citrus",
+  "name": "Citrus",
+  "credit": "The Citrus theme from prettymapp by Christoph Rieke",
+  "colors": {
+    "land": "#EAE2B7",
+    "water": "#007F5F",
+    "waterDots": "#0A8F6C",
+    "green": "#55A630",
+    "forest": "#80B918",
+    "sand": "#EAE2B7",
+    "buildings": [
+      "#FFFF3F",
+      "#F4D58D",
+      "#F5CB5C"
+    ],
+    "outline": "#2F3737",
+    "road": "#FFFFFF",
+    "roadCasing": "#2F3737",
+    "rail": "#2F3737",
+    "frame": "#EAE2B7",
+    "text": "#2F3737"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 5,
+    "service": 3,
+    "path": 1.5
+  },
+  "casingRatio": 0.14,
+  "outlineWidth": 0.7,
+  "waterPattern": false,
+  "patterns": {
+    "green": {
+      "type": "dots",
+      "color": "#80B918",
+      "bg": "#55A630",
+      "spacing": 7,
+      "width": 0.7
+    }
+  },
+  "fonts": {
+    "title": "Permanent Marker",
+    "subtitle": "IBM Plex Mono"
+  },
+  "frameWidth": 0.03,
+  "effects": {
+    "paper": 0.2,
+    "paperColor": "#cfc496",
+    "grain": 0.045,
+    "wobble": 0.0006,
+    "wobbleScale": 30,
+    "vignette": 0.12
+  },
+  "labels": {
+    "uppercase": true,
+    "letterSpacing": 0.2,
+    "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      9.93,
+      49.793
+    ],
+    "zoom": 15.0,
+    "title": "Würzburg",
+    "subtitle": "Germany"
+  }
+}

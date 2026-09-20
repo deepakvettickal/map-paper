@@ -1,0 +1,83 @@
+{
+  "id": "solarpunk",
+  "name": "Solarpunk",
+  "credit": "An original style: the solarpunk palette of sun and greenery",
+  "colors": {
+    "land": "#F5F0DE",
+    "water": "#5FC2B5",
+    "waterDots": "#5FC2B5",
+    "green": "#7FB069",
+    "forest": "#4F8F5B",
+    "sand": "#F0E0B0",
+    "buildings": [
+      "#E9C46A",
+      "#F2A65A",
+      "#CFE0B4",
+      "#E4D5A8"
+    ],
+    "outline": "#2F5D45",
+    "road": "#FFFFFF",
+    "roadCasing": "#D9CFAE",
+    "rail": "#8FA98B",
+    "frame": "#F5F0DE",
+    "text": "#24503C",
+    "landuse": "#EDE6CE",
+    "waterway": "#4FB3A6",
+    "transit": "#6FA88C",
+    "aeroway": "#E8DFC4"
+  },
+  "roadColors": {
+    "motorway": "#F2A65A",
+    "trunk": "#F2A65A",
+    "primary": "#F7C873"
+  },
+  "roadWidths": {
+    "motorway": 8,
+    "trunk": 8,
+    "primary": 7,
+    "secondary": 6,
+    "tertiary": 5,
+    "minor": 4,
+    "service": 2.5,
+    "path": 1
+  },
+  "casingRatio": 0.13,
+  "outlineWidth": 0.4,
+  "waterPattern": false,
+  "patterns": {
+    "forest": {
+      "type": "dots",
+      "color": "#3F7A4C",
+      "bg": "#4F8F5B",
+      "spacing": 6,
+      "width": 0.7
+    }
+  },
+  "fonts": {
+    "title": "Josefin Sans",
+    "subtitle": "Space Grotesk"
+  },
+  "frameWidth": 0.032,
+  "textPanel": {
+    "height": 14
+  },
+  "effects": {
+    "paper": 0.22,
+    "paperColor": "#cfc59f",
+    "grain": 0.035,
+    "vignette": 0.1
+  },
+  "labels": {
+    "letterSpacing": 0.12,
+    "scale": 0.9
+  },
+  "defaultView": {
+    "center": [
+      103.863,
+      1.283
+    ],
+    "zoom": 14.4,
+    "title": "Marina Bay",
+    "subtitle": "Singapore"
+  }
+}

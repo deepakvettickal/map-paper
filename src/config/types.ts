@@ -58,6 +58,14 @@ export interface LabelSpec {
   letterSpacing?: number;
 }
 
+/** The place a style opens at, chosen to suit it. */
+export interface DefaultView {
+  center: [number, number];
+  zoom: number;
+  title: string;
+  subtitle: string;
+}
+
 /** A complete, JSON-serialisable description of one map art style. */
 export interface StyleSpec {
   id: string;
@@ -93,6 +101,8 @@ export interface StyleSpec {
   fonts: { title: string; subtitle: string };
   /** Frame thickness as a fraction of the poster's shorter side. */
   frameWidth: number;
+  /** Where the poster opens when this style is chosen. */
+  defaultView?: DefaultView;
   /** Default border treatment; the user can pick another. */
   border?: "plain" | "double" | "mat" | "ticks" | "deco";
   /** Optional pattern fills; a pattern replaces the flat colour of that layer. */

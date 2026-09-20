@@ -75,5 +75,14 @@
     "uppercase": true,
     "letterSpacing": 0.25,
     "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      12.4768,
+      41.8967
+    ],
+    "zoom": 14.6,
+    "title": "Rome",
+    "subtitle": "Italy"
   }
 }

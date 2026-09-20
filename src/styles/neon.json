@@ -79,5 +79,14 @@
     "scale": 0.85,
     "color": "#39FF9E",
     "halo": "#07070F"
+  },
+  "defaultView": {
+    "center": [
+      139.7,
+      35.6938
+    ],
+    "zoom": 14.6,
+    "title": "Shinjuku",
+    "subtitle": "Tokyo, Japan"
   }
 }
