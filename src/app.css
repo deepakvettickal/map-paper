@@ -134,3 +134,40 @@ button.surprise:hover { filter: brightness(1.07); }
   border-left: 2px solid var(--accent); padding-left: 6px;
 }
 .drift span { color: var(--muted); }
+
+/* Phones and small tablets: stack the poster above the controls instead of
+   putting a fixed-width sidebar beside it. The poster sticks to the top so it
+   stays in view while the controls scroll with the page underneath. The Poster
+   component refits itself to its wrap via a ResizeObserver, so no JS changes. */
+@media (max-width: 760px) {
+  html, body, #root { height: auto; }
+
+  .app {
+    flex-direction: column;
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .poster-wrap {
+    order: -1;                 /* poster first, controls below */
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    height: 48dvh;
+    min-height: 240px;
+    padding: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-shrink: 0;
+    overflow-y: visible;       /* let the page scroll, not the panel */
+    border-right: none;
+    padding: 14px 16px 28px;
+  }
+
+  /* Roomier tap targets on touch screens. */
+  input:not([type]), input[type="text"], select, button { padding: 9px 10px; }
+  .colors input[type="color"] { width: 30px; height: 26px; }
+}
