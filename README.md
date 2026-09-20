@@ -169,35 +169,50 @@ Bigger plans such as 3D terrain, map ornaments and SVG or PDF export are listed 
 
 ### Style inspirations
 
-The historic maps are long out of copyright, but their makers are named here anyway. Styles marked
-*original* are new designs, so there is nobody to credit.
+One row per style, in the order they appear in the app. The historic maps are long out of copyright, but
+their makers are named here anyway. Styles marked *original* are new designs, so there is nobody to credit.
 
-| Style | Credit |
+| Style | Inspiration |
 |---|---|
-| Heerhugowaard | the `heerhugowaard` preset from [prettymaps](https://github.com/marceloprates/prettymaps) by Marcelo Prates |
-| Peach, Auburn, Citrus | the colour themes of the same names in [prettymapp](https://github.com/chrieke/prettymapp) by Christoph Rieke |
-| Nolli | Giambattista Nolli, *Nuova Pianta di Roma*, 1748 |
-| Sanborn | Sanborn fire-insurance maps, 1867–1970s |
-| Snow | John Snow, cholera map of Soho, 1854 |
-| Booth | Charles Booth, *Descriptive Map of London Poverty*, 1889 |
-| Ordnance | Ordnance Survey first edition, 1840s–80s |
-| Harry Beck | Harry Beck, London Underground diagram, 1933 |
-| Vignelli | Massimo Vignelli, New York City subway map, 1972 |
-| Soviet Topo | Soviet military topographic maps |
-| Ukiyo-e | Edo-period Japanese woodblock maps |
-| Bauhaus | the Bauhaus school and Swiss International Style |
-| Art Deco | 1920s–30s Art Deco poster design |
-| Blueprint, Cyanotype | architectural blueprints; Anna Atkins' cyanotype photograms, 1840s |
-| Stained Glass | Gothic stained-glass windows |
-| Risograph, Linocut | risograph zines and linocut printmaking |
-| Watercolor | painted map washes, in the spirit of [Stamen Watercolor](https://maps.stamen.com) |
-| Toner | [Stamen Toner](https://maps.stamen.com) |
-| Night | [CARTO Dark Matter](https://carto.com/basemaps) |
-| Starry Night | Vincent van Gogh, *The Starry Night*, 1889 |
-| GMaps Dark, Search | the design philosophy of Google Maps |
-| Drive | the design philosophy of Waze |
-| Here | the design philosophy of HERE Maps |
-| Pencil, Pastel, Sakura, Solarpunk, Dune, Nordic, Neon, Synthwave, Brutalist, Circuit, 8-bit | *original* |
+| Nolli | After Giambattista Nolli, Nuova Pianta di Roma (1748) |
+| Sanborn | After the Sanborn fire-insurance maps (1867–1970s) |
+| Snow | After John Snow's cholera map of Soho (1854) |
+| Booth | After Charles Booth's Descriptive Map of London Poverty (1889) |
+| Ordnance | After the Ordnance Survey first edition (1840s-80s) |
+| Harry Beck | After Harry Beck's London Underground diagram (1933) |
+| Vignelli | After Massimo Vignelli's New York City subway map (1972) |
+| Blueprint | After architectural cyanotype blueprints |
+| Cyanotype | After Anna Atkins' cyanotype photograms (1840s) |
+| Soviet Topo | After Soviet military topographic maps |
+| Bauhaus | After the Bauhaus school and Swiss International Style |
+| Art Deco | After 1920s-30s Art Deco posters |
+| Ukiyo-e | After Edo-period Japanese woodblock maps |
+| Stained Glass | *original* - Gothic stained-glass windows |
+| Starry Night | After Vincent van Gogh, The Starry Night (1889) |
+| Risograph | After risograph and screenprinted zines |
+| Linocut | *original* - carved linoleum block prints |
+| Pencil | *original* - graphite sketchbook |
+| Watercolor | Inspired by [Stamen Watercolor](https://maps.stamen.com) |
+| Pastel | *original* - soft pastels on warm beige |
+| Sakura | *original* - cherry blossom in spring |
+| Solarpunk | *original* - the solarpunk palette of sun and greenery |
+| Dune | *original* - desert ochres and deep shade |
+| Nordic | *original* - pale northern light |
+| Toner | Inspired by [Stamen Toner](https://maps.stamen.com) |
+| Night | Inspired by [CARTO Dark Matter](https://carto.com/basemaps) |
+| Neon | *original* - neon signs after dark |
+| GMaps Dark | Inspired by the dark mode of Google Maps |
+| Search | Inspired by the light mode of Google Maps |
+| Drive | Inspired by the design philosophy of Waze |
+| Here | Inspired by the design philosophy of HERE Maps |
+| Synthwave | *original* - 80s retro-futurism |
+| Brutalist | *original* - raw concrete architecture |
+| Circuit | *original* - printed circuit boards |
+| 8-bit | *original* - handheld pixel-art games |
+| Heerhugowaard | Tribute to [prettymaps](https://github.com/marceloprates/prettymaps) by Marcelo Prates |
+| Peach | The Peach theme from [prettymapp](https://github.com/chrieke/prettymapp) by Christoph Rieke |
+| Auburn | The Auburn theme from [prettymapp](https://github.com/chrieke/prettymapp) by Christoph Rieke |
+| Citrus | The Citrus theme from [prettymapp](https://github.com/chrieke/prettymapp) by Christoph Rieke |
 
 The map-app styles take inspiration from how those maps are designed. They do not copy any assets, code or
 map styles, and this project is not affiliated with or endorsed by those companies.

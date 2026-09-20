@@ -1,7 +1,7 @@
 {
   "id": "search",
   "name": "Search",
-  "credit": "Inspired by the design philosophy of Google Maps",
+  "credit": "Inspired by the light mode of Google Maps",
   "colors": {
     "land": "#F8F7F2",
     "water": "#9DD9F8",
