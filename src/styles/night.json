@@ -1,0 +1,49 @@
+{
+  "id": "night",
+  "name": "Night",
+  "credit": "Inspired by CARTO Dark Matter",
+  "colors": {
+    "land": "#0D1015",
+    "water": "#05070A",
+    "waterDots": "#05070A",
+    "green": "#10161A",
+    "forest": "#10161A",
+    "sand": "#0D1015",
+    "buildings": [
+      "#161B22"
+    ],
+    "outline": "#1E252E",
+    "road": "#F7C56B",
+    "roadCasing": "#0D1015",
+    "rail": "#3A4552",
+    "frame": "#0D1015",
+    "text": "#F7D9A3"
+  },
+  "roadWidths": {
+    "motorway": 4,
+    "trunk": 4,
+    "primary": 3.5,
+    "secondary": 3,
+    "tertiary": 2.5,
+    "minor": 1.6,
+    "service": 1,
+    "path": 0.5
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.4,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Josefin Sans",
+    "subtitle": "Josefin Sans"
+  },
+  "frameWidth": 0.025,
+  "roadGlow": {
+    "color": "#FF9F1C",
+    "widthFactor": 4,
+    "opacity": 0.35
+  },
+  "effects": {
+    "vignette": 0.45,
+    "grain": 0.03
+  }
+}

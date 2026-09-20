@@ -1,0 +1,49 @@
+{
+  "id": "cyanotype",
+  "name": "Cyanotype",
+  "credit": "After Anna Atkins' cyanotype photograms (1840s)",
+  "colors": {
+    "land": "#1A4775",
+    "water": "#0F3157",
+    "waterDots": "#0F3157",
+    "green": "#1F5186",
+    "forest": "#1F5186",
+    "sand": "#1A4775",
+    "buildings": [
+      "#DCE6EE",
+      "#C7D6E3"
+    ],
+    "outline": "#1A4775",
+    "road": "#E8EFF4",
+    "roadCasing": "#1A4775",
+    "rail": "#BFD0DE",
+    "frame": "#1A4775",
+    "text": "#EEF3F7"
+  },
+  "roadWidths": {
+    "motorway": 7,
+    "trunk": 7,
+    "primary": 6,
+    "secondary": 5,
+    "tertiary": 4.5,
+    "minor": 3.5,
+    "service": 2,
+    "path": 0.8
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Cormorant Garamond",
+    "subtitle": "Cormorant Garamond"
+  },
+  "frameWidth": 0.04,
+  "effects": {
+    "paper": 0.65,
+    "paperColor": "#0a2847",
+    "grain": 0.08,
+    "wobble": 0.001,
+    "wobbleScale": 30,
+    "vignette": 0.4
+  }
+}

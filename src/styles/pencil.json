@@ -1,0 +1,78 @@
+{
+  "id": "pencil",
+  "name": "Pencil",
+  "credit": "An original style: graphite sketchbook",
+  "colors": {
+    "land": "#F5F3EE",
+    "water": "#E6E4DE",
+    "waterDots": "#E6E4DE",
+    "green": "#ECEAE3",
+    "forest": "#E2E0D8",
+    "sand": "#F5F3EE",
+    "buildings": [
+      "#F5F3EE"
+    ],
+    "outline": "#3c3c3a",
+    "road": "#F5F3EE",
+    "roadCasing": "#464644",
+    "rail": "#6a6a68",
+    "frame": "#F5F3EE",
+    "text": "#333331"
+  },
+  "roadWidths": {
+    "motorway": 8,
+    "trunk": 8,
+    "primary": 7,
+    "secondary": 6,
+    "tertiary": 5,
+    "minor": 4,
+    "service": 2.5,
+    "path": 0.8
+  },
+  "casingRatio": 0.08,
+  "outlineWidth": 0.9,
+  "waterPattern": false,
+  "patterns": {
+    "buildings": {
+      "type": "hatch",
+      "color": "#6e6e6a",
+      "bg": "#F2F0EA",
+      "spacing": 4,
+      "width": 0.6
+    },
+    "water": {
+      "type": "waves",
+      "color": "#9a9a96",
+      "bg": "#F5F3EE",
+      "spacing": 8,
+      "width": 0.5
+    },
+    "green": {
+      "type": "stipple",
+      "color": "#9a9a96",
+      "bg": "#F5F3EE",
+      "spacing": 6,
+      "width": 0.5
+    },
+    "forest": {
+      "type": "cross",
+      "color": "#a3a39f",
+      "bg": "#F5F3EE",
+      "spacing": 5,
+      "width": 0.4
+    }
+  },
+  "fonts": {
+    "title": "Caveat",
+    "subtitle": "Caveat"
+  },
+  "frameWidth": 0.035,
+  "effects": {
+    "wobble": 0.0015,
+    "wobbleScale": 28,
+    "grain": 0.09,
+    "paper": 0.35,
+    "paperColor": "#d9d4c7",
+    "vignette": 0.1
+  }
+}

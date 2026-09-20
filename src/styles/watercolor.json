@@ -1,0 +1,54 @@
+{
+  "id": "watercolor",
+  "name": "Watercolor",
+  "credit": "Inspired by Stamen Watercolor",
+  "colors": {
+    "land": "#F7F2E7",
+    "water": "#9CC3D5",
+    "waterDots": "#9CC3D5",
+    "green": "#B5CFA0",
+    "forest": "#9DBE8A",
+    "sand": "#EFE0B8",
+    "buildings": [
+      "#E9B8A0",
+      "#E7C89A",
+      "#D7A9A0",
+      "#E4C3B0"
+    ],
+    "outline": "#F7F2E7",
+    "road": "#FFFDF8",
+    "roadCasing": "#D8CCB6",
+    "rail": "#C9BBA3",
+    "frame": "#F7F2E7",
+    "text": "#3E3026"
+  },
+  "roadWidths": {
+    "motorway": 8,
+    "trunk": 8,
+    "primary": 7,
+    "secondary": 6,
+    "tertiary": 5,
+    "minor": 4,
+    "service": 2.5,
+    "path": 0.8
+  },
+  "casingRatio": 0.1,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Cormorant Garamond",
+    "subtitle": "Cormorant Garamond"
+  },
+  "frameWidth": 0.045,
+  "effects": {
+    "wobble": 0.003,
+    "wobbleScale": 9,
+    "paper": 0.6,
+    "paperColor": "#c9bca0",
+    "grain": 0.06,
+    "vignette": 0.15
+  },
+  "textPanel": {
+    "height": 15
+  }
+}

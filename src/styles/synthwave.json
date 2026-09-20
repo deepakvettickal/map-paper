@@ -1,0 +1,60 @@
+{
+  "id": "synthwave",
+  "name": "Synthwave",
+  "credit": "An original style: 80s retro-futurism",
+  "colors": {
+    "land": "#1A0B2E",
+    "water": "#0B0420",
+    "waterDots": "#0B0420",
+    "green": "#22103A",
+    "forest": "#22103A",
+    "sand": "#1A0B2E",
+    "buildings": [
+      "#2A1147"
+    ],
+    "outline": "#4D2478",
+    "road": "#FF3CAC",
+    "roadCasing": "#1A0B2E",
+    "rail": "#7B3FB5",
+    "frame": "#1A0B2E",
+    "text": "#FFD5F5"
+  },
+  "roadColors": {
+    "motorway": "#00E5FF",
+    "trunk": "#00E5FF",
+    "primary": "#00E5FF"
+  },
+  "roadWidths": {
+    "motorway": 4,
+    "trunk": 4,
+    "primary": 3.5,
+    "secondary": 3,
+    "tertiary": 2.5,
+    "minor": 1.6,
+    "service": 1,
+    "path": 0.5
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.4,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Monoton",
+    "subtitle": "Share Tech Mono"
+  },
+  "frameWidth": 0.025,
+  "roadGlow": {
+    "color": "#FF3CAC",
+    "widthFactor": 4,
+    "opacity": 0.4
+  },
+  "grid": {
+    "color": "#FF3CAC",
+    "opacity": 0.07,
+    "spacing": 6
+  },
+  "effects": {
+    "vignette": 0.5,
+    "grain": 0.05,
+    "misregister": 0.0012
+  }
+}

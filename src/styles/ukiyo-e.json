@@ -1,0 +1,60 @@
+{
+  "id": "ukiyo-e",
+  "name": "Ukiyo-e",
+  "credit": "After Edo-period Japanese woodblock maps",
+  "colors": {
+    "land": "#EEE2C6",
+    "water": "#2E4A7A",
+    "waterDots": "#4A6A9E",
+    "green": "#7F9B5D",
+    "forest": "#5F7B46",
+    "sand": "#E4CF9F",
+    "buildings": [
+      "#B5463A",
+      "#2F2A28",
+      "#D9A441"
+    ],
+    "outline": "#2F2A28",
+    "road": "#2F2A28",
+    "roadCasing": "#EEE2C6",
+    "rail": "#2F2A28",
+    "frame": "#B5463A",
+    "text": "#2F2A28"
+  },
+  "roadWidths": {
+    "motorway": 6,
+    "trunk": 6,
+    "primary": 5,
+    "secondary": 4.5,
+    "tertiary": 4,
+    "minor": 3,
+    "service": 2,
+    "path": 0.8
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.6,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Shippori Mincho",
+    "subtitle": "Shippori Mincho"
+  },
+  "frameWidth": 0.035,
+  "effects": {
+    "paper": 0.45,
+    "paperColor": "#cdb88f",
+    "grain": 0.09,
+    "wobble": 0.001,
+    "wobbleScale": 30,
+    "misregister": 0.0005,
+    "vignette": 0.15
+  },
+  "patterns": {
+    "water": {
+      "type": "waves",
+      "color": "#6f8fbd",
+      "bg": "#2E4A7A",
+      "spacing": 10,
+      "width": 0.8
+    }
+  }
+}

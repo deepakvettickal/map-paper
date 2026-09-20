@@ -1,0 +1,49 @@
+{
+  "id": "8-bit",
+  "name": "8-bit",
+  "credit": "An original style: handheld pixel-art games",
+  "colors": {
+    "land": "#9BBC0F",
+    "water": "#306230",
+    "waterDots": "#306230",
+    "green": "#8BAC0F",
+    "forest": "#8BAC0F",
+    "sand": "#9BBC0F",
+    "buildings": [
+      "#306230",
+      "#0F380F",
+      "#8BAC0F"
+    ],
+    "outline": "#0F380F",
+    "road": "#0F380F",
+    "roadCasing": "#9BBC0F",
+    "rail": "#0F380F",
+    "frame": "#0F380F",
+    "text": "#9BBC0F"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 5,
+    "service": 3,
+    "path": 1
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Press Start 2P",
+    "subtitle": "Press Start 2P"
+  },
+  "frameWidth": 0.03,
+  "textPanel": {
+    "height": 15
+  },
+  "effects": {
+    "pixelate": 0.0045,
+    "grain": 0.02
+  }
+}

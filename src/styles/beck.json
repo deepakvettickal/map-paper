@@ -1,0 +1,56 @@
+{
+  "id": "beck",
+  "name": "Harry Beck",
+  "credit": "After Harry Beck's London Underground diagram (1933)",
+  "colors": {
+    "land": "#FFFFFF",
+    "water": "#BFE2F2",
+    "waterDots": "#BFE2F2",
+    "green": "#E4F1DC",
+    "forest": "#D8EBCD",
+    "sand": "#FFFFFF",
+    "buildings": [
+      "#F1F1F1"
+    ],
+    "outline": "#FFFFFF",
+    "road": "#B8BCC0",
+    "roadCasing": "#FFFFFF",
+    "rail": "#B8BCC0",
+    "frame": "#FFFFFF",
+    "text": "#10218B"
+  },
+  "roadColors": {
+    "motorway": "#E32017",
+    "trunk": "#0098D4",
+    "primary": "#00782A",
+    "secondary": "#FFD300",
+    "tertiary": "#9B0056",
+    "minor": "#C4C8CC",
+    "service": "#E2E4E6",
+    "path": "#ECEDEE"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 2.5,
+    "service": 1.5,
+    "path": 0.8
+  },
+  "casingRatio": 0.18,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Inter",
+    "subtitle": "Inter"
+  },
+  "frameWidth": 0.03,
+  "textPanel": {
+    "height": 16
+  },
+  "effects": {
+    "grain": 0.015
+  }
+}

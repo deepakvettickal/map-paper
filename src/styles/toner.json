@@ -1,0 +1,45 @@
+{
+  "id": "toner",
+  "name": "Toner",
+  "credit": "Inspired by Stamen Toner",
+  "colors": {
+    "land": "#FFFFFF",
+    "water": "#0A0A0A",
+    "waterDots": "#0A0A0A",
+    "green": "#FFFFFF",
+    "forest": "#FFFFFF",
+    "sand": "#FFFFFF",
+    "buildings": [
+      "#FFFFFF"
+    ],
+    "outline": "#0A0A0A",
+    "road": "#0A0A0A",
+    "roadCasing": "#0A0A0A",
+    "rail": "#0A0A0A",
+    "frame": "#0A0A0A",
+    "text": "#0A0A0A"
+  },
+  "roadWidths": {
+    "motorway": 8,
+    "trunk": 8,
+    "primary": 7,
+    "secondary": 6,
+    "tertiary": 5,
+    "minor": 3.5,
+    "service": 2,
+    "path": 0.8
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.6,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Archivo Black",
+    "subtitle": "IBM Plex Mono"
+  },
+  "frameWidth": 0.02,
+  "effects": {
+    "grain": 0.05,
+    "wobble": 0.0003,
+    "wobbleScale": 50
+  }
+}

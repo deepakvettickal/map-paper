@@ -1,0 +1,62 @@
+{
+  "id": "gmaps-dark",
+  "name": "GMaps Dark",
+  "credit": "Inspired by the dark mode of Google Maps",
+  "colors": {
+    "land": "#212121",
+    "water": "#17263C",
+    "waterDots": "#17263C",
+    "green": "#1E3325",
+    "forest": "#1A2E21",
+    "sand": "#2A2A2A",
+    "buildings": [
+      "#2B2B2B",
+      "#292929",
+      "#2E2E2E"
+    ],
+    "outline": "#212121",
+    "road": "#45494D",
+    "roadCasing": "#232629",
+    "rail": "#2E3236",
+    "frame": "#212121",
+    "text": "#9AA0A6",
+    "landuse": "#242424",
+    "waterway": "#1B3149",
+    "aeroway": "#2A2A2A",
+    "transit": "#2E3236"
+  },
+  "roadColors": {
+    "motorway": "#5E6367",
+    "trunk": "#585D61",
+    "primary": "#55595D",
+    "secondary": "#4E5256",
+    "tertiary": "#45494D",
+    "minor": "#3C4044",
+    "service": "#34383C",
+    "path": "#2F3336"
+  },
+  "roadWidths": {
+    "motorway": 8,
+    "trunk": 7.5,
+    "primary": 6.5,
+    "secondary": 5.5,
+    "tertiary": 4.5,
+    "minor": 3.2,
+    "service": 2,
+    "path": 1
+  },
+  "casingRatio": 0.18,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Roboto",
+    "subtitle": "Roboto"
+  },
+  "frameWidth": 0.025,
+  "textPanel": {
+    "height": 15
+  },
+  "effects": {
+    "vignette": 0.18
+  }
+}

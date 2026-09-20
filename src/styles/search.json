@@ -1,0 +1,51 @@
+{
+  "id": "search",
+  "name": "Search",
+  "credit": "Inspired by the design philosophy of Google Maps",
+  "colors": {
+    "land": "#F8F9FA",
+    "water": "#AADAFF",
+    "waterDots": "#A6D5F7",
+    "green": "#CDE7C7",
+    "forest": "#BFE0B8",
+    "sand": "#F8F0C8",
+    "buildings": [
+      "#EAECEE",
+      "#E6E9EB"
+    ],
+    "outline": "#F8F9FA",
+    "road": "#FFFFFF",
+    "roadCasing": "#DADCE0",
+    "rail": "#C8CCD0",
+    "frame": "#FFFFFF",
+    "text": "#3C4043",
+    "landuse": "#F1F3F4",
+    "waterway": "#9CCBF5"
+  },
+  "roadColors": {
+    "motorway": "#FBD26A",
+    "trunk": "#FBD26A",
+    "primary": "#FFFFFF"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 5,
+    "service": 3,
+    "path": 1
+  },
+  "casingRatio": 0.14,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Roboto",
+    "subtitle": "Roboto"
+  },
+  "frameWidth": 0.02,
+  "textPanel": {
+    "height": 15
+  }
+}

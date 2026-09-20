@@ -1,0 +1,46 @@
+{
+  "id": "art-deco",
+  "name": "Art Deco",
+  "credit": "After 1920s-30s Art Deco posters",
+  "colors": {
+    "land": "#0E1E38",
+    "water": "#08152A",
+    "waterDots": "#091321",
+    "green": "#15294A",
+    "forest": "#15294A",
+    "sand": "#0F1B2D",
+    "buildings": [
+      "#132644"
+    ],
+    "outline": "#D9B978",
+    "road": "#E3C68A",
+    "roadCasing": "#0F1B2D",
+    "rail": "#9C844F",
+    "frame": "#0F1B2D",
+    "text": "#F0D89A"
+  },
+  "roadWidths": {
+    "motorway": 5,
+    "trunk": 5,
+    "primary": 4.5,
+    "secondary": 4,
+    "tertiary": 3.2,
+    "minor": 2.2,
+    "service": 1.3,
+    "path": 0.6
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.5,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Poiret One",
+    "subtitle": "Josefin Sans"
+  },
+  "frameWidth": 0.05,
+  "effects": {
+    "grain": 0.035,
+    "vignette": 0.45,
+    "paper": 0.2,
+    "paperColor": "#050a12"
+  }
+}

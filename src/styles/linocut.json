@@ -1,0 +1,74 @@
+{
+  "id": "linocut",
+  "name": "Linocut",
+  "credit": "An original style: carved linoleum block prints",
+  "colors": {
+    "land": "#1B1A19",
+    "water": "#EFE8DA",
+    "waterDots": "#EFE8DA",
+    "green": "#1B1A19",
+    "forest": "#1B1A19",
+    "sand": "#1B1A19",
+    "buildings": [
+      "#1B1A19"
+    ],
+    "outline": "#1B1A19",
+    "road": "#EFE8DA",
+    "roadCasing": "#1B1A19",
+    "rail": "#EFE8DA",
+    "frame": "#EFE8DA",
+    "text": "#1B1A19"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 4.5,
+    "service": 2.5,
+    "path": 1
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "patterns": {
+    "water": {
+      "type": "waves",
+      "color": "#1B1A19",
+      "bg": "#EFE8DA",
+      "spacing": 10,
+      "width": 1.2
+    },
+    "green": {
+      "type": "stipple",
+      "color": "#EFE8DA",
+      "bg": "#1B1A19",
+      "spacing": 6,
+      "width": 0.8
+    },
+    "forest": {
+      "type": "cross",
+      "color": "#3a3836",
+      "bg": "#1B1A19",
+      "spacing": 5,
+      "width": 0.6
+    }
+  },
+  "fonts": {
+    "title": "Alfa Slab One",
+    "subtitle": "IBM Plex Mono"
+  },
+  "frameWidth": 0.04,
+  "textPanel": {
+    "height": 16
+  },
+  "effects": {
+    "wobble": 0.002,
+    "wobbleScale": 20,
+    "grain": 0.14,
+    "paper": 0.3,
+    "paperColor": "#6b6358",
+    "vignette": 0.1
+  }
+}

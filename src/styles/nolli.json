@@ -1,0 +1,74 @@
+{
+  "id": "nolli",
+  "name": "Nolli",
+  "credit": "After Giambattista Nolli, Nuova Pianta di Roma (1748)",
+  "colors": {
+    "land": "#EFE6D2",
+    "water": "#CBD3C7",
+    "waterDots": "#B9C3B5",
+    "green": "#E4DBC3",
+    "forest": "#DCD2B7",
+    "sand": "#EAE0C6",
+    "buildings": [
+      "#2A2521"
+    ],
+    "outline": "#2A2521",
+    "road": "#EFE6D2",
+    "roadCasing": "#EFE6D2",
+    "rail": "#2A2521",
+    "frame": "#EFE6D2",
+    "text": "#2A2521"
+  },
+  "roadWidths": {
+    "motorway": 10,
+    "trunk": 10,
+    "primary": 9,
+    "secondary": 8,
+    "tertiary": 7,
+    "minor": 6,
+    "service": 4,
+    "path": 2
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.5,
+  "waterPattern": false,
+  "fonts": {
+    "title": "IM Fell English",
+    "subtitle": "Cormorant Garamond"
+  },
+  "frameWidth": 0.04,
+  "textPanel": {
+    "height": 15
+  },
+  "effects": {
+    "paper": 0.35,
+    "paperColor": "#cbbd98",
+    "grain": 0.07,
+    "wobble": 0.0008,
+    "wobbleScale": 35,
+    "vignette": 0.25
+  },
+  "patterns": {
+    "buildings": {
+      "type": "hatch",
+      "color": "#4a423a",
+      "bg": "#2A2521",
+      "spacing": 3,
+      "width": 0.45
+    },
+    "green": {
+      "type": "stipple",
+      "color": "#9e9277",
+      "bg": "#E4DBC3",
+      "spacing": 7,
+      "width": 0.5
+    },
+    "water": {
+      "type": "lines",
+      "color": "#aab5a7",
+      "bg": "#CBD3C7",
+      "spacing": 3,
+      "width": 0.4
+    }
+  }
+}

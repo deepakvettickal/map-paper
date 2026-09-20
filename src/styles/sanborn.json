@@ -1,0 +1,55 @@
+{
+  "id": "sanborn",
+  "name": "Sanborn",
+  "credit": "After the Sanborn fire-insurance maps (1867–1970s)",
+  "colors": {
+    "land": "#F3EDDB",
+    "water": "#BCD6DC",
+    "waterDots": "#A9C7CE",
+    "green": "#D9DFB9",
+    "forest": "#C9D3A6",
+    "sand": "#EFE3BF",
+    "buildings": [
+      "#E7A29C",
+      "#EED683",
+      "#E7A29C",
+      "#A8C3D6",
+      "#EED683"
+    ],
+    "outline": "#3A322B",
+    "road": "#F3EDDB",
+    "roadCasing": "#3A322B",
+    "rail": "#3A322B",
+    "frame": "#F3EDDB",
+    "text": "#3A322B"
+  },
+  "roadWidths": {
+    "motorway": 10,
+    "trunk": 10,
+    "primary": 9,
+    "secondary": 8,
+    "tertiary": 7,
+    "minor": 6,
+    "service": 4,
+    "path": 1.5
+  },
+  "casingRatio": 0.08,
+  "outlineWidth": 0.9,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Old Standard TT",
+    "subtitle": "Old Standard TT"
+  },
+  "frameWidth": 0.03,
+  "textPanel": {
+    "height": 15
+  },
+  "effects": {
+    "paper": 0.3,
+    "paperColor": "#d5c9a8",
+    "grain": 0.05,
+    "wobble": 0.0004,
+    "wobbleScale": 40,
+    "vignette": 0.15
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "drive",
+  "name": "Drive",
+  "credit": "Inspired by the design philosophy of Waze",
+  "colors": {
+    "land": "#EEF2F7",
+    "water": "#9DD9F5",
+    "waterDots": "#9DD9F5",
+    "green": "#BDE8B6",
+    "forest": "#A8DEA0",
+    "sand": "#F7EEC4",
+    "buildings": [
+      "#DEE5ED"
+    ],
+    "outline": "#EEF2F7",
+    "road": "#FFFFFF",
+    "roadCasing": "#C3CEDA",
+    "rail": "#C3CEDA",
+    "frame": "#FFFFFF",
+    "text": "#0B3D5C",
+    "landuse": "#E7EDF4"
+  },
+  "roadColors": {
+    "motorway": "#FFB547",
+    "trunk": "#FFB547",
+    "primary": "#FFE27A"
+  },
+  "roadWidths": {
+    "motorway": 12,
+    "trunk": 12,
+    "primary": 11,
+    "secondary": 10,
+    "tertiary": 9,
+    "minor": 7,
+    "service": 4,
+    "path": 1.5
+  },
+  "casingRatio": 0.16,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Fredoka",
+    "subtitle": "Fredoka"
+  },
+  "frameWidth": 0.03,
+  "textPanel": {
+    "height": 15
+  }
+}

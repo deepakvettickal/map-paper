@@ -1,0 +1,54 @@
+{
+  "id": "here",
+  "name": "Here",
+  "credit": "Inspired by the design philosophy of HERE Maps",
+  "colors": {
+    "land": "#EDF1F5",
+    "water": "#A8C6DE",
+    "waterDots": "#9BB6CA",
+    "green": "#DCE8D4",
+    "forest": "#CFE0C6",
+    "sand": "#EFEADC",
+    "buildings": [
+      "#E0E6EC",
+      "#DDE3EA"
+    ],
+    "outline": "#EDF1F5",
+    "road": "#FFFFFF",
+    "roadCasing": "#CBD4DE",
+    "rail": "#B4BEC9",
+    "frame": "#EDF1F5",
+    "text": "#2B3A47",
+    "landuse": "#E7ECF1",
+    "waterway": "#8FB6D4",
+    "transit": "#2FB3AD",
+    "aeroway": "#E3E7EC"
+  },
+  "roadColors": {
+    "motorway": "#F2F7FB",
+    "trunk": "#F2F7FB",
+    "primary": "#FFFFFF"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 8.5,
+    "primary": 7,
+    "secondary": 6,
+    "tertiary": 5,
+    "minor": 3.6,
+    "service": 2.2,
+    "path": 0.8
+  },
+  "casingRatio": 0.16,
+  "outlineWidth": 0,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Inter",
+    "subtitle": "Inter"
+  },
+  "frameWidth": 0.025,
+  "textPanel": {
+    "height": 15
+  },
+  "effects": {}
+}
