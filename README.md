@@ -4,9 +4,7 @@ Make a poster or a wallpaper out of any place on Earth. There are 41 styles to p
 cartography, some borrow from map apps, and the rest are made up. Everything renders live in the browser and
 exports big enough to print.
 
-![Amsterdam's western harbour, half in the Booth style and half in Cyanotype](docs/hero.jpg)
-
-<sub>One place, two styles: Booth on the left, Cyanotype on the right.</sub>
+![Amsterdam's western harbour, half in the Booth style and half in Neon](docs/hero.jpg)
 
 ## Run it locally
 

@@ -15,8 +15,8 @@ const browser = await puppeteer.launch({
   executablePath: CHROME,
   headless: "new",
   args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
-  // deviceScaleFactor 2 renders the poster at ~1670px wide for a crisp gallery.
-  defaultViewport: { width: 900, height: 620, deviceScaleFactor: 2 },
+  // deviceScaleFactor 3 renders the poster at ~2500px wide, sharp on any screen.
+  defaultViewport: { width: 900, height: 620, deviceScaleFactor: 3 },
 });
 
 // Hero: downscale the 4K synthwave export to a web-sized JPEG. Skipped when the
@@ -25,7 +25,7 @@ const HERO_SRC = "grosvenor-square-synthwave-3840x2160.png";
 if (existsSync(HERO_SRC) && process.argv.length <= 2) {
 const hero = readFileSync(HERO_SRC).toString("base64");
 const page = await browser.newPage();
-await page.setViewport({ width: 1600, height: 900, deviceScaleFactor: 1 });
+await page.setViewport({ width: 1600, height: 900, deviceScaleFactor: 2 });
 await page.setContent(
   `<body style="margin:0"><img src="data:image/png;base64,${hero}" style="width:1600px;display:block"></body>`,
 );
@@ -46,7 +46,7 @@ for (const id of only.length ? only : STYLE_IDS) {
   await p.evaluate(() => document.fonts.ready);
   await new Promise((r) => setTimeout(r, 900));
   const el = await p.$(".poster");
-  await el.screenshot({ path: `${OUT}/${id}.jpg`, type: "jpeg", quality: 84 });
+  await el.screenshot({ path: `${OUT}/${id}.jpg`, type: "jpeg", quality: 92 });
   await p.close();
   console.log("saved", id);
 }

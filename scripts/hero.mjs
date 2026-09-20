@@ -1,9 +1,9 @@
-// Builds docs/hero.jpg: one place rendered in two styles and spliced on a diagonal.
-// Usage: node scripts/hero.mjs [styleA] [styleB] [lat] [lng] [zoom]   (dev server must be running)
+// Builds docs/hero.jpg: one place rendered in two styles, split down the middle.
+// Usage: node scripts/hero.mjs [styleA] [styleB] [lat] [lng] [zoom] [place]   (dev server must be running)
 import puppeteer from "puppeteer-core";
 import { writeFileSync } from "node:fs";
 
-const [a = "booth", b = "cyanotype", lat = "52.37154664", lng = "4.97081009", zoom = "13.6"] =
+const [a = "booth", b = "neon", lat = "52.37154664", lng = "4.97081009", zoom = "13.6", place = "Amsterdam"] =
   process.argv.slice(2);
 const CHROME = process.env.CHROME ?? "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const W = 3840;
@@ -28,7 +28,10 @@ async function render(style) {
     () => window.__map?.loaded() && window.__map.queryRenderedFeatures().length > 30,
     { timeout: 90000, polling: 500 },
   );
+  await page.evaluate(() => window.__store.getState().set({ showLabels: true }));
+  await page.waitForFunction(() => window.__map?.areTilesLoaded(), { timeout: 90000, polling: 500 });
   await page.evaluate(() => document.fonts.ready);
+  await new Promise((r) => setTimeout(r, 1500));
   const data = await page.evaluate(
     async ([w, h]) => {
       const { renderPoster } = await import("/src/engine/exportPng.ts");
@@ -45,7 +48,7 @@ async function render(style) {
         width: w,
         height: h,
         fx: activeEffects(s),
-        labels: s.showLabels,
+        labels: true,
       });
       const buf = new Uint8Array(await blob.arrayBuffer());
       let bin = "";
@@ -64,8 +67,10 @@ const [imgA, imgB] = [await render(a), await render(b)];
 // Splice: style A top-left of the diagonal, style B bottom-right, with a thin seam.
 const page = await browser.newPage();
 await page.setViewport({ width: 1600, height: 900 });
+await page.goto("http://localhost:5173/", { waitUntil: "domcontentloaded" });
+await page.evaluate(() => document.fonts.ready);
 const jpeg = await page.evaluate(
-  async ([A, B, w, h]) => {
+  async ([A, B, w, h, name]) => {
     const load = (b64) =>
       new Promise((res) => {
         const i = new Image();
@@ -77,27 +82,41 @@ const jpeg = await page.evaluate(
     c.width = w;
     c.height = h;
     const x = c.getContext("2d");
+    // Straight split: first style on the left, second on the right.
     x.drawImage(ia, 0, 0, w, h);
     x.save();
     x.beginPath();
-    // Diagonal from lower-left to upper-right, leaning so both cities read.
-    x.moveTo(w * 0.34, h);
-    x.lineTo(w * 0.66, 0);
-    x.lineTo(w, 0);
-    x.lineTo(w, h);
-    x.closePath();
+    x.rect(w / 2, 0, w / 2, h);
     x.clip();
     x.drawImage(ib, 0, 0, w, h);
     x.restore();
-    x.strokeStyle = "rgba(255,255,255,0.75)";
-    x.lineWidth = Math.max(2, w * 0.0015);
+    x.strokeStyle = "rgba(255,255,255,0.8)";
+    x.lineWidth = Math.max(2, w * 0.0012);
     x.beginPath();
-    x.moveTo(w * 0.34, h);
-    x.lineTo(w * 0.66, 0);
+    x.moveTo(w / 2, 0);
+    x.lineTo(w / 2, h);
     x.stroke();
-    return c.toDataURL("image/jpeg", 0.9).split(",")[1];
+
+    // The place name, once, across the seam.
+    const size = h * 0.062;
+    x.font = `600 ${size}px "Josefin Sans"`;
+    x.textAlign = "center";
+    x.textBaseline = "alphabetic";
+    x.letterSpacing = `${size * 0.22}px`;
+    const y = h - h * 0.062;
+    x.shadowColor = "rgba(0,0,0,0.55)";
+    x.shadowBlur = size * 0.5;
+    x.fillStyle = "rgba(255,255,255,0.96)";
+    x.fillText(name.toUpperCase(), w / 2, y);
+    x.shadowBlur = 0;
+    const sub = size * 0.3;
+    x.font = `400 ${sub}px "IBM Plex Mono"`;
+    x.letterSpacing = `${sub * 0.35}px`;
+    x.fillStyle = "rgba(255,255,255,0.8)";
+    x.fillText("THE NETHERLANDS", w / 2, y + sub * 2.1);
+    return c.toDataURL("image/jpeg", 0.93).split(",")[1];
   },
-  [imgA, imgB, 1920, 1080],
+  [imgA, imgB, W, H, place],
 );
 writeFileSync("docs/hero.jpg", Buffer.from(jpeg, "base64"));
 console.log("wrote docs/hero.jpg");
