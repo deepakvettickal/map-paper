@@ -29,7 +29,8 @@ src/
   engine/     buildMapStyle.ts, patterns.ts, effects.ts, exportPng.ts
   poster/     Poster.tsx (map + overlay + effects canvas), drawOverlay.ts, borders.ts
   ui/         Sidebar.tsx
-  services/   geocode.ts (Nominatim)
+  services/   geocode.ts (Nominatim), telemetry.ts (anonymous counts)
+functions/    Cloudflare Pages Functions; api/event.ts is the only writer to Firestore
   store.ts    Zustand store; activeEffects() resolves the live effect settings
 ```
 
@@ -57,6 +58,12 @@ through one WebGL pass; the same function serves the preview and `renderPoster()
 - Border rules draw in `colors.text`, not `colors.outline`, because clean styles set `outline` to the land
   colour to suppress building outlines.
 - TypeScript is strict, no `any` in new code. Comments explain *why*, not what.
+
+## Telemetry
+
+The browser posts anonymous events to `/api/event`; that function holds the service account and writes to
+Firestore. Never add a client-side database SDK or put credentials in the bundle, and keep
+`firestore.rules` denying all client access.
 
 ## Gotchas
 

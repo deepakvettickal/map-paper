@@ -112,16 +112,15 @@ button.link { background: none; border: none; padding: 0; width: auto; color: va
 
 .brand { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
 .brand h1 { margin: 0; }
-.themes { display: flex; gap: 4px; }
-button.swatch {
-  width: 18px; height: 18px; padding: 0; border-radius: 3px;
-  border: 1px solid var(--line); cursor: pointer;
+button.icon {
+  width: 28px; height: 28px; padding: 0; border-radius: 50%;
+  display: grid; place-items: center; color: var(--muted); flex-shrink: 0;
 }
-button.swatch.light { background: #fcf9ea; }
-button.swatch.dark { background: #2a2e32; }
-button.swatch.amoled { background: #000000; }
-button.swatch:hover { border-color: var(--muted); }
-button.swatch.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+button.icon:hover { color: var(--text); border-color: var(--muted); }
+button.icon svg { width: 15px; height: 15px; }
+
+.row { display: flex; gap: 6px; }
+.row > * { flex: 1; }
 
 button.surprise {
   background: linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 55%, #7b5cff));

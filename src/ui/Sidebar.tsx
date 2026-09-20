@@ -1,5 +1,8 @@
-import { useEffect, useState } from "react";
-import { activeBorder, activeEffects, formatCoords, usePoster, UI_THEMES } from "../store";
+import { useEffect, useRef, useState } from "react";
+import { activeBorder, activeEffects, formatCoords, usePoster } from "../store";
+import { ThemeButton } from "./ThemeButton";
+import { parsePreset, presetFilename, toPreset } from "../config/preset";
+import { telemetry } from "../services/telemetry";
 import { BORDERS, BORDER_LABELS } from "../poster/borders";
 import { hasEffects } from "../engine/effects";
 import { derivedColors } from "../engine/buildMapStyle";
@@ -96,9 +99,35 @@ function LocationSearch() {
 export function Sidebar() {
   const s = usePoster();
   const [status, setStatus] = useState<string | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
   const size = SIZES.find((z) => z.id === s.sizeId)!;
   const derived = derivedColors(s.spec);
   const px = pixelSize(size, s.dpi);
+
+  // Presets: the whole poster as JSON, so a look can be saved, shared and restored.
+  const savePreset = () => {
+    const preset = toPreset(s);
+    downloadBlob(
+      new Blob([JSON.stringify(preset, null, 2)], { type: "application/json" }),
+      presetFilename(preset),
+    );
+    telemetry.presetExport(s.spec.id);
+    setStatus("Config saved");
+  };
+
+  const loadPreset = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    try {
+      const preset = parsePreset(await file.text());
+      s.applyPreset(preset);
+      telemetry.presetImport(preset.spec.id);
+      setStatus(`Loaded ${preset.spec.name}`);
+    } catch (err) {
+      setStatus((err as Error).message);
+    }
+  };
 
   const doExport = async () => {
     setStatus("Rendering…");
@@ -124,7 +153,9 @@ export function Sidebar() {
       });
       const slug = (s.title || "map").toLowerCase().replace(/[^a-z0-9]+/g, "-");
       downloadBlob(blob, `${slug}-${s.spec.id}-${px.width}x${px.height}.png`);
-      setStatus(`Done in ${((performance.now() - t0) / 1000).toFixed(1)}s (${(blob.size / 1e6).toFixed(1)} MB)`);
+      const ms = Math.round(performance.now() - t0);
+      setStatus(`Done in ${(ms / 1000).toFixed(1)}s (${(blob.size / 1e6).toFixed(1)} MB)`);
+      telemetry.export(toPreset(s), { ms, bytes: blob.size, ...px });
     } catch (e) {
       setStatus(`Export failed: ${(e as Error).message}`);
     }
@@ -134,17 +165,7 @@ export function Sidebar() {
     <aside className="sidebar">
       <header className="brand">
         <h1>map-paper</h1>
-        <div className="themes" role="group" aria-label="Interface theme">
-          {UI_THEMES.map((t) => (
-            <button
-              key={t}
-              className={`swatch ${t}${s.uiTheme === t ? " on" : ""}`}
-              title={`${t[0].toUpperCase()}${t.slice(1)} interface`}
-              aria-pressed={s.uiTheme === t}
-              onClick={() => s.set({ uiTheme: t })}
-            />
-          ))}
-        </div>
+        <ThemeButton />
       </header>
 
       <section>
@@ -354,7 +375,14 @@ export function Sidebar() {
       </section>
 
       <section>
-        <button className="surprise" onClick={s.randomise}>
+        <button
+          className="surprise"
+          onClick={() => {
+            s.randomise();
+            const next = usePoster.getState();
+            telemetry.randomise(next.spec.id, next.title, next.drift?.percent ?? 0);
+          }}
+        >
           🎲 Surprise me
         </button>
         <div className="hint">New style, new city, new palette.</div>
@@ -384,6 +412,11 @@ export function Sidebar() {
         <button className="primary" onClick={doExport} disabled={status === "Rendering…"}>
           Download PNG
         </button>
+        <div className="row">
+          <button onClick={savePreset}>Save config</button>
+          <button onClick={() => fileRef.current?.click()}>Load config</button>
+        </div>
+        <input ref={fileRef} type="file" accept="application/json,.json" hidden onChange={loadPreset} />
         {status && <div className="hint">{status}</div>}
       </section>
     </aside>
