@@ -30,9 +30,11 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      # Call wrangler directly rather than cloudflare/wrangler-action: the action
+      # installs its own pinned wrangler into the project, which conflicts with our
+      # @cloudflare/workers-types peer range. `npx wrangler@4` installs in isolation.
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=map-paper --branch=main
+        run: npx --yes wrangler@4 pages deploy dist --project-name=map-paper --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
