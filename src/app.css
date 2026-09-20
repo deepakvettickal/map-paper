@@ -19,10 +19,10 @@
 
 :root[data-theme="light"] {
   /* Light: pearl paper with a warm grey rule, the same coral accent. */
-  --bg: #efece5;
-  --panel: #faf8f4;
+  --bg: #fcf9ea;
+  --panel: #fffdf4;
   --raise: #ffffff;
-  --line: #e0dad0;
+  --line: #e6dfc9;
   --text: #2b2724;
   --muted: #7d766d;
   --accent: #e2574c;
@@ -44,7 +44,7 @@ html, body, #root { margin: 0; height: 100%; }
   border-right: 1px solid var(--line);
   padding: 16px;
 }
-.sidebar h1 { font-family: "Permanent Marker", cursive; font-weight: 400; font-size: 24px; margin: 0 0 12px; }
+.sidebar h1 { font-family: "Architects Daughter", cursive; font-weight: 400; font-size: 24px; margin: 0 0 12px; }
 .sidebar h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 8px; }
 .sidebar section { padding: 12px 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; }
 
@@ -111,3 +111,9 @@ button.surprise {
 }
 button.surprise:hover { filter: brightness(1.07); }
 .poster-wrap { background: var(--bg); }
+
+.drift {
+  font-size: 11px; color: var(--accent);
+  border-left: 2px solid var(--accent); padding-left: 6px;
+}
+.drift span { color: var(--muted); }
