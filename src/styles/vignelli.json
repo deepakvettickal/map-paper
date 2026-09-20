@@ -3,21 +3,26 @@
   "name": "Vignelli",
   "credit": "After Massimo Vignelli's New York City subway map (1972)",
   "colors": {
-    "land": "#F2F0EB",
-    "water": "#B9C7CF",
+    "land": "#F4F0E7",
+    "water": "#9DC4D8",
     "waterDots": "#B9C7CF",
-    "green": "#E6E6D8",
-    "forest": "#DCDDC9",
-    "sand": "#F2F0EB",
+    "green": "#C2E0BB",
+    "forest": "#B0D3A8",
+    "sand": "#F1E7D2",
     "buildings": [
-      "#E8E5DE"
+      "#DFD8CC",
+      "#D7D0C3"
     ],
-    "outline": "#E8E5DE",
-    "road": "#B0B3B6",
-    "roadCasing": "#F2F0EB",
-    "rail": "#B0B3B6",
-    "frame": "#111111",
-    "text": "#FFFFFF"
+    "outline": "#C4BDB0",
+    "road": "#B4B1A9",
+    "roadCasing": "#F4F0E7",
+    "rail": "#75716A",
+    "frame": "#141414",
+    "text": "#FFFFFF",
+    "landuse": "#EBE6DB",
+    "waterway": "#84B3CA",
+    "transit": "#838078",
+    "aeroway": "#E3DDD3"
   },
   "roadColors": {
     "motorway": "#EE352E",
@@ -25,9 +30,9 @@
     "primary": "#00933C",
     "secondary": "#FCCC0A",
     "tertiary": "#FF6319",
-    "minor": "#B7BABD",
-    "service": "#D6D8DA",
-    "path": "#E1E2E3"
+    "minor": "#B4B1A9",
+    "service": "#CDCAC3",
+    "path": "#DDDAD5"
   },
   "roadWidths": {
     "motorway": 9,
@@ -40,7 +45,7 @@
     "path": 0.8
   },
   "casingRatio": 0.15,
-  "outlineWidth": 0,
+  "outlineWidth": 0.5,
   "waterPattern": false,
   "fonts": {
     "title": "Inter",

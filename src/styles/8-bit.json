@@ -3,36 +3,41 @@
   "name": "8-bit",
   "credit": "An original style: handheld pixel-art games",
   "colors": {
-    "land": "#9BBC0F",
-    "water": "#306230",
+    "land": "#8FB00E",
+    "water": "#255024",
     "waterDots": "#306230",
-    "green": "#8BAC0F",
-    "forest": "#8BAC0F",
-    "sand": "#9BBC0F",
+    "green": "#9BBC0F",
+    "forest": "#6E8F0C",
+    "sand": "#A8C61A",
     "buildings": [
-      "#306230",
       "#0F380F",
-      "#8BAC0F"
+      "#306230",
+      "#1E4A12",
+      "#3D6E1C"
     ],
     "outline": "#0F380F",
     "road": "#0F380F",
     "roadCasing": "#9BBC0F",
     "rail": "#0F380F",
     "frame": "#0F380F",
-    "text": "#9BBC0F"
+    "text": "#9BBC0F",
+    "landuse": "#84A30D",
+    "waterway": "#2E6B2C",
+    "transit": "#1E4A12",
+    "aeroway": "#93B60E"
   },
   "roadWidths": {
-    "motorway": 9,
-    "trunk": 9,
-    "primary": 8,
-    "secondary": 7,
-    "tertiary": 6,
-    "minor": 5,
-    "service": 3,
-    "path": 1
+    "motorway": 7,
+    "trunk": 7,
+    "primary": 6,
+    "secondary": 5,
+    "tertiary": 4.5,
+    "minor": 3,
+    "service": 2,
+    "path": 0.8
   },
   "casingRatio": 0,
-  "outlineWidth": 0,
+  "outlineWidth": 0.5,
   "waterPattern": false,
   "fonts": {
     "title": "Press Start 2P",
@@ -43,7 +48,7 @@
     "height": 15
   },
   "effects": {
-    "pixelate": 0.0045,
+    "pixelate": 0.0022,
     "grain": 0.02
   },
   "labels": {

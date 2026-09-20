@@ -3,27 +3,31 @@
   "name": "Drive",
   "credit": "Inspired by the design philosophy of Waze",
   "colors": {
-    "land": "#EEF2F7",
-    "water": "#9DD9F5",
+    "land": "#EAF1F8",
+    "water": "#86D9FD",
     "waterDots": "#9DD9F5",
-    "green": "#BDE8B6",
-    "forest": "#A8DEA0",
-    "sand": "#F7EEC4",
+    "green": "#A9EAA4",
+    "forest": "#97DE93",
+    "sand": "#F4E8BB",
     "buildings": [
-      "#DEE5ED"
+      "#D1DEEA",
+      "#CAD8E4"
     ],
-    "outline": "#EEF2F7",
+    "outline": "#C6D3DF",
     "road": "#FFFFFF",
-    "roadCasing": "#C3CEDA",
-    "rail": "#C3CEDA",
+    "roadCasing": "#C2D2DF",
+    "rail": "#ADB9C4",
     "frame": "#FFFFFF",
-    "text": "#0B3D5C",
-    "landuse": "#E7EDF4"
+    "text": "#114B75",
+    "landuse": "#DDE8F2",
+    "waterway": "#6BC8F0",
+    "transit": "#88A8C9",
+    "aeroway": "#DDE6EE"
   },
   "roadColors": {
-    "motorway": "#FFB547",
-    "trunk": "#FFB547",
-    "primary": "#FFE27A"
+    "motorway": "#FDA84D",
+    "trunk": "#FFB15E",
+    "primary": "#FED57E"
   },
   "roadWidths": {
     "motorway": 12,

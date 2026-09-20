@@ -26,7 +26,7 @@ src/
   config/     types.ts (StyleSpec, PatternSpec, EffectsSpec), sizes.ts, fonts.ts
   styles/     one JSON file per style + index.ts (order + DEFAULT_STYLE_ID)
   engine/     buildMapStyle.ts, patterns.ts, effects.ts, exportPng.ts
-  poster/     Poster.tsx (map + overlay + effects canvas), drawOverlay.ts
+  poster/     Poster.tsx (map + overlay + effects canvas), drawOverlay.ts, borders.ts
   ui/         Sidebar.tsx
   services/   geocode.ts (Nominatim)
   store.ts    Zustand store; activeEffects() resolves the live effect settings
@@ -48,6 +48,11 @@ through one WebGL pass; the same function serves the preview and `renderPoster()
   `derivedColors()` in step with `buildMapStyle()`.
 - Map apps draw no building or landcover outlines; clean styles should set `outlineWidth: 0` and rely on road
   casings.
+- **Palettes are built in OKLCH** (see the generator in the repo history): give each style a deliberate
+  lightness ramp for paper, landuse, buildings, casing and roads, so nothing sits within a couple of percent
+  of its neighbour. That is what stops a style looking washed out.
+- Border rules draw in `colors.text`, not `colors.outline`, because clean styles set `outline` to the land
+  colour to suppress building outlines.
 - TypeScript is strict, no `any` in new code. Comments explain *why*, not what.
 
 ## Gotchas

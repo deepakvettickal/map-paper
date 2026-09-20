@@ -1,4 +1,5 @@
 import type { StyleSpec } from "../config/types";
+import { drawBorder, type BorderType } from "./borders";
 
 export interface OverlayText {
   title: string;
@@ -8,6 +9,9 @@ export interface OverlayText {
   show: boolean;
   /** Multiplier for the title block's text size. */
   scale: number;
+  /** Border treatment and a multiplier on its thickness. */
+  border: BorderType;
+  borderScale: number;
 }
 
 export const CREDIT = "data © OpenStreetMap contributors · tiles OpenFreeMap";
@@ -27,7 +31,7 @@ export function drawOverlay(
   const c = spec.colors;
   const u = Math.min(w, h) / 100; // 1 unit = 1% of the shorter side
 
-  const f = spec.frameWidth * Math.min(w, h);
+  const f = spec.frameWidth * Math.min(w, h) * text.borderScale;
 
   if (spec.grid) {
     const step = spec.grid.spacing * u;
@@ -48,15 +52,7 @@ export function drawOverlay(
     ctx.restore();
   }
 
-  // Frame: fill the border band around the edge.
-  ctx.fillStyle = c.frame;
-  ctx.fillRect(0, 0, w, f);
-  ctx.fillRect(0, h - f, w, f);
-  ctx.fillRect(0, 0, f, h);
-  ctx.fillRect(w - f, 0, f, h);
-  ctx.strokeStyle = c.outline;
-  ctx.lineWidth = Math.max(1, 0.15 * u);
-  ctx.strokeRect(f, f, w - 2 * f, h - 2 * f);
+  drawBorder(ctx, w, h, spec, text.border, f, u);
 
   // Title block lines, bottom-up layout computed first so a text panel can fit around it.
   const k = text.scale;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { activeEffects, formatCoords, usePoster } from "../store";
+import { activeBorder, activeEffects, formatCoords, usePoster } from "../store";
+import { BORDERS, BORDER_LABELS } from "../poster/borders";
 import { hasEffects } from "../engine/effects";
 import { derivedColors } from "../engine/buildMapStyle";
 import { STYLES } from "../styles";
@@ -112,6 +113,8 @@ export function Sidebar() {
           coords: s.showCoords ? formatCoords(s.view.center) : null,
           show: s.showText,
           scale: s.textScale,
+          border: activeBorder(s),
+          borderScale: s.borderScale,
         },
         previewWidth: previewSize.width,
         previewHeight: previewSize.height,
@@ -246,6 +249,32 @@ export function Sidebar() {
             onChange={(e) => s.set({ textScale: Number(e.target.value) })}
           />
           <span>{Math.round(s.textScale * 100)}%</span>
+        </label>
+      </section>
+
+      <section>
+        <h2>Border</h2>
+        <select
+          value={activeBorder(s)}
+          onChange={(e) => s.set({ border: e.target.value as (typeof BORDERS)[number] })}
+        >
+          {BORDERS.map((b) => (
+            <option key={b} value={b}>
+              {BORDER_LABELS[b]}
+            </option>
+          ))}
+        </select>
+        <label className="range">
+          Width
+          <input
+            type="range"
+            min={0}
+            max={3}
+            step={0.05}
+            value={s.borderScale}
+            onChange={(e) => s.set({ borderScale: Number(e.target.value) })}
+          />
+          <span>{Math.round(s.borderScale * 100)}%</span>
         </label>
       </section>
 

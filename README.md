@@ -23,7 +23,7 @@ Open **http://localhost:5173**. It takes a moment on first load while the map ti
 Then:
 
 1. **Search for a place** in the sidebar. You can also drag and scroll the poster to frame it yourself.
-2. **Pick a style**, then change any of the colours, fonts and text if you want to.
+2. **Pick a style**, then change any of the colours, fonts, border and text if you want to.
 3. **Choose a size.** A4, A3, square, phone, or 4K desktop. Paper sizes also have a DPI setting.
 4. **Hit Download PNG** and the file goes to your downloads folder.
 
