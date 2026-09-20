@@ -7,6 +7,9 @@ import { PLACES } from "./config/places";
 import { shiftColor } from "./engine/color";
 import { DEFAULT_STYLE_ID, STYLES } from "./styles";
 
+export const UI_THEMES = ["light", "dark", "amoled"] as const;
+export type UiTheme = (typeof UI_THEMES)[number];
+
 export interface ViewState {
   center: [number, number]; // [lng, lat]
   zoom: number;
@@ -44,8 +47,8 @@ interface PosterStore {
   borderScale: number;
   /** How far the palette was pushed from the style's own, after Surprise me. */
   drift: { percent: number; hue: number } | null;
-  /** Light or dark chrome around the poster. */
-  uiTheme: "light" | "dark";
+  /** Chrome around the poster. */
+  uiTheme: UiTheme;
   showText: boolean;
   textScale: number;
   /** Art renderer on/off and overall strength (0–2). */
@@ -99,7 +102,7 @@ export const usePoster = create<PosterStore>((set) => ({
     : null,
   borderScale: 1,
   drift: null,
-  uiTheme: (localStorage.getItem("ui-theme") as "light" | "dark") ?? "dark",
+  uiTheme: (localStorage.getItem("ui-theme") as UiTheme | null) ?? "dark",
   showText: true,
   textScale: 0.6,
   fxOn: true,

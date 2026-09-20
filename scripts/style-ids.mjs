@@ -35,6 +35,8 @@ export const STYLE_IDS = [
   "brutalist",
   "circuit",
   "8-bit",
+  "solarized-light",
+  "solarized-dark",
   "heerhugowaard",
   "peach",
   "auburn",
