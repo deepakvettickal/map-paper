@@ -5,17 +5,40 @@ apps to ideas of our own, all rendered live in the browser and exported at print
 
 ![Grosvenor Square in the Synthwave style](docs/hero.jpg)
 
-## Run it
+## Run it locally
+
+You need [Node.js](https://nodejs.org) 18 or newer (which brings `npm`) and a modern browser with WebGL —
+Chrome, Edge, Firefox or Safari. Nothing else: no API keys, no accounts, no server.
 
 ```bash
+git clone https://github.com/deepakvettickal/map-paper.git
+cd map-paper
 npm install
-npm run dev     # http://localhost:5173
+npm run dev
 ```
 
-Search for a place, pan and zoom, pick a style, tweak any colour, then export a PNG. Paper sizes go up to
-A3 at 300 DPI, and wallpaper sizes up to 4K.
+Open **http://localhost:5173**. The first load fetches map tiles, so give it a second or two.
+
+Then:
+
+1. **Search a place** in the sidebar, or drag and scroll the poster to frame the view yourself.
+2. **Pick a style** from the dropdown, and tweak any colour, the typefaces or the text.
+3. **Choose a size** — A4, A3, square, phone or 4K desktop — and a DPI for the paper sizes.
+4. **Download PNG.** The file lands in your browser's downloads folder.
 
 Deep links open a style at a place: `?style=nolli&lat=51.5&lng=-0.12&zoom=14&size=desktop`.
+
+Other commands:
+
+```bash
+npm run build       # typecheck and build to dist/
+npm run preview     # serve the production build
+npm run typecheck   # types only
+```
+
+**Troubleshooting.** A blank map usually means the browser window was hidden or in the background, since
+browsers pause WebGL there — bring it to the front and it will draw. If an export fails with a size error,
+lower the DPI: very large canvases can exceed what a GPU allows.
 
 ## The styles
 
@@ -92,6 +115,14 @@ node scripts/gallery.mjs                    # rebuild the README gallery
 
 See [CLAUDE.md](CLAUDE.md) for the architecture notes and the roadmap: 3D terrain and buildings, and
 ornaments such as compass roses and cartouches, plus the styles still waiting on them.
+
+## TODOs
+
+- [ ] Add more styles
+- [ ] Publish and serve the tool, for access without cloning the repo
+
+Longer-term plans (3D terrain and buildings, map ornaments, SVG and PDF export) live in
+[CLAUDE.md](CLAUDE.md).
 
 ## Credits
 
