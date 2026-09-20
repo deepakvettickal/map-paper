@@ -1,6 +1,6 @@
 # map-paper
 
-Make a poster or a wallpaper out of any place on Earth. There are 39 styles to pick from. Some copy old
+Make a poster or a wallpaper out of any place on Earth. There are 41 styles to pick from. Some copy old
 cartography, some borrow from map apps, and the rest are made up. Everything renders live in the browser and
 exports big enough to print.
 
@@ -27,8 +27,8 @@ Then:
 3. **Choose a size.** A4, A3, square, phone, or 4K desktop. Paper sizes also have a DPI setting.
 4. **Hit Download PNG** and the file goes to your downloads folder.
 
-In a hurry, or just browsing? **Surprise me** picks a style, a city and a fresh palette for you. The sun and
-moon button in the corner switches the interface between light and dark.
+In a hurry, or just browsing? **Surprise me** picks a style, a city and a fresh palette for you. The three squares in the
+corner switch the interface between light, dark and AMOLED black.
 
 You can link straight to a style and a place: `?style=nolli&lat=51.5&lng=-0.12&zoom=14&size=desktop`.
 
@@ -76,6 +76,12 @@ than writing code. Every style also opens at a place that suits it, which is wha
 | <img src="docs/gallery/pastel.jpg" width="420"><br>**Pastel** - soft pastels on warm beige<br><sub>Nyhavn, Copenhagen, Denmark</sub> | <img src="docs/gallery/sakura.jpg" width="420"><br>**Sakura** - cherry blossom in spring<br><sub>Gion, Kyoto, Japan</sub> |
 | <img src="docs/gallery/solarpunk.jpg" width="420"><br>**Solarpunk** - sun, glass and greenery<br><sub>Marina Bay, Singapore</sub> | <img src="docs/gallery/dune.jpg" width="420"><br>**Dune** - desert ochres and deep shade<br><sub>Dubai, United Arab Emirates</sub> |
 | <img src="docs/gallery/nordic.jpg" width="420"><br>**Nordic** - pale northern light<br><sub>Reykjavík, Iceland</sub> |  |
+
+### Editor themes
+
+| | |
+|:--|:--|
+| <img src="docs/gallery/solarized-light.jpg" width="420"><br>**Solarized Light** - after Ethan Schoonover's Solarized Light<br><sub>Copenhagen, Denmark</sub> | <img src="docs/gallery/solarized-dark.jpg" width="420"><br>**Solarized Dark** - after Ethan Schoonover's Solarized Dark<br><sub>Seattle, United States</sub> |
 
 ### Map apps, reimagined
 
@@ -150,6 +156,7 @@ buildings, and map ornaments like compass roses and cartouches.
 
 - [ ] Add more styles
 - [ ] Publish and serve the tool, for access without cloning the repo
+- [ ] Let people send in a palette they made with **Surprise me**, so good ones can become styles
 
 Bigger plans such as 3D terrain, map ornaments and SVG or PDF export are listed in [CLAUDE.md](CLAUDE.md).
 
@@ -209,6 +216,8 @@ their makers are named here anyway. Styles marked *original* are new designs, so
 | Brutalist | *original* - raw concrete architecture |
 | Circuit | *original* - printed circuit boards |
 | 8-bit | *original* - handheld pixel-art games |
+| Solarized Light | After the Solarized Light palette by Ethan Schoonover |
+| Solarized Dark | After the Solarized Dark palette by Ethan Schoonover |
 | Heerhugowaard | Tribute to [prettymaps](https://github.com/marceloprates/prettymaps) by Marcelo Prates |
 | Peach | The Peach theme from [prettymapp](https://github.com/chrieke/prettymapp) by Christoph Rieke |
 | Auburn | The Auburn theme from [prettymapp](https://github.com/chrieke/prettymapp) by Christoph Rieke |

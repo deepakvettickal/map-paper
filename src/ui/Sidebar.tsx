@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { activeBorder, activeEffects, formatCoords, usePoster } from "../store";
+import { activeBorder, activeEffects, formatCoords, usePoster, UI_THEMES } from "../store";
 import { BORDERS, BORDER_LABELS } from "../poster/borders";
 import { hasEffects } from "../engine/effects";
 import { derivedColors } from "../engine/buildMapStyle";
@@ -134,13 +134,17 @@ export function Sidebar() {
     <aside className="sidebar">
       <header className="brand">
         <h1>map-paper</h1>
-        <button
-          className="icon"
-          title={s.uiTheme === "dark" ? "Switch to light" : "Switch to dark"}
-          onClick={() => s.set({ uiTheme: s.uiTheme === "dark" ? "light" : "dark" })}
-        >
-          {s.uiTheme === "dark" ? "☀" : "☾"}
-        </button>
+        <div className="themes" role="group" aria-label="Interface theme">
+          {UI_THEMES.map((t) => (
+            <button
+              key={t}
+              className={`swatch ${t}${s.uiTheme === t ? " on" : ""}`}
+              title={`${t[0].toUpperCase()}${t.slice(1)} interface`}
+              aria-pressed={s.uiTheme === t}
+              onClick={() => s.set({ uiTheme: t })}
+            />
+          ))}
+        </div>
       </header>
 
       <section>

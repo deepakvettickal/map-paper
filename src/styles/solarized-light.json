@@ -1,0 +1,71 @@
+{
+  "id": "solarized-light",
+  "name": "Solarized Light",
+  "credit": "After the Solarized Light palette by Ethan Schoonover",
+  "colors": {
+    "land": "#FDF6E3",
+    "landuse": "#F0E9D3",
+    "water": "#BBD9EA",
+    "waterDots": "#A6CBE2",
+    "green": "#D8DCB4",
+    "forest": "#C6CE9A",
+    "sand": "#F1E7C6",
+    "buildings": [
+      "#E8E0C6",
+      "#DFD6B9",
+      "#EDE5CD"
+    ],
+    "outline": "#C7BFA6",
+    "road": "#FFFFFF",
+    "roadCasing": "#C2BAA0",
+    "rail": "#93A1A1",
+    "frame": "#FDF6E3",
+    "text": "#657B83",
+    "waterway": "#8FBCD8",
+    "transit": "#2AA198",
+    "aeroway": "#EFE7CF"
+  },
+  "roadColors": {
+    "motorway": "#CB4B16",
+    "trunk": "#B58900",
+    "primary": "#F0D8A8",
+    "secondary": "#FFFFFF"
+  },
+  "roadWidths": {
+    "motorway": 8,
+    "trunk": 8,
+    "primary": 7,
+    "secondary": 6,
+    "tertiary": 5,
+    "minor": 3.8,
+    "service": 2.4,
+    "path": 1
+  },
+  "casingRatio": 0.14,
+  "outlineWidth": 0.4,
+  "waterPattern": false,
+  "fonts": {
+    "title": "IBM Plex Mono",
+    "subtitle": "IBM Plex Mono"
+  },
+  "frameWidth": 0.032,
+  "textPanel": {
+    "height": 13
+  },
+  "effects": {
+    "grain": 0.02
+  },
+  "labels": {
+    "letterSpacing": 0.12,
+    "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      12.59,
+      55.68
+    ],
+    "zoom": 14.2,
+    "title": "Copenhagen",
+    "subtitle": "Denmark"
+  }
+}

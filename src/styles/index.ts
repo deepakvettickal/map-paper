@@ -34,6 +34,8 @@ import s_synthwave from "./synthwave.json";
 import s_brutalist from "./brutalist.json";
 import s_circuit from "./circuit.json";
 import s_8_bit from "./8-bit.json";
+import s_solarized_light from "./solarized-light.json";
+import s_solarized_dark from "./solarized-dark.json";
 import s_heerhugowaard from "./heerhugowaard.json";
 import s_peach from "./peach.json";
 import s_auburn from "./auburn.json";
@@ -79,6 +81,8 @@ export const STYLES = [
   s_brutalist,
   s_circuit,
   s_8_bit,
+  s_solarized_light,
+  s_solarized_dark,
   s_heerhugowaard,
   s_peach,
   s_auburn,

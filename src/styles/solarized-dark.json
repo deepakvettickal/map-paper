@@ -1,0 +1,78 @@
+{
+  "id": "solarized-dark",
+  "name": "Solarized Dark",
+  "credit": "After the Solarized Dark palette by Ethan Schoonover",
+  "colors": {
+    "land": "#002B36",
+    "landuse": "#04323E",
+    "water": "#062A38",
+    "waterDots": "#0B4557",
+    "green": "#0E3B34",
+    "forest": "#0B322C",
+    "sand": "#123840",
+    "buildings": [
+      "#073642",
+      "#0A3C49",
+      "#0D4351"
+    ],
+    "outline": "#0A3B48",
+    "road": "#586E75",
+    "roadCasing": "#002B36",
+    "rail": "#2A5560",
+    "waterway": "#268BD2",
+    "transit": "#2AA198",
+    "aeroway": "#093745",
+    "frame": "#002B36",
+    "text": "#93A1A1"
+  },
+  "roadColors": {
+    "motorway": "#CB4B16",
+    "trunk": "#B58900",
+    "primary": "#268BD2",
+    "secondary": "#2AA198",
+    "tertiary": "#4A6E78",
+    "minor": "#3E626C",
+    "service": "#33545E",
+    "path": "#2B4A53"
+  },
+  "roadWidths": {
+    "motorway": 6,
+    "trunk": 6,
+    "primary": 5.5,
+    "secondary": 4.5,
+    "tertiary": 4,
+    "minor": 2.8,
+    "service": 1.8,
+    "path": 0.8
+  },
+  "casingRatio": 0.14,
+  "outlineWidth": 0.4,
+  "waterPattern": false,
+  "fonts": {
+    "title": "IBM Plex Mono",
+    "subtitle": "IBM Plex Mono"
+  },
+  "frameWidth": 0.032,
+  "textPanel": {
+    "height": 13
+  },
+  "effects": {
+    "grain": 0.02,
+    "vignette": 0.22
+  },
+  "labels": {
+    "letterSpacing": 0.12,
+    "scale": 0.85,
+    "color": "#93A1A1",
+    "halo": "#002B36"
+  },
+  "defaultView": {
+    "center": [
+      -122.3321,
+      47.6062
+    ],
+    "zoom": 14.0,
+    "title": "Seattle",
+    "subtitle": "United States"
+  }
+}
