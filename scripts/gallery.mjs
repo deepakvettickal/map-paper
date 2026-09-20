@@ -1,7 +1,8 @@
-// Builds the README gallery: one compressed JPEG per style, plus the hero image.
+// Builds the README gallery: one JPEG per style at 1920x1080.
+// The hero image is built separately by scripts/hero.mjs.
 // Usage: node scripts/gallery.mjs [styleId…]   (dev server must be running)
 // With no ids it rebuilds every image and the hero.
-import { existsSync, readFileSync, mkdirSync, readdirSync } from "node:fs";
+import { mkdirSync, readdirSync } from "node:fs";
 import puppeteer from "puppeteer-core";
 import { STYLE_IDS } from "./style-ids.mjs";
 
@@ -15,25 +16,10 @@ const browser = await puppeteer.launch({
   executablePath: CHROME,
   headless: "new",
   args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
-  // deviceScaleFactor 3 renders the poster at ~2500px wide, sharp on any screen.
-  defaultViewport: { width: 900, height: 620, deviceScaleFactor: 3 },
+  // The sidebar takes 300px and the poster gets a 32px gutter: this leaves a
+  // 640x360 CSS poster, so deviceScaleFactor 3 writes exactly 1920x1080.
+  defaultViewport: { width: 1004, height: 424, deviceScaleFactor: 3 },
 });
-
-// Hero: downscale the 4K synthwave export to a web-sized JPEG. Skipped when the
-// source export is not present locally (it is git-ignored).
-const HERO_SRC = "grosvenor-square-synthwave-3840x2160.png";
-if (existsSync(HERO_SRC) && process.argv.length <= 2) {
-const hero = readFileSync(HERO_SRC).toString("base64");
-const page = await browser.newPage();
-await page.setViewport({ width: 1600, height: 900, deviceScaleFactor: 2 });
-await page.setContent(
-  `<body style="margin:0"><img src="data:image/png;base64,${hero}" style="width:1600px;display:block"></body>`,
-);
-await page.screenshot({ path: "docs/hero.jpg", type: "jpeg", quality: 86 });
-await page.close();
-} else {
-  console.log("keeping docs/hero.jpg");
-}
 
 const only = process.argv.slice(2);
 for (const id of only.length ? only : STYLE_IDS) {
