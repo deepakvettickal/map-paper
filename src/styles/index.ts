@@ -42,7 +42,7 @@ import s_auburn from "./auburn.json";
 import s_citrus from "./citrus.json";
 
 /** Style selected when the app opens. */
-export const DEFAULT_STYLE_ID = "pencil";
+export const DEFAULT_STYLE_ID = "ukiyo-e";
 
 // Order shown in the style picker; the prettymaps tributes sit at the end.
 export const STYLES = [
