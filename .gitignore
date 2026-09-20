@@ -220,3 +220,6 @@ __marimo__/
 # Node
 node_modules/
 *.local
+
+# Local exports
+/*.png

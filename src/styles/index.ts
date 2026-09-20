@@ -32,6 +32,9 @@ import s_brutalist from "./brutalist.json";
 import s_circuit from "./circuit.json";
 import s_8_bit from "./8-bit.json";
 
+/** Style selected when the app opens. */
+export const DEFAULT_STYLE_ID = "circuit";
+
 // Order shown in the style picker.
 export const STYLES = [
   s_heerhugowaard,

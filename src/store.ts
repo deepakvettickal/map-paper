@@ -2,7 +2,7 @@ import { create } from "zustand";
 import type { EffectsSpec, StyleSpec } from "./config/types";
 import { hasEffects, scaleEffects } from "./engine/effects";
 import { SIZES } from "./config/sizes";
-import { STYLES } from "./styles";
+import { DEFAULT_STYLE_ID, STYLES } from "./styles";
 
 export interface ViewState {
   center: [number, number]; // [lng, lat]
@@ -63,7 +63,11 @@ export const usePoster = create<PosterStore>((set) => ({
   },
   jumpToken: 0,
   // `?style=<id>` opens a specific style directly.
-  spec: clone(STYLES.find((s) => s.id === params.get("style")) ?? STYLES[0]),
+  spec: clone(
+    STYLES.find((s) => s.id === params.get("style")) ??
+      STYLES.find((s) => s.id === DEFAULT_STYLE_ID) ??
+      STYLES[0],
+  ),
   title: "Grosvenor Square",
   subtitle: "London, UK",
   showCoords: true,
