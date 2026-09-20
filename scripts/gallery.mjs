@@ -1,11 +1,12 @@
 // Builds the README gallery: one compressed JPEG per style, plus the hero image.
 // Usage: node scripts/gallery.mjs            (dev server must be running)
-import { readFileSync, mkdirSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, mkdirSync, readdirSync } from "node:fs";
 import puppeteer from "puppeteer-core";
 import { STYLE_IDS } from "./style-ids.mjs";
 
 const CHROME = process.env.CHROME ?? "C:/Program Files/Google/Chrome/Application/chrome.exe";
-const VIEW = "&lat=51.5083&lng=-0.1520&zoom=14";
+// Desktop-4K framing (16:9) so every gallery image has the same shape and size.
+const VIEW = "&lat=51.5083&lng=-0.1520&zoom=14&size=desktop";
 const OUT = "docs/gallery";
 mkdirSync(OUT, { recursive: true });
 
@@ -13,18 +14,25 @@ const browser = await puppeteer.launch({
   executablePath: CHROME,
   headless: "new",
   args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
-  defaultViewport: { width: 1100, height: 1000 },
+  // deviceScaleFactor 2 renders the poster at ~1670px wide for a crisp gallery.
+  defaultViewport: { width: 900, height: 620, deviceScaleFactor: 2 },
 });
 
-// Hero: downscale the 4K synthwave export to a web-sized JPEG.
-const hero = readFileSync("grosvenor-square-synthwave-3840x2160.png").toString("base64");
+// Hero: downscale the 4K synthwave export to a web-sized JPEG. Skipped when the
+// source export is not present locally (it is git-ignored).
+const HERO_SRC = "grosvenor-square-synthwave-3840x2160.png";
+if (existsSync(HERO_SRC)) {
+const hero = readFileSync(HERO_SRC).toString("base64");
 const page = await browser.newPage();
-await page.setViewport({ width: 1600, height: 900 });
+await page.setViewport({ width: 1600, height: 900, deviceScaleFactor: 1 });
 await page.setContent(
   `<body style="margin:0"><img src="data:image/png;base64,${hero}" style="width:1600px;display:block"></body>`,
 );
 await page.screenshot({ path: "docs/hero.jpg", type: "jpeg", quality: 86 });
 await page.close();
+} else {
+  console.log("hero source missing, keeping docs/hero.jpg");
+}
 
 for (const id of STYLE_IDS) {
   const p = await browser.newPage();
@@ -36,7 +44,7 @@ for (const id of STYLE_IDS) {
   await p.evaluate(() => document.fonts.ready);
   await new Promise((r) => setTimeout(r, 900));
   const el = await p.$(".poster");
-  await el.screenshot({ path: `${OUT}/${id}.jpg`, type: "jpeg", quality: 82 });
+  await el.screenshot({ path: `${OUT}/${id}.jpg`, type: "jpeg", quality: 84 });
   await p.close();
   console.log("saved", id);
 }

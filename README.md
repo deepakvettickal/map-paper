@@ -43,40 +43,46 @@ lower the DPI: very large canvases can exceed what a GPU allows.
 ## The styles
 
 Every style is one JSON file in [`src/styles/`](src/styles/), so a new one is a new file — no code needed.
-All views below are Grosvenor Square, London.
+Each shot below is the same view of Grosvenor Square, London, exported at 4K desktop-wallpaper proportions.
 
 ### Historic cartography
 
-| | | |
-|:--:|:--:|:--:|
-| ![Nolli](docs/gallery/nolli.jpg)<br>**Nolli** · Rome 1748 | ![Sanborn](docs/gallery/sanborn.jpg)<br>**Sanborn** · fire insurance maps | ![Snow](docs/gallery/snow.jpg)<br>**Snow** · cholera map 1854 |
-| ![Booth](docs/gallery/booth.jpg)<br>**Booth** · poverty map 1889 | ![Ordnance](docs/gallery/ordnance.jpg)<br>**Ordnance** · OS first edition | ![Soviet Topo](docs/gallery/soviet-topo.jpg)<br>**Soviet Topo** · military maps |
-| ![Harry Beck](docs/gallery/beck.jpg)<br>**Harry Beck** · Underground 1933 | ![Vignelli](docs/gallery/vignelli.jpg)<br>**Vignelli** · NYC subway 1972 | ![Heerhugowaard](docs/gallery/heerhugowaard.jpg)<br>**Heerhugowaard** · prettymaps tribute |
+| | |
+|:--|:--|
+| <img src="docs/gallery/nolli.jpg" width="420"><br>**Nolli** — after Giambattista Nolli, Rome, 1748 | <img src="docs/gallery/sanborn.jpg" width="420"><br>**Sanborn** — after Sanborn fire-insurance maps, 1867–1970s |
+| <img src="docs/gallery/snow.jpg" width="420"><br>**Snow** — after John Snow, cholera map of Soho, 1854 | <img src="docs/gallery/booth.jpg" width="420"><br>**Booth** — after Charles Booth, London poverty map, 1889 |
+| <img src="docs/gallery/ordnance.jpg" width="420"><br>**Ordnance** — after Ordnance Survey first edition, 1840s–80s | <img src="docs/gallery/soviet-topo.jpg" width="420"><br>**Soviet Topo** — after Soviet military topographic maps |
+| <img src="docs/gallery/beck.jpg" width="420"><br>**Harry Beck** — after Harry Beck, London Underground diagram, 1933 | <img src="docs/gallery/vignelli.jpg" width="420"><br>**Vignelli** — after Massimo Vignelli, New York subway map, 1972 |
+| <img src="docs/gallery/heerhugowaard.jpg" width="420"><br>**Heerhugowaard** — after the prettymaps preset of the same name |  |
 
 ### Culture and craft
 
-| | | |
-|:--:|:--:|:--:|
-| ![Ukiyo-e](docs/gallery/ukiyo-e.jpg)<br>**Ukiyo-e** · Edo woodblock | ![Bauhaus](docs/gallery/bauhaus.jpg)<br>**Bauhaus** · Swiss International | ![Art Deco](docs/gallery/art-deco.jpg)<br>**Art Deco** · gold on navy |
-| ![Blueprint](docs/gallery/blueprint.jpg)<br>**Blueprint** · drafting paper | ![Cyanotype](docs/gallery/cyanotype.jpg)<br>**Cyanotype** · sun prints | ![Stained Glass](docs/gallery/stained-glass.jpg)<br>**Stained Glass** · Gothic windows |
-| ![Risograph](docs/gallery/risograph.jpg)<br>**Risograph** · two-ink zine | ![Linocut](docs/gallery/linocut.jpg)<br>**Linocut** · carved block | ![Pencil](docs/gallery/pencil.jpg)<br>**Pencil** · graphite sketch |
-| ![Watercolor](docs/gallery/watercolor.jpg)<br>**Watercolor** · painted washes | ![Starry Night](docs/gallery/starry-night.jpg)<br>**Starry Night** · after van Gogh | ![Pastel](docs/gallery/pastel.jpg)<br>**Pastel** · soft tones on beige |
+| | |
+|:--|:--|
+| <img src="docs/gallery/ukiyo-e.jpg" width="420"><br>**Ukiyo-e** — after Edo-period Japanese woodblock maps | <img src="docs/gallery/bauhaus.jpg" width="420"><br>**Bauhaus** — after the Bauhaus school and Swiss International Style |
+| <img src="docs/gallery/art-deco.jpg" width="420"><br>**Art Deco** — after 1920s–30s Art Deco poster design | <img src="docs/gallery/blueprint.jpg" width="420"><br>**Blueprint** — after architectural blueprints |
+| <img src="docs/gallery/cyanotype.jpg" width="420"><br>**Cyanotype** — after Anna Atkins, cyanotype photograms, 1840s | <img src="docs/gallery/stained-glass.jpg" width="420"><br>**Stained Glass** — after Gothic stained-glass windows |
+| <img src="docs/gallery/risograph.jpg" width="420"><br>**Risograph** — after risograph and screenprinted zines | <img src="docs/gallery/linocut.jpg" width="420"><br>**Linocut** — after linocut printmaking |
+| <img src="docs/gallery/pencil.jpg" width="420"><br>**Pencil** — after a graphite sketchbook | <img src="docs/gallery/watercolor.jpg" width="420"><br>**Watercolor** — after painted map washes |
+| <img src="docs/gallery/starry-night.jpg" width="420"><br>**Starry Night** — after Vincent van Gogh, The Starry Night, 1889 | <img src="docs/gallery/pastel.jpg" width="420"><br>**Pastel** — after soft pastels on warm beige |
 
 ### Map apps, reimagined
 
-Design philosophies borrowed, never copied.
+A design philosophy borrowed — colour logic, road hierarchy, mood — never assets or code.
 
-| | | |
-|:--:|:--:|:--:|
-| ![GMaps Dark](docs/gallery/gmaps-dark.jpg)<br>**GMaps Dark** | ![Search](docs/gallery/search.jpg)<br>**Search** | ![Drive](docs/gallery/drive.jpg)<br>**Drive** |
-| ![Here](docs/gallery/here.jpg)<br>**Here** | ![Toner](docs/gallery/toner.jpg)<br>**Toner** | ![Night](docs/gallery/night.jpg)<br>**Night** |
+| | |
+|:--|:--|
+| <img src="docs/gallery/gmaps-dark.jpg" width="420"><br>**GMaps Dark** — inspired by the dark mode of Google Maps | <img src="docs/gallery/search.jpg" width="420"><br>**Search** — inspired by the light mode of Google Maps |
+| <img src="docs/gallery/drive.jpg" width="420"><br>**Drive** — inspired by the design philosophy of Waze | <img src="docs/gallery/here.jpg" width="420"><br>**Here** — inspired by the design philosophy of HERE Maps |
+| <img src="docs/gallery/toner.jpg" width="420"><br>**Toner** — inspired by Stamen Toner | <img src="docs/gallery/night.jpg" width="420"><br>**Night** — inspired by CARTO Dark Matter |
 
 ### Originals
 
-| | | |
-|:--:|:--:|:--:|
-| ![Circuit](docs/gallery/circuit.jpg)<br>**Circuit** · printed boards | ![Synthwave](docs/gallery/synthwave.jpg)<br>**Synthwave** · 80s retro-future | ![Neon](docs/gallery/neon.jpg)<br>**Neon** · signs after dark |
-| ![Brutalist](docs/gallery/brutalist.jpg)<br>**Brutalist** · raw concrete | ![8-bit](docs/gallery/8-bit.jpg)<br>**8-bit** · handheld pixel art | |
+| | |
+|:--|:--|
+| <img src="docs/gallery/circuit.jpg" width="420"><br>**Circuit** — printed circuit boards | <img src="docs/gallery/synthwave.jpg" width="420"><br>**Synthwave** — 80s retro-futurism |
+| <img src="docs/gallery/neon.jpg" width="420"><br>**Neon** — neon signs after dark | <img src="docs/gallery/brutalist.jpg" width="420"><br>**Brutalist** — raw concrete architecture |
+| <img src="docs/gallery/8-bit.jpg" width="420"><br>**8-bit** — handheld pixel-art games |  |
 
 ## How it works
 
