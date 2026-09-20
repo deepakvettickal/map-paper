@@ -4,6 +4,7 @@ import { hasEffects, scaleEffects } from "./engine/effects";
 import { DEFAULT_SIZE_ID, SIZES } from "./config/sizes";
 import { BORDERS, type BorderType } from "./poster/borders";
 import { PLACES } from "./config/places";
+import type { Preset } from "./config/preset";
 import { shiftColor } from "./engine/color";
 import { DEFAULT_STYLE_ID, STYLES } from "./styles";
 
@@ -68,6 +69,8 @@ interface PosterStore {
   set: (patch: Partial<Pick<PosterStore, Editable>>) => void;
   /** New style, new place, and a fresh but still harmonious recolour. */
   randomise: () => void;
+  /** Restores a poster exported earlier as JSON. */
+  applyPreset: (p: Preset) => void;
 }
 
 const clone = <T,>(v: T): T => JSON.parse(JSON.stringify(v));
@@ -146,6 +149,29 @@ export const usePoster = create<PosterStore>((set) => ({
     if (patch.uiTheme) localStorage.setItem("ui-theme", patch.uiTheme);
     set(patch);
   },
+  applyPreset: (p) =>
+    set((s) => ({
+      spec: clone(p.spec),
+      view: {
+        center: [...p.view.center] as [number, number],
+        zoom: p.view.zoom,
+        bearing: p.view.bearing ?? 0,
+      },
+      jumpToken: s.jumpToken + 1,
+      title: p.text.title,
+      subtitle: p.text.subtitle,
+      showText: p.text.show,
+      textScale: p.text.scale,
+      showCoords: p.text.coords,
+      showLabels: p.map?.labels ?? false,
+      border: p.border?.type ?? null,
+      borderScale: p.border?.scale ?? 1,
+      fxOn: p.effects?.on ?? true,
+      fxAmount: p.effects?.amount ?? 0.5,
+      sizeId: p.output?.sizeId ?? s.sizeId,
+      dpi: p.output?.dpi ?? s.dpi,
+      drift: null,
+    })),
   randomise: () =>
     set((s) => {
       const pick = <T,>(xs: readonly T[]) => xs[Math.floor(Math.random() * xs.length)];

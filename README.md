@@ -4,7 +4,7 @@ Make a poster or a wallpaper out of any place on Earth. There are 41 styles to p
 cartography, some borrow from map apps, and the rest are made up. Everything renders live in the browser and
 exports big enough to print.
 
-![Amsterdam's western harbour, half in the Booth style and half in Neon](docs/hero.jpg)
+![Venice, half in the Pencil style and half in Stained Glass](docs/hero.jpg)
 
 ## Run it locally
 
@@ -26,6 +26,10 @@ Then:
 2. **Pick a style**, then change any of the colours, fonts, border and text if you want to.
 3. **Choose a size.** A4, A3, square, phone, or 4K desktop. Paper sizes also have a DPI setting.
 4. **Hit Download PNG** and the file goes to your downloads folder.
+
+**Save config** writes the whole poster to a JSON file: the style, every colour, the place, the text and the
+output size. **Load config** puts it all back. Handy for keeping a look you like, or sending one to someone
+else.
 
 In a hurry, or just browsing? **Surprise me** picks a style, a city and a fresh palette for you. The three squares in the
 corner switch the interface between light, dark and AMOLED black.
@@ -158,8 +162,20 @@ buildings, and map ornaments like compass roses and cartouches.
 - [ ] Add more styles
 - [ ] Publish and serve the tool, for access without cloning the repo
 - [ ] Let people send in a palette they made with **Surprise me**, so good ones can become styles
+- [ ] Build a gallery of posters people have made, replayed live from their saved configs
 
 Bigger plans such as 3D terrain, map ornaments and SVG or PDF export are listed in [CLAUDE.md](CLAUDE.md).
+
+## Hosting and privacy
+
+The site is a static build plus one serverless function on Cloudflare Pages; see [DEPLOY.md](DEPLOY.md).
+
+Usage is counted anonymously: visits, exports, randomisations and config saves. There are no cookies, no
+fingerprinting and no third-party analytics, and the session id lives in `sessionStorage`, so it is gone when
+the tab closes. Downloads also record the poster config, which is what the planned gallery will replay.
+
+The browser never touches the database. Events go to this site's own `/api/event`, which holds the
+credentials and writes to Firestore; [`firestore.rules`](firestore.rules) denies every client read and write.
 
 ## Credits
 

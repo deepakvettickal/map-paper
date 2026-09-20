@@ -1,9 +1,10 @@
 // Builds docs/hero.jpg: one place rendered in two styles, split down the middle.
-// Usage: node scripts/hero.mjs [styleA] [styleB] [lat] [lng] [zoom] [place]   (dev server must be running)
+// Usage: node scripts/hero.mjs [styleA] [styleB] [lat] [lng] [zoom] [place] [region]
+// The dev server must be running.
 import puppeteer from "puppeteer-core";
 import { writeFileSync } from "node:fs";
 
-const [a = "booth", b = "neon", lat = "52.37154664", lng = "4.97081009", zoom = "13.6", place = "Amsterdam"] =
+const [a = "booth", b = "neon", lat = "52.37154664", lng = "4.97081009", zoom = "13.6", place = "Amsterdam", region = "The Netherlands"] =
   process.argv.slice(2);
 const CHROME = process.env.CHROME ?? "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const W = 3840;
@@ -70,7 +71,7 @@ await page.setViewport({ width: 1600, height: 900 });
 await page.goto("http://localhost:5173/", { waitUntil: "domcontentloaded" });
 await page.evaluate(() => document.fonts.ready);
 const jpeg = await page.evaluate(
-  async ([A, B, w, h, name]) => {
+  async ([A, B, w, h, name, region]) => {
     const load = (b64) =>
       new Promise((res) => {
         const i = new Image();
@@ -113,10 +114,10 @@ const jpeg = await page.evaluate(
     x.font = `400 ${sub}px "IBM Plex Mono"`;
     x.letterSpacing = `${sub * 0.35}px`;
     x.fillStyle = "rgba(255,255,255,0.8)";
-    x.fillText("THE NETHERLANDS", w / 2, y + sub * 2.1);
+    x.fillText(region.toUpperCase(), w / 2, y + sub * 2.1);
     return c.toDataURL("image/jpeg", 0.93).split(",")[1];
   },
-  [imgA, imgB, W, H, place],
+  [imgA, imgB, W, H, place, region],
 );
 writeFileSync("docs/hero.jpg", Buffer.from(jpeg, "base64"));
 console.log("wrote docs/hero.jpg");
