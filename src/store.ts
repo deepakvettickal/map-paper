@@ -14,6 +14,7 @@ type Editable =
   | "title"
   | "subtitle"
   | "showCoords"
+  | "showLabels"
   | "showText"
   | "textScale"
   | "fxOn"
@@ -29,6 +30,8 @@ interface PosterStore {
   title: string;
   subtitle: string;
   showCoords: boolean;
+  /** Draw place names on the map itself. */
+  showLabels: boolean;
   showText: boolean;
   textScale: number;
   /** Art renderer on/off and overall strength (0–2). */
@@ -73,6 +76,7 @@ export const usePoster = create<PosterStore>((set) => ({
   title: "Grosvenor Square",
   subtitle: "London, UK",
   showCoords: true,
+  showLabels: false,
   showText: true,
   textScale: 0.6,
   fxOn: true,

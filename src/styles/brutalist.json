@@ -46,5 +46,11 @@
     "grain": 0.1,
     "paper": 0.5,
     "paperColor": "#9a978f"
+  },
+  "labels": {
+    "bold": true,
+    "uppercase": true,
+    "letterSpacing": 0.15,
+    "scale": 0.85
   }
 }

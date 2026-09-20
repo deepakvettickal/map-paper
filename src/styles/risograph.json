@@ -70,5 +70,11 @@
     "paperColor": "#d9d0c0",
     "wobble": 0.0005,
     "wobbleScale": 40
+  },
+  "labels": {
+    "bold": true,
+    "uppercase": true,
+    "letterSpacing": 0.15,
+    "scale": 0.85
   }
 }

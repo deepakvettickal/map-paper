@@ -54,5 +54,13 @@
   "effects": {
     "vignette": 0.35,
     "grain": 0.035
+  },
+  "labels": {
+    "bold": true,
+    "uppercase": true,
+    "letterSpacing": 0.2,
+    "scale": 0.85,
+    "color": "#EAC77A",
+    "halo": "#0D3A23"
   }
 }

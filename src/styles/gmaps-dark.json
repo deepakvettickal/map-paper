@@ -58,5 +58,8 @@
   },
   "effects": {
     "vignette": 0.18
+  },
+  "labels": {
+    "scale": 0.9
   }
 }

@@ -74,5 +74,10 @@
     "paper": 0.35,
     "paperColor": "#d9d4c7",
     "vignette": 0.1
+  },
+  "labels": {
+    "uppercase": true,
+    "letterSpacing": 0.25,
+    "scale": 0.85
   }
 }

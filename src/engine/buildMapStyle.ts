@@ -3,11 +3,12 @@ import type {
   LayerSpecification,
   StyleSpecification,
 } from "maplibre-gl";
-import type { PatternSpec, RoadClass, StyleSpec } from "../config/types";
+import type { LabelSpec, PatternSpec, RoadClass, StyleSpec } from "../config/types";
 import { makePattern, parsePatternId, patternId } from "./patterns";
 
 // OpenFreeMap serves OpenMapTiles-schema vector tiles for the whole planet, no API key.
 const TILES_URL = "https://tiles.openfreemap.org/planet";
+const GLYPHS_URL = "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf";
 const SRC = "omt";
 
 // Drawn bottom to top, so bigger roads sit on top of smaller ones.
@@ -109,7 +110,66 @@ export function derivedColors(spec: StyleSpec) {
   };
 }
 
-export function buildMapStyle(spec: StyleSpec): StyleSpecification {
+/** Place-name and water-name layers, styled to sit with the rest of the poster. */
+function labelLayers(spec: StyleSpec): LayerSpecification[] {
+  const l: LabelSpec = spec.labels ?? {};
+  const scale = l.scale ?? 1;
+  const layout = {
+    "text-font": [l.bold ? "Noto Sans Bold" : "Noto Sans Regular"],
+    "text-field": l.uppercase ? ["upcase", ["get", "name"]] : ["get", "name"],
+    "text-letter-spacing": l.letterSpacing ?? 0.05,
+    "text-max-width": 7,
+    "text-padding": 6,
+  } as const;
+  const paint = {
+    "text-color": l.color ?? spec.colors.text,
+    "text-halo-color": l.halo ?? spec.colors.land,
+    "text-halo-width": 1.4,
+    "text-halo-blur": 0.4,
+  } as const;
+
+  return [
+    {
+      id: "label-place",
+      type: "symbol",
+      source: SRC,
+      "source-layer": "place",
+      filter: [
+        "in",
+        ["get", "class"],
+        ["literal", ["city", "town", "village", "suburb", "neighbourhood", "quarter", "hamlet"]],
+      ],
+      layout: {
+        ...layout,
+        "text-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          10,
+          ["*", ["match", ["get", "class"], "city", 15, "town", 12, 10], scale],
+          16,
+          ["*", ["match", ["get", "class"], "city", 30, "town", 24, "suburb", 20, 16], scale],
+        ],
+        "text-transform": l.uppercase ? "uppercase" : "none",
+      },
+      paint,
+    } as unknown as LayerSpecification,
+    {
+      id: "label-water",
+      type: "symbol",
+      source: SRC,
+      "source-layer": "water_name",
+      layout: {
+        ...layout,
+        "text-size": ["*", 13, scale],
+        "text-letter-spacing": (l.letterSpacing ?? 0.05) + 0.1,
+      },
+      paint: { ...paint, "text-color": l.color ?? spec.colors.text },
+    } as unknown as LayerSpecification,
+  ];
+}
+
+export function buildMapStyle(spec: StyleSpec, opts: { labels?: boolean } = {}): StyleSpecification {
   const c = spec.colors;
   // Optional element colours fall back to a subtle tint of the style's own palette.
   const landuseColor = c.landuse ?? mix(c.land, c.outline, 0.07);
@@ -347,8 +407,11 @@ export function buildMapStyle(spec: StyleSpec): StyleSpecification {
     },
   ];
 
+  if (opts.labels) layers.push(...labelLayers(spec));
+
   return {
     version: 8,
+    glyphs: GLYPHS_URL,
     sources: { [SRC]: { type: "vector", url: TILES_URL } },
     layers,
   };

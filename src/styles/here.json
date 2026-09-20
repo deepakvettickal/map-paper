@@ -50,5 +50,8 @@
   "textPanel": {
     "height": 15
   },
-  "effects": {}
+  "effects": {},
+  "labels": {
+    "scale": 0.9
+  }
 }

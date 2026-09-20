@@ -42,5 +42,11 @@
     "vignette": 0.45,
     "paper": 0.2,
     "paperColor": "#050a12"
+  },
+  "labels": {
+    "bold": true,
+    "uppercase": true,
+    "letterSpacing": 0.15,
+    "scale": 0.85
   }
 }

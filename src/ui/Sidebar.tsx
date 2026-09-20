@@ -117,6 +117,7 @@ export function Sidebar() {
         previewHeight: previewSize.height,
         ...px,
         fx: activeEffects(s),
+        labels: s.showLabels,
       });
       const slug = (s.title || "map").toLowerCase().replace(/[^a-z0-9]+/g, "-");
       downloadBlob(blob, `${slug}-${s.spec.id}-${px.width}x${px.height}.png`);
@@ -197,6 +198,14 @@ export function Sidebar() {
           placeholder="Subtitle"
           onChange={(e) => s.set({ subtitle: e.target.value })}
         />
+        <label className="check">
+          <input
+            type="checkbox"
+            checked={s.showLabels}
+            onChange={(e) => s.set({ showLabels: e.target.checked })}
+          />
+          Place names on map
+        </label>
         <label className="check">
           <input
             type="checkbox"

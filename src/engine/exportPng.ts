@@ -17,6 +17,8 @@ interface ExportOptions {
   height: number;
   /** Art-renderer effects to apply, already scaled; null for a clean render. */
   fx: EffectsSpec | null;
+  /** Draw place names on the map. */
+  labels: boolean;
 }
 
 /**
@@ -43,7 +45,7 @@ export async function renderPoster(opts: ExportOptions): Promise<Blob> {
 
   const map = new maplibregl.Map({
     container,
-    style: buildMapStyle(opts.spec),
+    style: buildMapStyle(opts.spec, { labels: opts.labels }),
     center: opts.view.center,
     zoom: opts.view.zoom,
     bearing: opts.view.bearing,

@@ -75,5 +75,10 @@
     "wobble": 0.0005,
     "wobbleScale": 40,
     "vignette": 0.2
+  },
+  "labels": {
+    "uppercase": true,
+    "letterSpacing": 0.25,
+    "scale": 0.85
   }
 }

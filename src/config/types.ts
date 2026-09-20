@@ -41,6 +41,23 @@ export interface EffectsSpec {
   vignette?: number;
 }
 
+/**
+ * Optional styling for map place names. MapLibre needs SDF glyphs, and the tile
+ * server only serves Noto Sans, so a style tunes colour, weight, case and size
+ * rather than the typeface.
+ */
+export interface LabelSpec {
+  bold?: boolean;
+  /** Defaults to colors.text. */
+  color?: string;
+  /** Halo behind the text; defaults to colors.land. */
+  halo?: string;
+  uppercase?: boolean;
+  /** Multiplier on the default label sizes. */
+  scale?: number;
+  letterSpacing?: number;
+}
+
 /** A complete, JSON-serialisable description of one map art style. */
 export interface StyleSpec {
   id: string;
@@ -78,6 +95,8 @@ export interface StyleSpec {
   frameWidth: number;
   /** Optional pattern fills; a pattern replaces the flat colour of that layer. */
   patterns?: Partial<Record<"water" | "green" | "forest" | "buildings", PatternSpec>>;
+  /** Optional styling for place names, shown when the user turns labels on. */
+  labels?: LabelSpec;
   /** Optional art-renderer post effects. */
   effects?: EffectsSpec;
   /** Optional per-class road colours; classes not listed use `colors.road`. */

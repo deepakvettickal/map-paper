@@ -55,5 +55,8 @@
     "wobble": 0.0004,
     "wobbleScale": 40,
     "vignette": 0.08
+  },
+  "labels": {
+    "scale": 0.9
   }
 }

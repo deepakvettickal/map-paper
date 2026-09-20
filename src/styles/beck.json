@@ -52,5 +52,8 @@
   },
   "effects": {
     "grain": 0.015
+  },
+  "labels": {
+    "scale": 0.9
   }
 }
