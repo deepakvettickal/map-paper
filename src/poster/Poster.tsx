@@ -70,13 +70,15 @@ export function Poster() {
     registerPatternProvider(map);
     map.on("render", () => scheduleFx.current());
     map.on("error", (e) => console.error("map error:", e.error?.message ?? e));
-    map.on("moveend", () => {
+    map.on("moveend", (e) => {
       const c = map.getCenter();
-      usePoster.getState().setView({
-        center: [c.lng, c.lat],
-        zoom: map.getZoom(),
-        bearing: map.getBearing(),
-      });
+      // originalEvent is set only for user gestures (drag, scroll, pinch), not
+      // for programmatic jumps — so a manual pan/zoom pins the location.
+      const userMoved = !!(e as { originalEvent?: Event }).originalEvent;
+      usePoster.getState().setView(
+        { center: [c.lng, c.lat], zoom: map.getZoom(), bearing: map.getBearing() },
+        userMoved,
+      );
     });
     mapRef.current = map;
     if (import.meta.env.DEV) (window as unknown as { __map: unknown }).__map = map;

@@ -57,7 +57,14 @@ interface PosterStore {
   fxAmount: number;
   sizeId: string;
   dpi: number;
-  setView: (v: ViewState) => void;
+  /**
+   * True once the user has settled on a place (searched, used their location,
+   * panned/zoomed the map, loaded a preset, or picked a style). While pinned,
+   * changing the style keeps the current view instead of jumping to the style's
+   * own default place.
+   */
+  locationPinned: boolean;
+  setView: (v: ViewState, userMoved?: boolean) => void;
   jumpTo: (center: [number, number], zoom?: number) => void;
   setSpec: (spec: StyleSpec) => void;
   setColor: (key: keyof StyleSpec["colors"], value: string | string[]) => void;
@@ -112,17 +119,23 @@ export const usePoster = create<PosterStore>((set) => ({
   fxAmount: 0.5,
   sizeId: SIZES.find((z) => z.id === params.get("size"))?.id ?? DEFAULT_SIZE_ID,
   dpi: 300,
-  setView: (view) => set({ view }),
+  // A view opened with explicit ?lat/?lng is already a deliberate place.
+  locationPinned: params.has("lat") || params.has("lng"),
+  // A user-driven pan/zoom (userMoved) pins the location; programmatic moves don't.
+  setView: (view, userMoved) => set(userMoved ? { view, locationPinned: true } : { view }),
   jumpTo: (center, zoom) =>
     set((s) => ({
       view: { ...s.view, center, zoom: zoom ?? s.view.zoom },
       jumpToken: s.jumpToken + 1,
+      locationPinned: true,
     })),
-  // Picking a style also moves to the place that style was designed around.
+  // Picking a style moves to the place it was designed around only while the
+  // location is unpinned (i.e. the first pick on a fresh, untouched app). After
+  // that the style changes but the current place stays put.
   setSpec: (spec) =>
     set((s) => {
       const v = spec.defaultView;
-      if (!v) return { spec: clone(spec) };
+      if (!v || s.locationPinned) return { spec: clone(spec), drift: null };
       return {
         spec: clone(spec),
         view: { ...s.view, center: [...v.center] as [number, number], zoom: v.zoom },
@@ -130,6 +143,7 @@ export const usePoster = create<PosterStore>((set) => ({
         title: v.title,
         subtitle: v.subtitle,
         drift: null,
+        locationPinned: true,
       };
     }),
   setColor: (key, value) =>
@@ -171,6 +185,7 @@ export const usePoster = create<PosterStore>((set) => ({
       sizeId: p.output?.sizeId ?? s.sizeId,
       dpi: p.output?.dpi ?? s.dpi,
       drift: null,
+      locationPinned: true,
     })),
   randomise: () =>
     set((s) => {
@@ -221,6 +236,7 @@ export const usePoster = create<PosterStore>((set) => ({
         subtitle: place.subtitle,
         border: pick(BORDERS),
         drift: { percent, hue: Math.round(shift.rotate) },
+        locationPinned: true,
       };
     }),
 }));
