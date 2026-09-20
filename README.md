@@ -264,7 +264,28 @@ None of the AGPL-licensed code was copied. The ideas were rebuilt from scratch.
 - [OpenStreetMap](https://www.openstreetmap.org/copyright) for map data © OpenStreetMap contributors
 - [Nominatim](https://nominatim.org) for place search
 
+## Contributing
+
+Fixes and ideas are welcome. To propose a change:
+
+1. **Fork** the repo (or create a branch if you have push access), and start from an up-to-date `main`:
+   `git checkout main && git pull`.
+2. **Branch** for your change: `git checkout -b my-change`.
+3. Make the change and check it still builds: `npm run build` (this also typechecks). If you touched a style,
+   look at a screenshot — style work can't be verified by reading JSON.
+4. **Commit and push:** `git commit -am "Describe the change"` then `git push -u origin my-change`.
+5. **Open a pull request** against `main`: `gh pr create` (or use the GitHub "Compare & pull request" button).
+   Describe what changed and why.
+6. **Request approval.** `main` is protected, so every PR needs a review before it can merge. Add the
+   maintainer as a reviewer (`gh pr edit --add-reviewer deepakvettickal`) and wait for the ✅ before merging.
+   Please don't force-merge or push directly to `main`.
+
 ## Licence
 
 MIT. Map data is © OpenStreetMap contributors and tiles come from OpenFreeMap, so that credit has to stay on
 anything you publish from here.
+
+---
+
+This whole project was vibecoded over a weekend using Claude Code, and hence it's susceptible to bugs, errors
+and mistakes. All fixes and suggestions are welcome.
