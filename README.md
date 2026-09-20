@@ -1,7 +1,7 @@
 # map-paper
 
 Turn any place on Earth into a poster or wallpaper. 32 art styles, from historic cartography to modern map
-apps to ideas of our own, all rendered live in the browser and exported at print resolution.
+apps to original designs, all rendered live in the browser and exported at print resolution.
 
 ![Grosvenor Square in the Synthwave style](docs/hero.jpg)
 
@@ -132,9 +132,9 @@ Longer-term plans (3D terrain and buildings, map ornaments, SVG and PDF export) 
 
 ## Credits
 
-### Open source we build on
+### Open source used
 
-| Project | Licence | What we use it for |
+| Project | Licence | Role |
 |---|---|---|
 | [MapLibre GL JS](https://maplibre.org) | BSD-3-Clause | GPU map rendering |
 | [OpenStreetMap](https://www.openstreetmap.org/copyright) | ODbL | all map data, © OpenStreetMap contributors |
@@ -146,8 +146,8 @@ Longer-term plans (3D terrain and buildings, map ornaments, SVG and PDF export) 
 
 ### Style inspirations
 
-Historic maps are long out of copyright; we credit their makers out of respect. Styles marked *original* are
-our own and need no credit.
+Historic maps are long out of copyright; their makers are credited here regardless. Styles marked *original*
+are new designs and need no credit.
 
 | Style | Credit |
 |---|---|
@@ -180,14 +180,14 @@ assets, code or map style, and are not affiliated with or endorsed by those comp
 
 ## Tribute
 
-map-paper stands on the shoulders of these open source projects. Thank you!
+map-paper builds on the work of these open source projects.
 
 - **[prettymaps](https://github.com/marceloprates/prettymaps)** by Marcelo Prates. It started artistic
-  OpenStreetMap posters, and its inked look and JSON presets inspired our style specs. Our *Heerhugowaard*
-  style is a tribute to its preset of the same name.
+  OpenStreetMap posters; its inked look and JSON presets shaped the style-spec format here, and the
+  *Heerhugowaard* style is a tribute to its preset of the same name.
 - **[prettymapp](https://github.com/chrieke/prettymapp)** by Christoph Rieke. A streamlined take on
   prettymaps with a friendly web UI.
-- **[terraink](https://github.com/yousifamanuel/terraink)** by Yousif Amanuel. Showed how fast and polished a
+- **[terraink](https://github.com/yousifamanuel/terraink)** by Yousif Amanuel. A demonstration of how fast and polished a
   browser-based poster maker can be with vector tiles and MapLibre.
 
 No code was copied from the AGPL-licensed projects; ideas were reimplemented from scratch.
@@ -201,4 +201,5 @@ No code was copied from the AGPL-licensed projects; ideas were reimplemented fro
 
 ## Licence
 
-MIT. Map data © OpenStreetMap contributors, tiles by OpenFreeMap; keep that credit on anything you publish.
+MIT. Map data © OpenStreetMap contributors, tiles by OpenFreeMap; that credit must stay on anything published
+from this tool.

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { EffectsSpec, StyleSpec } from "./config/types";
 import { hasEffects, scaleEffects } from "./engine/effects";
-import { SIZES } from "./config/sizes";
+import { DEFAULT_SIZE_ID, SIZES } from "./config/sizes";
 import { DEFAULT_STYLE_ID, STYLES } from "./styles";
 
 export interface ViewState {
@@ -77,7 +77,7 @@ export const usePoster = create<PosterStore>((set) => ({
   textScale: 0.6,
   fxOn: true,
   fxAmount: 0.5,
-  sizeId: SIZES.find((z) => z.id === params.get("size"))?.id ?? SIZES[0].id,
+  sizeId: SIZES.find((z) => z.id === params.get("size"))?.id ?? DEFAULT_SIZE_ID,
   dpi: 300,
   setView: (view) => set({ view }),
   jumpTo: (center, zoom) =>

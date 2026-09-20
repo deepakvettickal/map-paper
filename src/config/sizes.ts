@@ -8,6 +8,9 @@ export const SIZES: SizePreset[] = [
   { id: "desktop", label: "Desktop 4K", width: 3840, height: 2160, unit: "px" },
 ];
 
+/** Size selected when the app opens. */
+export const DEFAULT_SIZE_ID = "desktop";
+
 /** Output pixel dimensions for a size preset at the given DPI (px presets ignore DPI). */
 export function pixelSize(size: SizePreset, dpi: number) {
   if (size.unit === "px") return { width: size.width, height: size.height };
