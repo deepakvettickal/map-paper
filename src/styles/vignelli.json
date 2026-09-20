@@ -52,5 +52,11 @@
   },
   "effects": {
     "grain": 0.015
+  },
+  "labels": {
+    "bold": true,
+    "uppercase": true,
+    "letterSpacing": 0.15,
+    "scale": 0.85
   }
 }

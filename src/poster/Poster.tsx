@@ -28,6 +28,7 @@ export function Poster() {
   const showText = usePoster((s) => s.showText);
   const textScale = usePoster((s) => s.textScale);
   const center = usePoster((s) => s.view.center);
+  const showLabels = usePoster((s) => s.showLabels);
   const fxOn = usePoster((s) => s.fxOn);
   const fxAmount = usePoster((s) => s.fxAmount);
   const fx = useMemo(() => activeEffects({ spec, fxOn, fxAmount }), [spec, fxOn, fxAmount]);
@@ -56,7 +57,7 @@ export function Poster() {
     const { view, spec } = usePoster.getState();
     const map = new maplibregl.Map({
       container: mapEl.current!,
-      style: buildMapStyle(spec),
+      style: buildMapStyle(spec, { labels: usePoster.getState().showLabels }),
       center: view.center,
       zoom: view.zoom,
       bearing: view.bearing,
@@ -83,9 +84,10 @@ export function Poster() {
   // Live style updates (MapLibre diffs the style, so this is cheap).
   const initialSpec = useRef(spec);
   useEffect(() => {
-    if (spec === initialSpec.current) return; // the map was created with this spec
-    mapRef.current?.setStyle(buildMapStyle(spec));
-  }, [spec]);
+    // Skip the first run: the map was created with this spec and label setting.
+    if (spec === initialSpec.current && !showLabels) return;
+    mapRef.current?.setStyle(buildMapStyle(spec, { labels: showLabels }));
+  }, [spec, showLabels]);
 
   // Jump after a search.
   useEffect(() => {

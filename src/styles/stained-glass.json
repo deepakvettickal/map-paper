@@ -49,5 +49,11 @@
     "wobbleScale": 25,
     "paper": 0.35,
     "paperColor": "#3a3a3a"
+  },
+  "labels": {
+    "bold": true,
+    "uppercase": true,
+    "letterSpacing": 0.15,
+    "scale": 0.85
   }
 }

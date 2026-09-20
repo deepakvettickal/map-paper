@@ -66,5 +66,10 @@
       "spacing": 6,
       "width": 0.6
     }
+  },
+  "labels": {
+    "uppercase": true,
+    "letterSpacing": 0.25,
+    "scale": 0.85
   }
 }

@@ -51,5 +51,11 @@
     "misregister": 0.0009,
     "wobble": 0.0003,
     "wobbleScale": 40
+  },
+  "labels": {
+    "bold": true,
+    "uppercase": true,
+    "letterSpacing": 0.15,
+    "scale": 0.85
   }
 }

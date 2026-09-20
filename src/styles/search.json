@@ -47,5 +47,8 @@
   "frameWidth": 0.02,
   "textPanel": {
     "height": 15
+  },
+  "labels": {
+    "scale": 0.9
   }
 }

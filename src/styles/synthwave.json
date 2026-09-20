@@ -56,5 +56,13 @@
     "vignette": 0.5,
     "grain": 0.05,
     "misregister": 0.0012
+  },
+  "labels": {
+    "bold": true,
+    "uppercase": true,
+    "letterSpacing": 0.2,
+    "scale": 0.85,
+    "color": "#FFD5F5",
+    "halo": "#1A0B2E"
   }
 }

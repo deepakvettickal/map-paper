@@ -45,5 +45,11 @@
   "effects": {
     "pixelate": 0.0045,
     "grain": 0.02
+  },
+  "labels": {
+    "bold": true,
+    "uppercase": true,
+    "letterSpacing": 0.15,
+    "scale": 0.85
   }
 }
