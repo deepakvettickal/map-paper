@@ -1,14 +1,15 @@
 # map-paper
 
-Turn any place on Earth into a poster or wallpaper. 32 art styles, from historic cartography to modern map
-apps to original designs, all rendered live in the browser and exported at print resolution.
+Make a poster or a wallpaper out of any place on Earth. There are 32 styles to pick from. Some copy old
+cartography, some borrow from map apps, and the rest are made up. Everything renders live in the browser and
+exports big enough to print.
 
 ![Grosvenor Square in the Synthwave style](docs/hero.jpg)
 
 ## Run it locally
 
-You need [Node.js](https://nodejs.org) 18 or newer (which brings `npm`) and a modern browser with WebGL —
-Chrome, Edge, Firefox or Safari. Nothing else: no API keys, no accounts, no server.
+You need [Node.js](https://nodejs.org) 18 or newer, and a browser that supports WebGL. Chrome, Edge, Firefox
+and Safari all work. There is nothing to sign up for and no API key to get.
 
 ```bash
 git clone https://github.com/deepakvettickal/map-paper.git
@@ -17,16 +18,16 @@ npm install
 npm run dev
 ```
 
-Open **http://localhost:5173**. The first load fetches map tiles, so give it a second or two.
+Open **http://localhost:5173**. It takes a moment on first load while the map tiles come down.
 
 Then:
 
-1. **Search a place** in the sidebar, or drag and scroll the poster to frame the view yourself.
-2. **Pick a style** from the dropdown, and tweak any colour, the typefaces or the text.
-3. **Choose a size** — A4, A3, square, phone or 4K desktop — and a DPI for the paper sizes.
-4. **Download PNG.** The file lands in your browser's downloads folder.
+1. **Search for a place** in the sidebar. You can also drag and scroll the poster to frame it yourself.
+2. **Pick a style**, then change any of the colours, fonts and text if you want to.
+3. **Choose a size.** A4, A3, square, phone, or 4K desktop. Paper sizes also have a DPI setting.
+4. **Hit Download PNG** and the file goes to your downloads folder.
 
-Deep links open a style at a place: `?style=nolli&lat=51.5&lng=-0.12&zoom=14&size=desktop`.
+You can link straight to a style and a place: `?style=nolli&lat=51.5&lng=-0.12&zoom=14&size=desktop`.
 
 Other commands:
 
@@ -36,67 +37,71 @@ npm run preview     # serve the production build
 npm run typecheck   # types only
 ```
 
-**Troubleshooting.** A blank map usually means the browser window was hidden or in the background, since
-browsers pause WebGL there — bring it to the front and it will draw. If an export fails with a size error,
-lower the DPI: very large canvases can exceed what a GPU allows.
+**If something looks wrong.** A blank map usually means the browser window was behind another one. Browsers
+stop drawing WebGL in the background, so bring the window to the front and it will come back. If an export
+fails with a size error, drop the DPI. Very large canvases go past what some graphics cards allow.
 
 ## The styles
 
-Every style is one JSON file in [`src/styles/`](src/styles/), so a new one is a new file — no code needed.
-Each shot below is the same view of Grosvenor Square, London, exported at 4K desktop-wallpaper proportions.
+Each style is a single JSON file in [`src/styles/`](src/styles/), so adding one means adding a file rather
+than writing code. Every shot below is the same view of Grosvenor Square in London, at 4K wallpaper
+proportions.
 
 ### Historic cartography
 
 | | |
 |:--|:--|
-| <img src="docs/gallery/nolli.jpg" width="420"><br>**Nolli** — after Giambattista Nolli, Rome, 1748 | <img src="docs/gallery/sanborn.jpg" width="420"><br>**Sanborn** — after Sanborn fire-insurance maps, 1867–1970s |
-| <img src="docs/gallery/snow.jpg" width="420"><br>**Snow** — after John Snow, cholera map of Soho, 1854 | <img src="docs/gallery/booth.jpg" width="420"><br>**Booth** — after Charles Booth, London poverty map, 1889 |
-| <img src="docs/gallery/ordnance.jpg" width="420"><br>**Ordnance** — after Ordnance Survey first edition, 1840s–80s | <img src="docs/gallery/soviet-topo.jpg" width="420"><br>**Soviet Topo** — after Soviet military topographic maps |
-| <img src="docs/gallery/beck.jpg" width="420"><br>**Harry Beck** — after Harry Beck, London Underground diagram, 1933 | <img src="docs/gallery/vignelli.jpg" width="420"><br>**Vignelli** — after Massimo Vignelli, New York subway map, 1972 |
-| <img src="docs/gallery/heerhugowaard.jpg" width="420"><br>**Heerhugowaard** — after the prettymaps preset of the same name |  |
+| <img src="docs/gallery/nolli.jpg" width="420"><br>**Nolli** - after Giambattista Nolli, Rome, 1748 | <img src="docs/gallery/sanborn.jpg" width="420"><br>**Sanborn** - after Sanborn fire-insurance maps, 1867–1970s |
+| <img src="docs/gallery/snow.jpg" width="420"><br>**Snow** - after John Snow, cholera map of Soho, 1854 | <img src="docs/gallery/booth.jpg" width="420"><br>**Booth** - after Charles Booth, London poverty map, 1889 |
+| <img src="docs/gallery/ordnance.jpg" width="420"><br>**Ordnance** - after Ordnance Survey first edition, 1840s–80s | <img src="docs/gallery/soviet-topo.jpg" width="420"><br>**Soviet Topo** - after Soviet military topographic maps |
+| <img src="docs/gallery/beck.jpg" width="420"><br>**Harry Beck** - after Harry Beck, London Underground diagram, 1933 | <img src="docs/gallery/vignelli.jpg" width="420"><br>**Vignelli** - after Massimo Vignelli, New York subway map, 1972 |
+| <img src="docs/gallery/heerhugowaard.jpg" width="420"><br>**Heerhugowaard** - after the prettymaps preset of the same name |  |
 
 ### Culture and craft
 
 | | |
 |:--|:--|
-| <img src="docs/gallery/ukiyo-e.jpg" width="420"><br>**Ukiyo-e** — after Edo-period Japanese woodblock maps | <img src="docs/gallery/bauhaus.jpg" width="420"><br>**Bauhaus** — after the Bauhaus school and Swiss International Style |
-| <img src="docs/gallery/art-deco.jpg" width="420"><br>**Art Deco** — after 1920s–30s Art Deco poster design | <img src="docs/gallery/blueprint.jpg" width="420"><br>**Blueprint** — after architectural blueprints |
-| <img src="docs/gallery/cyanotype.jpg" width="420"><br>**Cyanotype** — after Anna Atkins, cyanotype photograms, 1840s | <img src="docs/gallery/stained-glass.jpg" width="420"><br>**Stained Glass** — after Gothic stained-glass windows |
-| <img src="docs/gallery/risograph.jpg" width="420"><br>**Risograph** — after risograph and screenprinted zines | <img src="docs/gallery/linocut.jpg" width="420"><br>**Linocut** — after linocut printmaking |
-| <img src="docs/gallery/pencil.jpg" width="420"><br>**Pencil** — after a graphite sketchbook | <img src="docs/gallery/watercolor.jpg" width="420"><br>**Watercolor** — after painted map washes |
-| <img src="docs/gallery/starry-night.jpg" width="420"><br>**Starry Night** — after Vincent van Gogh, The Starry Night, 1889 | <img src="docs/gallery/pastel.jpg" width="420"><br>**Pastel** — after soft pastels on warm beige |
+| <img src="docs/gallery/ukiyo-e.jpg" width="420"><br>**Ukiyo-e** - after Edo-period Japanese woodblock maps | <img src="docs/gallery/bauhaus.jpg" width="420"><br>**Bauhaus** - after the Bauhaus school and Swiss International Style |
+| <img src="docs/gallery/art-deco.jpg" width="420"><br>**Art Deco** - after 1920s–30s Art Deco poster design | <img src="docs/gallery/blueprint.jpg" width="420"><br>**Blueprint** - after architectural blueprints |
+| <img src="docs/gallery/cyanotype.jpg" width="420"><br>**Cyanotype** - after Anna Atkins, cyanotype photograms, 1840s | <img src="docs/gallery/stained-glass.jpg" width="420"><br>**Stained Glass** - after Gothic stained-glass windows |
+| <img src="docs/gallery/risograph.jpg" width="420"><br>**Risograph** - after risograph and screenprinted zines | <img src="docs/gallery/linocut.jpg" width="420"><br>**Linocut** - after linocut printmaking |
+| <img src="docs/gallery/pencil.jpg" width="420"><br>**Pencil** - after a graphite sketchbook | <img src="docs/gallery/watercolor.jpg" width="420"><br>**Watercolor** - after painted map washes |
+| <img src="docs/gallery/starry-night.jpg" width="420"><br>**Starry Night** - after Vincent van Gogh, The Starry Night, 1889 | <img src="docs/gallery/pastel.jpg" width="420"><br>**Pastel** - after soft pastels on warm beige |
 
 ### Map apps, reimagined
 
-A design philosophy borrowed — colour logic, road hierarchy, mood — never assets or code.
+These borrow the thinking behind each map: how colour is used, how road types are ranked, the overall mood.
+No assets or code are taken from them.
 
 | | |
 |:--|:--|
-| <img src="docs/gallery/gmaps-dark.jpg" width="420"><br>**GMaps Dark** — inspired by the dark mode of Google Maps | <img src="docs/gallery/search.jpg" width="420"><br>**Search** — inspired by the light mode of Google Maps |
-| <img src="docs/gallery/drive.jpg" width="420"><br>**Drive** — inspired by the design philosophy of Waze | <img src="docs/gallery/here.jpg" width="420"><br>**Here** — inspired by the design philosophy of HERE Maps |
-| <img src="docs/gallery/toner.jpg" width="420"><br>**Toner** — inspired by Stamen Toner | <img src="docs/gallery/night.jpg" width="420"><br>**Night** — inspired by CARTO Dark Matter |
+| <img src="docs/gallery/gmaps-dark.jpg" width="420"><br>**GMaps Dark** - inspired by the dark mode of Google Maps | <img src="docs/gallery/search.jpg" width="420"><br>**Search** - inspired by the light mode of Google Maps |
+| <img src="docs/gallery/drive.jpg" width="420"><br>**Drive** - inspired by the design philosophy of Waze | <img src="docs/gallery/here.jpg" width="420"><br>**Here** - inspired by the design philosophy of HERE Maps |
+| <img src="docs/gallery/toner.jpg" width="420"><br>**Toner** - inspired by Stamen Toner | <img src="docs/gallery/night.jpg" width="420"><br>**Night** - inspired by CARTO Dark Matter |
 
 ### Originals
 
 | | |
 |:--|:--|
-| <img src="docs/gallery/circuit.jpg" width="420"><br>**Circuit** — printed circuit boards | <img src="docs/gallery/synthwave.jpg" width="420"><br>**Synthwave** — 80s retro-futurism |
-| <img src="docs/gallery/neon.jpg" width="420"><br>**Neon** — neon signs after dark | <img src="docs/gallery/brutalist.jpg" width="420"><br>**Brutalist** — raw concrete architecture |
-| <img src="docs/gallery/8-bit.jpg" width="420"><br>**8-bit** — handheld pixel-art games |  |
+| <img src="docs/gallery/circuit.jpg" width="420"><br>**Circuit** - printed circuit boards | <img src="docs/gallery/synthwave.jpg" width="420"><br>**Synthwave** - 80s retro-futurism |
+| <img src="docs/gallery/neon.jpg" width="420"><br>**Neon** - neon signs after dark | <img src="docs/gallery/brutalist.jpg" width="420"><br>**Brutalist** - raw concrete architecture |
+| <img src="docs/gallery/8-bit.jpg" width="420"><br>**8-bit** - handheld pixel-art games |  |
 
 ## How it works
 
-- **Vector tiles, not API calls.** [OpenFreeMap](https://openfreemap.org) tiles render on the GPU through
-  [MapLibre GL](https://maplibre.org), so panning, zooming and restyling are instant. No per-render queries.
-- **Styles are data.** A `StyleSpec` holds colours, road widths per class, pattern fills, fonts, frame and
-  effects. [`src/engine/buildMapStyle.ts`](src/engine/buildMapStyle.ts) turns it into a MapLibre style.
-- **The art renderer.** [`src/engine/patterns.ts`](src/engine/patterns.ts) generates hatching, crosshatch,
-  stipple, waves and dots on demand, and [`src/engine/effects.ts`](src/engine/effects.ts) runs one WebGL pass
-  over the finished poster for paper texture, grain, hand-drawn wobble, ink misregistration, pixelation and
-  vignetting. Sizes are in poster units, so a 300 DPI export matches the preview. A switch and a strength
-  slider control it.
-- **Export.** An offscreen map renders at a higher pixel ratio, then the frame, text and effects composite on
-  top. A4 at 300 DPI takes well under a second on a normal GPU.
+- **Vector tiles instead of API calls.** [OpenFreeMap](https://openfreemap.org) tiles are drawn on the GPU by
+  [MapLibre GL](https://maplibre.org). Panning, zooming and restyling happen straight away, and nothing is
+  re-fetched when a colour changes.
+- **Styles are just data.** A `StyleSpec` carries the colours, road widths for each class, pattern fills,
+  fonts, frame and effects. [`src/engine/buildMapStyle.ts`](src/engine/buildMapStyle.ts) turns that into a
+  MapLibre style.
+- **The art renderer.** [`src/engine/patterns.ts`](src/engine/patterns.ts) builds hatching, crosshatch,
+  stipple, waves and dot fills as they are needed. [`src/engine/effects.ts`](src/engine/effects.ts) then runs
+  a single WebGL pass over the finished poster for paper texture, grain, shaky lines, ink misregistration,
+  pixelation and vignetting. Everything is measured in poster units, which is why a 300 DPI export looks like
+  the preview. There is a switch and a strength slider in the sidebar.
+- **Export.** A hidden map renders at a higher pixel ratio, then the frame, text and effects are composited on
+  top. A4 at 300 DPI finishes in well under a second on a normal graphics card.
 
 ### Project layout
 
@@ -119,16 +124,15 @@ node scripts/contact-sheet.mjs out/         # lay them out side by side
 node scripts/gallery.mjs                    # rebuild the README gallery
 ```
 
-See [CLAUDE.md](CLAUDE.md) for the architecture notes and the roadmap: 3D terrain and buildings, and
-ornaments such as compass roses and cartouches, plus the styles still waiting on them.
+[CLAUDE.md](CLAUDE.md) has the architecture notes and what is planned next, including 3D terrain and
+buildings, and map ornaments like compass roses and cartouches.
 
 ## TODOs
 
 - [ ] Add more styles
 - [ ] Publish and serve the tool, for access without cloning the repo
 
-Longer-term plans (3D terrain and buildings, map ornaments, SVG and PDF export) live in
-[CLAUDE.md](CLAUDE.md).
+Bigger plans such as 3D terrain, map ornaments and SVG or PDF export are listed in [CLAUDE.md](CLAUDE.md).
 
 ## Credits
 
@@ -146,8 +150,8 @@ Longer-term plans (3D terrain and buildings, map ornaments, SVG and PDF export) 
 
 ### Style inspirations
 
-Historic maps are long out of copyright; their makers are credited here regardless. Styles marked *original*
-are new designs and need no credit.
+The historic maps are long out of copyright, but their makers are named here anyway. Styles marked
+*original* are new designs, so there is nobody to credit.
 
 | Style | Credit |
 |---|---|
@@ -175,22 +179,22 @@ are new designs and need no credit.
 | Here | the design philosophy of HERE Maps |
 | Pencil, Pastel, Neon, Synthwave, Brutalist, Circuit, 8-bit | *original* |
 
-Provider-inspired styles borrow a design philosophy — colour logic, road hierarchy, mood. They copy no
-assets, code or map style, and are not affiliated with or endorsed by those companies.
+The map-app styles take inspiration from how those maps are designed. They do not copy any assets, code or
+map styles, and this project is not affiliated with or endorsed by those companies.
 
 ## Tribute
 
 map-paper builds on the work of these open source projects.
 
-- **[prettymaps](https://github.com/marceloprates/prettymaps)** by Marcelo Prates. It started artistic
-  OpenStreetMap posters; its inked look and JSON presets shaped the style-spec format here, and the
+- **[prettymaps](https://github.com/marceloprates/prettymaps)** by Marcelo Prates, which started artistic
+  OpenStreetMap posters. Its inked look and JSON presets shaped how styles are described here, and the
   *Heerhugowaard* style is a tribute to its preset of the same name.
-- **[prettymapp](https://github.com/chrieke/prettymapp)** by Christoph Rieke. A streamlined take on
-  prettymaps with a friendly web UI.
-- **[terraink](https://github.com/yousifamanuel/terraink)** by Yousif Amanuel. A demonstration of how fast and polished a
-  browser-based poster maker can be with vector tiles and MapLibre.
+- **[prettymapp](https://github.com/chrieke/prettymapp)** by Christoph Rieke, a tidier take on prettymaps
+  with a friendly web UI.
+- **[terraink](https://github.com/yousifamanuel/terraink)** by Yousif Amanuel, which shows how fast and
+  polished a browser-based poster maker can be when it is built on vector tiles and MapLibre.
 
-No code was copied from the AGPL-licensed projects; ideas were reimplemented from scratch.
+None of the AGPL-licensed code was copied. The ideas were rebuilt from scratch.
 
 ## Built with
 
@@ -201,5 +205,5 @@ No code was copied from the AGPL-licensed projects; ideas were reimplemented fro
 
 ## Licence
 
-MIT. Map data © OpenStreetMap contributors, tiles by OpenFreeMap; that credit must stay on anything published
-from this tool.
+MIT. Map data is © OpenStreetMap contributors and tiles come from OpenFreeMap, so that credit has to stay on
+anything you publish from here.
