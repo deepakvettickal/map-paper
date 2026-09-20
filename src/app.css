@@ -72,3 +72,5 @@ button.link { background: none; border: none; padding: 0; width: auto; color: va
 /* With the art renderer on, the effects canvas shows the composite; the map stays interactive underneath. */
 .poster.fx-on .poster-fx { display: block; }
 .poster.fx-on .poster-overlay, .poster.fx-on .poster-map canvas { opacity: 0; }
+.field { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+.field select { color: var(--text); }

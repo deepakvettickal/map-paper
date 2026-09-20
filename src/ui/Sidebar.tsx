@@ -4,6 +4,7 @@ import { hasEffects } from "../engine/effects";
 import { derivedColors } from "../engine/buildMapStyle";
 import { STYLES } from "../styles";
 import { SIZES, pixelSize } from "../config/sizes";
+import { FONTS } from "../config/fonts";
 import { searchPlaces, type Place } from "../services/geocode";
 import { downloadBlob, renderPoster } from "../engine/exportPng";
 import { previewSize } from "../poster/Poster";
@@ -203,6 +204,26 @@ export function Sidebar() {
             onChange={(e) => s.set({ showCoords: e.target.checked })}
           />
           Show coordinates
+        </label>
+        <label className="field">
+          Title font
+          <select value={s.spec.fonts.title} onChange={(e) => s.setFont("title", e.target.value)}>
+            {FONTS.map((f) => (
+              <option key={f} value={f} style={{ fontFamily: `"${f}"` }}>
+                {f}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="field">
+          Detail font
+          <select value={s.spec.fonts.subtitle} onChange={(e) => s.setFont("subtitle", e.target.value)}>
+            {FONTS.map((f) => (
+              <option key={f} value={f} style={{ fontFamily: `"${f}"` }}>
+                {f}
+              </option>
+            ))}
+          </select>
         </label>
         <label className="range">
           Size

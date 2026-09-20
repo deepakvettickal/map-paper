@@ -90,8 +90,56 @@ node scripts/contact-sheet.mjs out/         # lay them out side by side
 node scripts/gallery.mjs                    # rebuild the README gallery
 ```
 
-See [PLAN.md](PLAN.md) for the roadmap: 3D terrain and buildings, ornaments such as compass roses and
-cartouches, and the styles still waiting on them.
+See [CLAUDE.md](CLAUDE.md) for the architecture notes and the roadmap: 3D terrain and buildings, and
+ornaments such as compass roses and cartouches, plus the styles still waiting on them.
+
+## Credits
+
+### Open source we build on
+
+| Project | Licence | What we use it for |
+|---|---|---|
+| [MapLibre GL JS](https://maplibre.org) | BSD-3-Clause | GPU map rendering |
+| [OpenStreetMap](https://www.openstreetmap.org/copyright) | ODbL | all map data, © OpenStreetMap contributors |
+| [OpenFreeMap](https://openfreemap.org) | free public tiles | planet-wide vector tiles, no API key |
+| [Nominatim](https://nominatim.org) | data ODbL | place search |
+| [React](https://react.dev), [Vite](https://vite.dev), [Zustand](https://zustand.docs.pmnd.rs), [TypeScript](https://www.typescriptlang.org) | MIT / Apache-2.0 | app framework, build, state, types |
+| [Puppeteer](https://pptr.dev) | Apache-2.0 | the screenshot and gallery tooling |
+| [Google Fonts](https://fonts.google.com) | OFL | every typeface in the poster text picker |
+
+### Style inspirations
+
+Historic maps are long out of copyright; we credit their makers out of respect. Styles marked *original* are
+our own and need no credit.
+
+| Style | Credit |
+|---|---|
+| Heerhugowaard | the `heerhugowaard` preset from [prettymaps](https://github.com/marceloprates/prettymaps) by Marcelo Prates |
+| Nolli | Giambattista Nolli, *Nuova Pianta di Roma*, 1748 |
+| Sanborn | Sanborn fire-insurance maps, 1867–1970s |
+| Snow | John Snow, cholera map of Soho, 1854 |
+| Booth | Charles Booth, *Descriptive Map of London Poverty*, 1889 |
+| Ordnance | Ordnance Survey first edition, 1840s–80s |
+| Harry Beck | Harry Beck, London Underground diagram, 1933 |
+| Vignelli | Massimo Vignelli, New York City subway map, 1972 |
+| Soviet Topo | Soviet military topographic maps |
+| Ukiyo-e | Edo-period Japanese woodblock maps |
+| Bauhaus | the Bauhaus school and Swiss International Style |
+| Art Deco | 1920s–30s Art Deco poster design |
+| Blueprint, Cyanotype | architectural blueprints; Anna Atkins' cyanotype photograms, 1840s |
+| Stained Glass | Gothic stained-glass windows |
+| Risograph, Linocut | risograph zines and linocut printmaking |
+| Watercolor | painted map washes, in the spirit of [Stamen Watercolor](https://maps.stamen.com) |
+| Toner | [Stamen Toner](https://maps.stamen.com) |
+| Night | [CARTO Dark Matter](https://carto.com/basemaps) |
+| Starry Night | Vincent van Gogh, *The Starry Night*, 1889 |
+| GMaps Dark, Search | the design philosophy of Google Maps |
+| Drive | the design philosophy of Waze |
+| Here | the design philosophy of HERE Maps |
+| Pencil, Pastel, Neon, Synthwave, Brutalist, Circuit, 8-bit | *original* |
+
+Provider-inspired styles borrow a design philosophy — colour logic, road hierarchy, mood. They copy no
+assets, code or map style, and are not affiliated with or endorsed by those companies.
 
 ## Tribute
 

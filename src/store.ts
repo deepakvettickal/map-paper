@@ -41,6 +41,8 @@ interface PosterStore {
   setSpec: (spec: StyleSpec) => void;
   setColor: (key: keyof StyleSpec["colors"], value: string | string[]) => void;
   /** Ink colour of a pattern fill (the background follows the layer's colour). */
+  /** Title or subtitle typeface. */
+  setFont: (key: "title" | "subtitle", value: string) => void;
   setPatternColor: (layer: keyof NonNullable<StyleSpec["patterns"]>, value: string) => void;
   setRoadColor: (cls: string, value: string) => void;
   set: (patch: Partial<Pick<PosterStore, Editable>>) => void;
@@ -72,7 +74,7 @@ export const usePoster = create<PosterStore>((set) => ({
   subtitle: "London, UK",
   showCoords: true,
   showText: true,
-  textScale: 1,
+  textScale: 0.6,
   fxOn: true,
   fxAmount: 0.5,
   sizeId: SIZES.find((z) => z.id === params.get("size"))?.id ?? SIZES[0].id,
@@ -86,6 +88,8 @@ export const usePoster = create<PosterStore>((set) => ({
   setSpec: (spec) => set({ spec: clone(spec) }),
   setColor: (key, value) =>
     set((s) => ({ spec: { ...s.spec, colors: { ...s.spec.colors, [key]: value } } })),
+  setFont: (key, value) =>
+    set((s) => ({ spec: { ...s.spec, fonts: { ...s.spec.fonts, [key]: value } } })),
   setPatternColor: (layer, value) =>
     set((s) => ({
       spec: {
