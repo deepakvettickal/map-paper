@@ -9,7 +9,7 @@ import { derivedColors } from "../engine/buildMapStyle";
 import { STYLES } from "../styles";
 import { SIZES, pixelSize } from "../config/sizes";
 import { FONTS } from "../config/fonts";
-import { searchPlaces, type Place } from "../services/geocode";
+import { searchPlaces, reverseGeocode, type Place } from "../services/geocode";
 import { downloadBlob, renderPoster } from "../engine/exportPng";
 import { previewSize } from "../poster/Poster";
 import type { StyleSpec } from "../config/types";
@@ -49,6 +49,7 @@ function LocationSearch() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Place[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [locating, setLocating] = useState(false);
 
   useEffect(() => {
     const ctrl = new AbortController();
@@ -74,6 +75,41 @@ function LocationSearch() {
     setResults([]);
   };
 
+  // Point the poster at the visitor's own location, and name it if we can.
+  const locate = () => {
+    if (!navigator.geolocation) {
+      setError("Location isn't available in this browser.");
+      return;
+    }
+    setLocating(true);
+    setError(null);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { longitude, latitude } = pos.coords;
+        jumpTo([longitude, latitude], 15);
+        try {
+          const p = await reverseGeocode(longitude, latitude);
+          if (p) {
+            const parts = p.displayName.split(",").map((s) => s.trim());
+            set({ title: p.name, subtitle: parts.length > 1 ? `${parts[1]}, ${parts[parts.length - 1]}` : "" });
+          }
+        } catch {
+          // The map already moved; a missing name is not worth surfacing.
+        }
+        setLocating(false);
+      },
+      (err) => {
+        setError(
+          err.code === err.PERMISSION_DENIED
+            ? "Location permission denied."
+            : "Couldn't get your location.",
+        );
+        setLocating(false);
+      },
+      { enableHighAccuracy: true, timeout: 10000 },
+    );
+  };
+
   return (
     <div className="search">
       <input
@@ -81,6 +117,9 @@ function LocationSearch() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
+      <button type="button" className="locate" onClick={locate} disabled={locating}>
+        {locating ? "Locating…" : "📍 Use my location"}
+      </button>
       {error && <div className="hint error">{error}</div>}
       {results.length > 0 && (
         <ul className="results">
