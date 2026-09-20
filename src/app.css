@@ -81,6 +81,14 @@ button.link { background: none; border: none; padding: 0; width: auto; color: va
 .check { display: flex; align-items: center; gap: 6px; }
 
 .search { position: relative; }
+button.locate {
+  width: auto; align-self: flex-start;
+  background: none; border: none; padding: 4px 0; margin-top: 2px;
+  color: var(--accent); font-size: 12px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+button.locate:hover { text-decoration: underline; }
+button.locate:disabled { opacity: 0.6; cursor: progress; }
 .results {
   position: absolute; z-index: 10; left: 0; right: 0; top: 100%;
   list-style: none; margin: 4px 0 0; padding: 0;

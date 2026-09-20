@@ -24,3 +24,26 @@ export async function searchPlaces(query: string, signal?: AbortSignal): Promise
   cache.set(q, places);
   return places;
 }
+
+/** Name the point under some coordinates (used by "Use my location"). */
+export async function reverseGeocode(
+  lng: number,
+  lat: number,
+  signal?: AbortSignal,
+): Promise<Place | null> {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`;
+  const res = await fetch(url, { signal, headers: { "Accept-Language": "en" } });
+  if (!res.ok) throw new Error(`Nominatim ${res.status}`);
+  const r: {
+    name?: string;
+    display_name?: string;
+    lat: string;
+    lon: string;
+    address?: Record<string, string>;
+  } = await res.json();
+  if (!r.display_name) return null;
+  const a = r.address ?? {};
+  const name =
+    r.name || a.suburb || a.city || a.town || a.village || r.display_name.split(",")[0];
+  return { name, displayName: r.display_name, center: [Number(r.lon), Number(r.lat)] };
+}
