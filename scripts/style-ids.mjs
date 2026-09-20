@@ -1,9 +1,5 @@
 // Style ids in picker order, used by the gallery and snapshot scripts.
 export const STYLE_IDS = [
-  "heerhugowaard",
-  "peach",
-  "auburn",
-  "citrus",
   "nolli",
   "sanborn",
   "snow",
@@ -39,4 +35,8 @@ export const STYLE_IDS = [
   "brutalist",
   "circuit",
   "8-bit",
+  "heerhugowaard",
+  "peach",
+  "auburn",
+  "citrus",
 ];
