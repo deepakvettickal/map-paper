@@ -8,7 +8,7 @@ apps to original designs, all rendered live in the browser and exported at print
 ## Run it locally
 
 You need [Node.js](https://nodejs.org) 18 or newer (which brings `npm`) and a modern browser with WebGL —
-Chrome, Edge, Firefox or Safari. Nothing else: no API keys, no accounts, no server.
+Chrome, Edge, Firefox or Safari. Nothing else.
 
 ```bash
 git clone https://github.com/deepakvettickal/map-paper.git
