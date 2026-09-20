@@ -53,5 +53,14 @@
     "scale": 0.85,
     "color": "#F7D9A3",
     "halo": "#0D1015"
+  },
+  "defaultView": {
+    "center": [
+      114.1694,
+      22.301
+    ],
+    "zoom": 14.2,
+    "title": "Victoria Harbour",
+    "subtitle": "Hong Kong"
   }
 }

@@ -56,5 +56,14 @@
     "uppercase": true,
     "letterSpacing": 0.15,
     "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      135.76,
+      35.01
+    ],
+    "zoom": 14.2,
+    "title": "Kyoto",
+    "subtitle": "Japan"
   }
 }

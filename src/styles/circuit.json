@@ -62,5 +62,14 @@
     "scale": 0.85,
     "color": "#EAC77A",
     "halo": "#0D3A23"
+  },
+  "defaultView": {
+    "center": [
+      114.06,
+      22.543
+    ],
+    "zoom": 14.2,
+    "title": "Futian",
+    "subtitle": "Shenzhen, China"
   }
 }

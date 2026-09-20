@@ -52,5 +52,14 @@
   },
   "labels": {
     "scale": 0.9
+  },
+  "defaultView": {
+    "center": [
+      34.776,
+      32.075
+    ],
+    "zoom": 14.2,
+    "title": "Tel Aviv",
+    "subtitle": "Israel"
   }
 }

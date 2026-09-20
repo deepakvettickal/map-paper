@@ -1,5 +1,8 @@
 import type { StyleSpec } from "../config/types";
 import s_heerhugowaard from "./heerhugowaard.json";
+import s_peach from "./peach.json";
+import s_auburn from "./auburn.json";
+import s_citrus from "./citrus.json";
 import s_nolli from "./nolli.json";
 import s_sanborn from "./sanborn.json";
 import s_snow from "./snow.json";
@@ -20,6 +23,10 @@ import s_linocut from "./linocut.json";
 import s_pencil from "./pencil.json";
 import s_watercolor from "./watercolor.json";
 import s_pastel from "./pastel.json";
+import s_sakura from "./sakura.json";
+import s_solarpunk from "./solarpunk.json";
+import s_dune from "./dune.json";
+import s_nordic from "./nordic.json";
 import s_toner from "./toner.json";
 import s_night from "./night.json";
 import s_neon from "./neon.json";
@@ -33,11 +40,14 @@ import s_circuit from "./circuit.json";
 import s_8_bit from "./8-bit.json";
 
 /** Style selected when the app opens. */
-export const DEFAULT_STYLE_ID = "synthwave";
+export const DEFAULT_STYLE_ID = "pencil";
 
 // Order shown in the style picker.
 export const STYLES = [
   s_heerhugowaard,
+  s_peach,
+  s_auburn,
+  s_citrus,
   s_nolli,
   s_sanborn,
   s_snow,
@@ -58,6 +68,10 @@ export const STYLES = [
   s_pencil,
   s_watercolor,
   s_pastel,
+  s_sakura,
+  s_solarpunk,
+  s_dune,
+  s_nordic,
   s_toner,
   s_night,
   s_neon,

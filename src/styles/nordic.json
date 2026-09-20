@@ -1,0 +1,66 @@
+{
+  "id": "nordic",
+  "name": "Nordic",
+  "credit": "An original style: pale northern light",
+  "colors": {
+    "land": "#EEF2F3",
+    "water": "#9FBFD0",
+    "waterDots": "#9FBFD0",
+    "green": "#CBDAD0",
+    "forest": "#B3C8BC",
+    "sand": "#E8E4DA",
+    "buildings": [
+      "#D9E2E7",
+      "#C9D5DC",
+      "#E2E9ED"
+    ],
+    "outline": "#B4C2C9",
+    "road": "#FFFFFF",
+    "roadCasing": "#C6D2D8",
+    "rail": "#93A5AE",
+    "frame": "#EEF2F3",
+    "text": "#2E3B44",
+    "landuse": "#E5EBEC",
+    "waterway": "#8FB3C6",
+    "transit": "#93A5AE",
+    "aeroway": "#E3E8EA"
+  },
+  "roadWidths": {
+    "motorway": 8,
+    "trunk": 8,
+    "primary": 7,
+    "secondary": 6,
+    "tertiary": 5,
+    "minor": 3.8,
+    "service": 2.4,
+    "path": 0.9
+  },
+  "casingRatio": 0.12,
+  "outlineWidth": 0.3,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Josefin Sans",
+    "subtitle": "Josefin Sans"
+  },
+  "frameWidth": 0.038,
+  "textPanel": {
+    "height": 13
+  },
+  "effects": {
+    "grain": 0.02,
+    "vignette": 0.06
+  },
+  "labels": {
+    "letterSpacing": 0.22,
+    "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      -21.935,
+      64.146
+    ],
+    "zoom": 14.0,
+    "title": "Reykjavík",
+    "subtitle": "Iceland"
+  }
+}

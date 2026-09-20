@@ -1,0 +1,73 @@
+{
+  "id": "peach",
+  "name": "Peach",
+  "credit": "The Peach theme from prettymapp by Christoph Rieke",
+  "colors": {
+    "land": "#F2F4CB",
+    "water": "#A1E3FF",
+    "waterDots": "#85C9E6",
+    "green": "#D0F1BF",
+    "forest": "#64B96A",
+    "sand": "#F2E3A6",
+    "buildings": [
+      "#FFC857",
+      "#E9724C",
+      "#C5283D"
+    ],
+    "outline": "#2F3737",
+    "road": "#2F3737",
+    "roadCasing": "#F2F4CB",
+    "rail": "#2F3737",
+    "frame": "#F2F4CB",
+    "text": "#2F3737"
+  },
+  "roadWidths": {
+    "motorway": 9,
+    "trunk": 9,
+    "primary": 8,
+    "secondary": 7,
+    "tertiary": 6,
+    "minor": 5,
+    "service": 3,
+    "path": 1.5
+  },
+  "casingRatio": 0,
+  "outlineWidth": 0.7,
+  "waterPattern": true,
+  "patterns": {
+    "green": {
+      "type": "dots",
+      "color": "#B4E0A0",
+      "bg": "#D0F1BF",
+      "spacing": 7,
+      "width": 0.7
+    }
+  },
+  "fonts": {
+    "title": "Permanent Marker",
+    "subtitle": "IBM Plex Mono"
+  },
+  "frameWidth": 0.03,
+  "effects": {
+    "paper": 0.2,
+    "paperColor": "#d9cfa6",
+    "grain": 0.04,
+    "wobble": 0.0006,
+    "wobbleScale": 30,
+    "vignette": 0.1
+  },
+  "labels": {
+    "uppercase": true,
+    "letterSpacing": 0.2,
+    "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      113.54,
+      22.193
+    ],
+    "zoom": 14.6,
+    "title": "Macau",
+    "subtitle": "China"
+  }
+}

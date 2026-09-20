@@ -1,6 +1,6 @@
 # map-paper
 
-Make a poster or a wallpaper out of any place on Earth. There are 32 styles to pick from. Some copy old
+Make a poster or a wallpaper out of any place on Earth. There are 39 styles to pick from. Some copy old
 cartography, some borrow from map apps, and the rest are made up. Everything renders live in the browser and
 exports big enough to print.
 
@@ -44,29 +44,45 @@ fails with a size error, drop the DPI. Very large canvases go past what some gra
 ## The styles
 
 Each style is a single JSON file in [`src/styles/`](src/styles/), so adding one means adding a file rather
-than writing code. Every shot below is the same view of Grosvenor Square in London, at 4K wallpaper
-proportions.
+than writing code. Every style also opens at a place that suits it, which is what you see below.
 
 ### Historic cartography
 
 | | |
 |:--|:--|
-| <img src="docs/gallery/nolli.jpg" width="420"><br>**Nolli** - after Giambattista Nolli, Rome, 1748 | <img src="docs/gallery/sanborn.jpg" width="420"><br>**Sanborn** - after Sanborn fire-insurance maps, 1867–1970s |
-| <img src="docs/gallery/snow.jpg" width="420"><br>**Snow** - after John Snow, cholera map of Soho, 1854 | <img src="docs/gallery/booth.jpg" width="420"><br>**Booth** - after Charles Booth, London poverty map, 1889 |
-| <img src="docs/gallery/ordnance.jpg" width="420"><br>**Ordnance** - after Ordnance Survey first edition, 1840s–80s | <img src="docs/gallery/soviet-topo.jpg" width="420"><br>**Soviet Topo** - after Soviet military topographic maps |
-| <img src="docs/gallery/beck.jpg" width="420"><br>**Harry Beck** - after Harry Beck, London Underground diagram, 1933 | <img src="docs/gallery/vignelli.jpg" width="420"><br>**Vignelli** - after Massimo Vignelli, New York subway map, 1972 |
-| <img src="docs/gallery/heerhugowaard.jpg" width="420"><br>**Heerhugowaard** - after the prettymaps preset of the same name |  |
+| <img src="docs/gallery/nolli.jpg" width="420"><br>**Nolli** - after Giambattista Nolli, 1748<br><sub>Rome, Italy</sub> | <img src="docs/gallery/sanborn.jpg" width="420"><br>**Sanborn** - after Sanborn fire-insurance maps<br><sub>San Francisco, California, USA</sub> |
+| <img src="docs/gallery/snow.jpg" width="420"><br>**Snow** - after John Snow's cholera map, 1854<br><sub>Soho, London, UK</sub> | <img src="docs/gallery/booth.jpg" width="420"><br>**Booth** - after Charles Booth's poverty map, 1889<br><sub>Whitechapel, London, UK</sub> |
+| <img src="docs/gallery/ordnance.jpg" width="420"><br>**Ordnance** - after Ordnance Survey first edition<br><sub>Edinburgh, Scotland</sub> | <img src="docs/gallery/soviet-topo.jpg" width="420"><br>**Soviet Topo** - after Soviet military topographic maps<br><sub>Saint Petersburg, Russia</sub> |
+| <img src="docs/gallery/beck.jpg" width="420"><br>**Harry Beck** - after Harry Beck's Underground diagram, 1933<br><sub>King's Cross, London, UK</sub> | <img src="docs/gallery/vignelli.jpg" width="420"><br>**Vignelli** - after Massimo Vignelli's subway map, 1972<br><sub>Midtown, New York, USA</sub> |
+
+### prettymaps tributes
+
+Colour themes from [prettymaps](https://github.com/marceloprates/prettymaps) and
+[prettymapp](https://github.com/chrieke/prettymapp), rebuilt on this engine.
+
+| | |
+|:--|:--|
+| <img src="docs/gallery/heerhugowaard.jpg" width="420"><br>**Heerhugowaard** - after the prettymaps preset of the same name<br><sub>Stad van de Zon, Heerhugowaard, Netherlands</sub> | <img src="docs/gallery/peach.jpg" width="420"><br>**Peach** - after the Peach theme in prettymapp<br><sub>Macau, China</sub> |
+| <img src="docs/gallery/auburn.jpg" width="420"><br>**Auburn** - after the Auburn theme in prettymapp<br><sub>Eixample, Barcelona, Spain</sub> | <img src="docs/gallery/citrus.jpg" width="420"><br>**Citrus** - after the Citrus theme in prettymapp<br><sub>Würzburg, Germany</sub> |
 
 ### Culture and craft
 
 | | |
 |:--|:--|
-| <img src="docs/gallery/ukiyo-e.jpg" width="420"><br>**Ukiyo-e** - after Edo-period Japanese woodblock maps | <img src="docs/gallery/bauhaus.jpg" width="420"><br>**Bauhaus** - after the Bauhaus school and Swiss International Style |
-| <img src="docs/gallery/art-deco.jpg" width="420"><br>**Art Deco** - after 1920s–30s Art Deco poster design | <img src="docs/gallery/blueprint.jpg" width="420"><br>**Blueprint** - after architectural blueprints |
-| <img src="docs/gallery/cyanotype.jpg" width="420"><br>**Cyanotype** - after Anna Atkins, cyanotype photograms, 1840s | <img src="docs/gallery/stained-glass.jpg" width="420"><br>**Stained Glass** - after Gothic stained-glass windows |
-| <img src="docs/gallery/risograph.jpg" width="420"><br>**Risograph** - after risograph and screenprinted zines | <img src="docs/gallery/linocut.jpg" width="420"><br>**Linocut** - after linocut printmaking |
-| <img src="docs/gallery/pencil.jpg" width="420"><br>**Pencil** - after a graphite sketchbook | <img src="docs/gallery/watercolor.jpg" width="420"><br>**Watercolor** - after painted map washes |
-| <img src="docs/gallery/starry-night.jpg" width="420"><br>**Starry Night** - after Vincent van Gogh, The Starry Night, 1889 | <img src="docs/gallery/pastel.jpg" width="420"><br>**Pastel** - after soft pastels on warm beige |
+| <img src="docs/gallery/ukiyo-e.jpg" width="420"><br>**Ukiyo-e** - after Edo-period woodblock maps<br><sub>Asakusa, Tokyo, Japan</sub> | <img src="docs/gallery/bauhaus.jpg" width="420"><br>**Bauhaus** - after the Bauhaus and Swiss International Style<br><sub>Dessau, Germany</sub> |
+| <img src="docs/gallery/art-deco.jpg" width="420"><br>**Art Deco** - after 1920s Art Deco posters<br><sub>Miami Beach, Florida, USA</sub> | <img src="docs/gallery/blueprint.jpg" width="420"><br>**Blueprint** - after architectural blueprints<br><sub>Chandigarh, India</sub> |
+| <img src="docs/gallery/cyanotype.jpg" width="420"><br>**Cyanotype** - after Anna Atkins' cyanotypes, 1840s<br><sub>Amsterdam, Netherlands</sub> | <img src="docs/gallery/stained-glass.jpg" width="420"><br>**Stained Glass** - after Gothic stained glass<br><sub>Chartres, France</sub> |
+| <img src="docs/gallery/risograph.jpg" width="420"><br>**Risograph** - after risograph zines<br><sub>Kreuzberg, Berlin, Germany</sub> | <img src="docs/gallery/linocut.jpg" width="420"><br>**Linocut** - after linocut printmaking<br><sub>Alfama, Lisbon, Portugal</sub> |
+| <img src="docs/gallery/pencil.jpg" width="420"><br>**Pencil** - after a graphite sketchbook<br><sub>Île de la Cité, Paris, France</sub> | <img src="docs/gallery/watercolor.jpg" width="420"><br>**Watercolor** - after painted map washes<br><sub>Kochi, Kerala, India</sub> |
+| <img src="docs/gallery/starry-night.jpg" width="420"><br>**Starry Night** - after Van Gogh's The Starry Night, 1889<br><sub>Saint-Rémy-de-Provence, France</sub> |  |
+
+### Moods
+
+| | |
+|:--|:--|
+| <img src="docs/gallery/pastel.jpg" width="420"><br>**Pastel** - soft pastels on warm beige<br><sub>Nyhavn, Copenhagen, Denmark</sub> | <img src="docs/gallery/sakura.jpg" width="420"><br>**Sakura** - cherry blossom in spring<br><sub>Gion, Kyoto, Japan</sub> |
+| <img src="docs/gallery/solarpunk.jpg" width="420"><br>**Solarpunk** - sun, glass and greenery<br><sub>Marina Bay, Singapore</sub> | <img src="docs/gallery/dune.jpg" width="420"><br>**Dune** - desert ochres and deep shade<br><sub>Dubai, United Arab Emirates</sub> |
+| <img src="docs/gallery/nordic.jpg" width="420"><br>**Nordic** - pale northern light<br><sub>Reykjavík, Iceland</sub> |  |
 
 ### Map apps, reimagined
 
@@ -75,17 +91,17 @@ No assets or code are taken from them.
 
 | | |
 |:--|:--|
-| <img src="docs/gallery/gmaps-dark.jpg" width="420"><br>**GMaps Dark** - inspired by the dark mode of Google Maps | <img src="docs/gallery/search.jpg" width="420"><br>**Search** - inspired by the light mode of Google Maps |
-| <img src="docs/gallery/drive.jpg" width="420"><br>**Drive** - inspired by the design philosophy of Waze | <img src="docs/gallery/here.jpg" width="420"><br>**Here** - inspired by the design philosophy of HERE Maps |
-| <img src="docs/gallery/toner.jpg" width="420"><br>**Toner** - inspired by Stamen Toner | <img src="docs/gallery/night.jpg" width="420"><br>**Night** - inspired by CARTO Dark Matter |
+| <img src="docs/gallery/gmaps-dark.jpg" width="420"><br>**GMaps Dark** - inspired by the dark mode of Google Maps<br><sub>San Francisco, California, USA</sub> | <img src="docs/gallery/search.jpg" width="420"><br>**Search** - inspired by the light mode of Google Maps<br><sub>Mountain View, California, USA</sub> |
+| <img src="docs/gallery/drive.jpg" width="420"><br>**Drive** - inspired by the design philosophy of Waze<br><sub>Tel Aviv, Israel</sub> | <img src="docs/gallery/here.jpg" width="420"><br>**Here** - inspired by the design philosophy of HERE Maps<br><sub>Mitte, Berlin, Germany</sub> |
+| <img src="docs/gallery/toner.jpg" width="420"><br>**Toner** - inspired by Stamen Toner<br><sub>The Loop, Chicago, USA</sub> | <img src="docs/gallery/night.jpg" width="420"><br>**Night** - inspired by CARTO Dark Matter<br><sub>Victoria Harbour, Hong Kong</sub> |
 
 ### Originals
 
 | | |
 |:--|:--|
-| <img src="docs/gallery/circuit.jpg" width="420"><br>**Circuit** - printed circuit boards | <img src="docs/gallery/synthwave.jpg" width="420"><br>**Synthwave** - 80s retro-futurism |
-| <img src="docs/gallery/neon.jpg" width="420"><br>**Neon** - neon signs after dark | <img src="docs/gallery/brutalist.jpg" width="420"><br>**Brutalist** - raw concrete architecture |
-| <img src="docs/gallery/8-bit.jpg" width="420"><br>**8-bit** - handheld pixel-art games |  |
+| <img src="docs/gallery/circuit.jpg" width="420"><br>**Circuit** - printed circuit boards<br><sub>Futian, Shenzhen, China</sub> | <img src="docs/gallery/synthwave.jpg" width="420"><br>**Synthwave** - 80s retro-futurism<br><sub>Santa Monica, California, USA</sub> |
+| <img src="docs/gallery/neon.jpg" width="420"><br>**Neon** - neon signs after dark<br><sub>Shinjuku, Tokyo, Japan</sub> | <img src="docs/gallery/brutalist.jpg" width="420"><br>**Brutalist** - raw concrete architecture<br><sub>South Bank, London, UK</sub> |
+| <img src="docs/gallery/8-bit.jpg" width="420"><br>**8-bit** - handheld pixel-art games<br><sub>Kyoto, Japan</sub> |  |
 
 ## How it works
 
@@ -156,6 +172,7 @@ The historic maps are long out of copyright, but their makers are named here any
 | Style | Credit |
 |---|---|
 | Heerhugowaard | the `heerhugowaard` preset from [prettymaps](https://github.com/marceloprates/prettymaps) by Marcelo Prates |
+| Peach, Auburn, Citrus | the colour themes of the same names in [prettymapp](https://github.com/chrieke/prettymapp) by Christoph Rieke |
 | Nolli | Giambattista Nolli, *Nuova Pianta di Roma*, 1748 |
 | Sanborn | Sanborn fire-insurance maps, 1867–1970s |
 | Snow | John Snow, cholera map of Soho, 1854 |
@@ -177,7 +194,7 @@ The historic maps are long out of copyright, but their makers are named here any
 | GMaps Dark, Search | the design philosophy of Google Maps |
 | Drive | the design philosophy of Waze |
 | Here | the design philosophy of HERE Maps |
-| Pencil, Pastel, Neon, Synthwave, Brutalist, Circuit, 8-bit | *original* |
+| Pencil, Pastel, Sakura, Solarpunk, Dune, Nordic, Neon, Synthwave, Brutalist, Circuit, 8-bit | *original* |
 
 The map-app styles take inspiration from how those maps are designed. They do not copy any assets, code or
 map styles, and this project is not affiliated with or endorsed by those companies.

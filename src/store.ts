@@ -61,6 +61,11 @@ interface PosterStore {
 const clone = <T,>(v: T): T => JSON.parse(JSON.stringify(v));
 
 const params = new URLSearchParams(location.search);
+const startSpec =
+  STYLES.find((s) => s.id === params.get("style")) ??
+  STYLES.find((s) => s.id === DEFAULT_STYLE_ID) ??
+  STYLES[0];
+const startView = startSpec.defaultView;
 const num = (k: string, fallback: number) => {
   const v = Number(params.get(k));
   return Number.isFinite(v) && params.has(k) ? v : fallback;
@@ -69,19 +74,15 @@ const num = (k: string, fallback: number) => {
 export const usePoster = create<PosterStore>((set) => ({
   // `?lat=&lng=&zoom=` opens a specific view (handy for comparing styles).
   view: {
-    center: [num("lng", -0.151396), num("lat", 51.51153)],
-    zoom: num("zoom", 15),
+    center: [num("lng", startView?.center[0] ?? -0.151396), num("lat", startView?.center[1] ?? 51.51153)],
+    zoom: num("zoom", startView?.zoom ?? 15),
     bearing: num("bearing", 0),
   },
   jumpToken: 0,
   // `?style=<id>` opens a specific style directly.
-  spec: clone(
-    STYLES.find((s) => s.id === params.get("style")) ??
-      STYLES.find((s) => s.id === DEFAULT_STYLE_ID) ??
-      STYLES[0],
-  ),
-  title: "Grosvenor Square",
-  subtitle: "London, UK",
+  spec: clone(startSpec),
+  title: startView?.title ?? "Grosvenor Square",
+  subtitle: startView?.subtitle ?? "London, UK",
   showCoords: true,
   showLabels: false,
   border: (BORDERS as readonly string[]).includes(params.get("border") ?? "")
@@ -100,7 +101,19 @@ export const usePoster = create<PosterStore>((set) => ({
       view: { ...s.view, center, zoom: zoom ?? s.view.zoom },
       jumpToken: s.jumpToken + 1,
     })),
-  setSpec: (spec) => set({ spec: clone(spec) }),
+  // Picking a style also moves to the place that style was designed around.
+  setSpec: (spec) =>
+    set((s) => {
+      const v = spec.defaultView;
+      if (!v) return { spec: clone(spec) };
+      return {
+        spec: clone(spec),
+        view: { ...s.view, center: [...v.center] as [number, number], zoom: v.zoom },
+        jumpToken: s.jumpToken + 1,
+        title: v.title,
+        subtitle: v.subtitle,
+      };
+    }),
   setColor: (key, value) =>
     set((s) => ({ spec: { ...s.spec, colors: { ...s.spec.colors, [key]: value } } })),
   setFont: (key, value) =>

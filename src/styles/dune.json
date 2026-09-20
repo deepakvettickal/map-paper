@@ -1,0 +1,77 @@
+{
+  "id": "dune",
+  "name": "Dune",
+  "credit": "An original style: desert ochres and deep shade",
+  "colors": {
+    "land": "#DCC49B",
+    "water": "#7E96A0",
+    "waterDots": "#7E96A0",
+    "green": "#B7A878",
+    "forest": "#9C8F5F",
+    "sand": "#E6D3AA",
+    "buildings": [
+      "#B3855F",
+      "#8A6647",
+      "#C69A72",
+      "#6F5138"
+    ],
+    "outline": "#5C4632",
+    "road": "#EFE2C8",
+    "roadCasing": "#8A6E52",
+    "rail": "#6F5138",
+    "frame": "#DCC49B",
+    "text": "#3A2B1C",
+    "landuse": "#D3B992",
+    "waterway": "#7E96A0",
+    "transit": "#7A5F44",
+    "aeroway": "#D8BF97"
+  },
+  "roadColors": {
+    "motorway": "#D9772F",
+    "trunk": "#D9772F",
+    "primary": "#E8A45C"
+  },
+  "roadWidths": {
+    "motorway": 7,
+    "trunk": 7,
+    "primary": 6,
+    "secondary": 5,
+    "tertiary": 4.5,
+    "minor": 3.5,
+    "service": 2.2,
+    "path": 0.9
+  },
+  "casingRatio": 0.12,
+  "outlineWidth": 0.5,
+  "waterPattern": false,
+  "fonts": {
+    "title": "Cinzel",
+    "subtitle": "Space Grotesk"
+  },
+  "frameWidth": 0.04,
+  "textPanel": {
+    "height": 14
+  },
+  "effects": {
+    "paper": 0.5,
+    "paperColor": "#a98a5e",
+    "grain": 0.08,
+    "wobble": 0.0006,
+    "wobbleScale": 25,
+    "vignette": 0.32
+  },
+  "labels": {
+    "uppercase": true,
+    "letterSpacing": 0.3,
+    "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      55.2744,
+      25.1972
+    ],
+    "zoom": 13.6,
+    "title": "Dubai",
+    "subtitle": "United Arab Emirates"
+  }
+}

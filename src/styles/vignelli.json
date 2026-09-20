@@ -63,5 +63,14 @@
     "uppercase": true,
     "letterSpacing": 0.15,
     "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      -73.9855,
+      40.758
+    ],
+    "zoom": 14.2,
+    "title": "Midtown",
+    "subtitle": "New York, USA"
   }
 }

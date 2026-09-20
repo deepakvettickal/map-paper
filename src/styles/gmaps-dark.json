@@ -62,5 +62,14 @@
   },
   "labels": {
     "scale": 0.9
+  },
+  "defaultView": {
+    "center": [
+      -122.43,
+      37.77
+    ],
+    "zoom": 13.6,
+    "title": "San Francisco",
+    "subtitle": "California, USA"
   }
 }

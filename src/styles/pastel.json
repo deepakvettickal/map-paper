@@ -58,5 +58,14 @@
   },
   "labels": {
     "scale": 0.9
+  },
+  "defaultView": {
+    "center": [
+      12.59,
+      55.68
+    ],
+    "zoom": 14.4,
+    "title": "Nyhavn",
+    "subtitle": "Copenhagen, Denmark"
   }
 }

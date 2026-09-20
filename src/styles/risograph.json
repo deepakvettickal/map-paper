@@ -76,5 +76,14 @@
     "uppercase": true,
     "letterSpacing": 0.15,
     "scale": 0.85
+  },
+  "defaultView": {
+    "center": [
+      13.42,
+      52.499
+    ],
+    "zoom": 14.4,
+    "title": "Kreuzberg",
+    "subtitle": "Berlin, Germany"
   }
 }
