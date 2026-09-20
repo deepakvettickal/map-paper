@@ -27,17 +27,17 @@
     "aeroway": "#93B60E"
   },
   "roadWidths": {
-    "motorway": 7,
-    "trunk": 7,
-    "primary": 6,
-    "secondary": 5,
-    "tertiary": 4.5,
-    "minor": 3,
-    "service": 2,
-    "path": 0.8
+    "motorway": 5.5,
+    "trunk": 5.5,
+    "primary": 5,
+    "secondary": 4,
+    "tertiary": 3.5,
+    "minor": 2.4,
+    "service": 1.6,
+    "path": 0.7
   },
   "casingRatio": 0,
-  "outlineWidth": 0.5,
+  "outlineWidth": 0.4,
   "waterPattern": false,
   "fonts": {
     "title": "Press Start 2P",
@@ -48,7 +48,7 @@
     "height": 15
   },
   "effects": {
-    "pixelate": 0.0022,
+    "pixelate": 0.0011,
     "grain": 0.02
   },
   "labels": {

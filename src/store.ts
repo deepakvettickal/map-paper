@@ -42,6 +42,8 @@ interface PosterStore {
   border: BorderType | null;
   /** Multiplier on the style's border thickness. */
   borderScale: number;
+  /** How far the palette was pushed from the style's own, after Surprise me. */
+  drift: { percent: number; hue: number } | null;
   /** Light or dark chrome around the poster. */
   uiTheme: "light" | "dark";
   showText: boolean;
@@ -96,6 +98,7 @@ export const usePoster = create<PosterStore>((set) => ({
     ? (params.get("border") as BorderType)
     : null,
   borderScale: 1,
+  drift: null,
   uiTheme: (localStorage.getItem("ui-theme") as "light" | "dark") ?? "dark",
   showText: true,
   textScale: 0.6,
@@ -120,6 +123,7 @@ export const usePoster = create<PosterStore>((set) => ({
         jumpToken: s.jumpToken + 1,
         title: v.title,
         subtitle: v.subtitle,
+        drift: null,
       };
     }),
   setColor: (key, value) =>
@@ -175,6 +179,11 @@ export const usePoster = create<PosterStore>((set) => ({
       if (spec.effects?.paperColor) {
         spec.effects = { ...spec.effects, paperColor: recolor(spec.effects.paperColor) };
       }
+      // A readable measure of the recolour: how far round the hue wheel it went,
+      // plus how much the chroma changed.
+      const hueTravel = Math.min(shift.rotate, 360 - shift.rotate) / 180;
+      const chromaTravel = Math.abs(shift.chroma - 1) / 0.7;
+      const percent = Math.round(Math.min(100, (hueTravel * 0.75 + chromaTravel * 0.25) * 100));
       return {
         spec,
         view: { ...s.view, center: [...place.center] as [number, number], zoom: place.zoom },
@@ -182,6 +191,7 @@ export const usePoster = create<PosterStore>((set) => ({
         title: place.title,
         subtitle: place.subtitle,
         border: pick(BORDERS),
+        drift: { percent, hue: Math.round(shift.rotate) },
       };
     }),
 }));

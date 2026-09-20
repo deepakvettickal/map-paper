@@ -162,6 +162,12 @@ export function Sidebar() {
           ))}
         </select>
         <div className="hint">{s.spec.credit}</div>
+        {s.drift && (
+          <div className="drift">
+            {s.drift.percent}% adrift from the original palette
+            <span> · hue turned {s.drift.hue}° in OKLCH</span>
+          </div>
+        )}
         <button className="link" onClick={() => s.setSpec(STYLES.find((st) => st.id === s.spec.id)!)}>
           Reset colours
         </button>

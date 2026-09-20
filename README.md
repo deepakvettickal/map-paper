@@ -58,16 +58,6 @@ than writing code. Every style also opens at a place that suits it, which is wha
 | <img src="docs/gallery/ordnance.jpg" width="420"><br>**Ordnance** - after Ordnance Survey first edition<br><sub>Edinburgh, Scotland</sub> | <img src="docs/gallery/soviet-topo.jpg" width="420"><br>**Soviet Topo** - after Soviet military topographic maps<br><sub>Saint Petersburg, Russia</sub> |
 | <img src="docs/gallery/beck.jpg" width="420"><br>**Harry Beck** - after Harry Beck's Underground diagram, 1933<br><sub>King's Cross, London, UK</sub> | <img src="docs/gallery/vignelli.jpg" width="420"><br>**Vignelli** - after Massimo Vignelli's subway map, 1972<br><sub>Midtown, New York, USA</sub> |
 
-### prettymaps tributes
-
-Colour themes from [prettymaps](https://github.com/marceloprates/prettymaps) and
-[prettymapp](https://github.com/chrieke/prettymapp), rebuilt on this engine.
-
-| | |
-|:--|:--|
-| <img src="docs/gallery/heerhugowaard.jpg" width="420"><br>**Heerhugowaard** - after the prettymaps preset of the same name<br><sub>Stad van de Zon, Heerhugowaard, Netherlands</sub> | <img src="docs/gallery/peach.jpg" width="420"><br>**Peach** - after the Peach theme in prettymapp<br><sub>Macau, China</sub> |
-| <img src="docs/gallery/auburn.jpg" width="420"><br>**Auburn** - after the Auburn theme in prettymapp<br><sub>Eixample, Barcelona, Spain</sub> | <img src="docs/gallery/citrus.jpg" width="420"><br>**Citrus** - after the Citrus theme in prettymapp<br><sub>Würzburg, Germany</sub> |
-
 ### Culture and craft
 
 | | |
@@ -105,6 +95,16 @@ No assets or code are taken from them.
 | <img src="docs/gallery/circuit.jpg" width="420"><br>**Circuit** - printed circuit boards<br><sub>Futian, Shenzhen, China</sub> | <img src="docs/gallery/synthwave.jpg" width="420"><br>**Synthwave** - 80s retro-futurism<br><sub>Santa Monica, California, USA</sub> |
 | <img src="docs/gallery/neon.jpg" width="420"><br>**Neon** - neon signs after dark<br><sub>Shinjuku, Tokyo, Japan</sub> | <img src="docs/gallery/brutalist.jpg" width="420"><br>**Brutalist** - raw concrete architecture<br><sub>South Bank, London, UK</sub> |
 | <img src="docs/gallery/8-bit.jpg" width="420"><br>**8-bit** - handheld pixel-art games<br><sub>Kyoto, Japan</sub> |  |
+
+### prettymaps tributes
+
+Colour themes from [prettymaps](https://github.com/marceloprates/prettymaps) and
+[prettymapp](https://github.com/chrieke/prettymapp), rebuilt on this engine.
+
+| | |
+|:--|:--|
+| <img src="docs/gallery/heerhugowaard.jpg" width="420"><br>**Heerhugowaard** - after the prettymaps preset of the same name<br><sub>Stad van de Zon, Heerhugowaard, Netherlands</sub> | <img src="docs/gallery/peach.jpg" width="420"><br>**Peach** - after the Peach theme in prettymapp<br><sub>Macau, China</sub> |
+| <img src="docs/gallery/auburn.jpg" width="420"><br>**Auburn** - after the Auburn theme in prettymapp<br><sub>Eixample, Barcelona, Spain</sub> | <img src="docs/gallery/citrus.jpg" width="420"><br>**Citrus** - after the Citrus theme in prettymapp<br><sub>Würzburg, Germany</sub> |
 
 ## How it works
 
