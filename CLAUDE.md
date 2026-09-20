@@ -12,7 +12,8 @@ npm run typecheck    # tsc --noEmit
 
 node scripts/snap.mjs <outDir> <styleId…>   # screenshot styles via the local Chrome
 node scripts/contact-sheet.mjs <dir> [n]    # combine screenshots for side-by-side review
-node scripts/gallery.mjs                    # rebuild docs/gallery + docs/hero.jpg for the README
+node scripts/gallery.mjs [ids…]             # rebuild docs/gallery for the README
+node scripts/hero.mjs [a] [b] [lat] [lng] [zoom]   # rebuild docs/hero.jpg (two styles spliced)
 ```
 
 The snapshot scripts need the dev server running. `VIEW="&lat=51.5&lng=-0.12&zoom=14&size=desktop"` overrides

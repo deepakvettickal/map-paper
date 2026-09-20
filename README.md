@@ -4,7 +4,9 @@ Make a poster or a wallpaper out of any place on Earth. There are 41 styles to p
 cartography, some borrow from map apps, and the rest are made up. Everything renders live in the browser and
 exports big enough to print.
 
-![Grosvenor Square in the Synthwave style](docs/hero.jpg)
+![Amsterdam's western harbour, half in the Booth style and half in Cyanotype](docs/hero.jpg)
+
+<sub>One place, two styles: Booth on the left, Cyanotype on the right.</sub>
 
 ## Run it locally
 
@@ -146,7 +148,8 @@ scripts/       snapshot, contact-sheet and gallery tooling
 ```bash
 node scripts/snap.mjs out/ nolli pencil     # screenshot styles with the local Chrome
 node scripts/contact-sheet.mjs out/         # lay them out side by side
-node scripts/gallery.mjs                    # rebuild the README gallery
+node scripts/gallery.mjs [ids…]             # rebuild the README gallery
+node scripts/hero.mjs [a] [b] [lat] [lng] [zoom]   # rebuild the split hero image
 ```
 
 [CLAUDE.md](CLAUDE.md) has the architecture notes and what is planned next, including 3D terrain and
