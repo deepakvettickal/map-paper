@@ -223,3 +223,14 @@ node_modules/
 
 # Local exports
 /*.png
+
+# Secrets — Firebase service-account keys, env files. Never commit these.
+*firebase-adminsdk*.json
+*-adminsdk-*.json
+serviceAccount*.json
+.env
+.env.local
+.env.*.local
+
+# Local-only notes (superseded by DEPLOY.md)
+docs/HOSTING.md
