@@ -3,21 +3,26 @@
   "name": "Harry Beck",
   "credit": "After Harry Beck's London Underground diagram (1933)",
   "colors": {
-    "land": "#FFFFFF",
-    "water": "#BFE2F2",
+    "land": "#F9FAFB",
+    "water": "#A6D7F4",
     "waterDots": "#BFE2F2",
-    "green": "#E4F1DC",
-    "forest": "#D8EBCD",
-    "sand": "#FFFFFF",
+    "green": "#C8E8C8",
+    "forest": "#B7DDB7",
+    "sand": "#F3EBD5",
     "buildings": [
-      "#F1F1F1"
+      "#DBDEE2",
+      "#D3D6DA"
     ],
-    "outline": "#FFFFFF",
-    "road": "#B8BCC0",
-    "roadCasing": "#FFFFFF",
-    "rail": "#B8BCC0",
+    "outline": "#C7CBD0",
+    "road": "#A7ABB0",
+    "roadCasing": "#F9FAFB",
+    "rail": "#6D7277",
     "frame": "#FFFFFF",
-    "text": "#10218B"
+    "text": "#102D8C",
+    "landuse": "#EBEDEF",
+    "waterway": "#8EC6E7",
+    "transit": "#82878C",
+    "aeroway": "#E2E5E8"
   },
   "roadColors": {
     "motorway": "#E32017",
@@ -25,9 +30,9 @@
     "primary": "#00782A",
     "secondary": "#FFD300",
     "tertiary": "#9B0056",
-    "minor": "#C4C8CC",
-    "service": "#E2E4E6",
-    "path": "#ECEDEE"
+    "minor": "#A7ABB0",
+    "service": "#C1C4C8",
+    "path": "#D5D8DB"
   },
   "roadWidths": {
     "motorway": 9,
@@ -40,7 +45,7 @@
     "path": 0.8
   },
   "casingRatio": 0.18,
-  "outlineWidth": 0,
+  "outlineWidth": 0.5,
   "waterPattern": false,
   "fonts": {
     "title": "Inter",

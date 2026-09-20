@@ -3,30 +3,30 @@
   "name": "Here",
   "credit": "Inspired by the design philosophy of HERE Maps",
   "colors": {
-    "land": "#EDF1F5",
-    "water": "#A8C6DE",
+    "land": "#E4EBF0",
+    "water": "#95C5E2",
     "waterDots": "#9BB6CA",
-    "green": "#DCE8D4",
-    "forest": "#CFE0C6",
-    "sand": "#EFEADC",
+    "green": "#BDE6C1",
+    "forest": "#ABDAB1",
+    "sand": "#EDE4CB",
     "buildings": [
-      "#E0E6EC",
-      "#DDE3EA"
+      "#CDD8E0",
+      "#C6D1D9"
     ],
-    "outline": "#EDF1F5",
+    "outline": "#BAC6CF",
     "road": "#FFFFFF",
-    "roadCasing": "#CBD4DE",
-    "rail": "#B4BEC9",
-    "frame": "#EDF1F5",
-    "text": "#2B3A47",
-    "landuse": "#E7ECF1",
-    "waterway": "#8FB6D4",
-    "transit": "#2FB3AD",
-    "aeroway": "#E3E7EC"
+    "roadCasing": "#BECBD5",
+    "rail": "#A9B3BA",
+    "frame": "#E4EBF0",
+    "text": "#2F3F4B",
+    "landuse": "#D8E1E8",
+    "waterway": "#7DB5D5",
+    "transit": "#43B2AC",
+    "aeroway": "#D7DFE5"
   },
   "roadColors": {
-    "motorway": "#F2F7FB",
-    "trunk": "#F2F7FB",
+    "motorway": "#E3F8F8",
+    "trunk": "#E0F5F5",
     "primary": "#FFFFFF"
   },
   "roadWidths": {

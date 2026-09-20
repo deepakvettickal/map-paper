@@ -2,6 +2,7 @@ import { create } from "zustand";
 import type { EffectsSpec, StyleSpec } from "./config/types";
 import { hasEffects, scaleEffects } from "./engine/effects";
 import { DEFAULT_SIZE_ID, SIZES } from "./config/sizes";
+import { BORDERS, type BorderType } from "./poster/borders";
 import { DEFAULT_STYLE_ID, STYLES } from "./styles";
 
 export interface ViewState {
@@ -15,6 +16,8 @@ type Editable =
   | "subtitle"
   | "showCoords"
   | "showLabels"
+  | "border"
+  | "borderScale"
   | "showText"
   | "textScale"
   | "fxOn"
@@ -32,6 +35,10 @@ interface PosterStore {
   showCoords: boolean;
   /** Draw place names on the map itself. */
   showLabels: boolean;
+  /** Border treatment; null follows the style's own default. */
+  border: BorderType | null;
+  /** Multiplier on the style's border thickness. */
+  borderScale: number;
   showText: boolean;
   textScale: number;
   /** Art renderer on/off and overall strength (0–2). */
@@ -77,6 +84,10 @@ export const usePoster = create<PosterStore>((set) => ({
   subtitle: "London, UK",
   showCoords: true,
   showLabels: false,
+  border: (BORDERS as readonly string[]).includes(params.get("border") ?? "")
+    ? (params.get("border") as BorderType)
+    : null,
+  borderScale: 1,
   showText: true,
   textScale: 0.6,
   fxOn: true,
@@ -118,4 +129,9 @@ export function formatCoords([lng, lat]: [number, number]) {
 export function activeEffects(s: { spec: StyleSpec; fxOn: boolean; fxAmount: number }): EffectsSpec | null {
   if (!s.fxOn || !hasEffects(s.spec.effects)) return null;
   return scaleEffects(s.spec.effects, s.fxAmount);
+}
+
+/** The border to draw: the user's choice, else the style's default, else plain. */
+export function activeBorder(s: { spec: StyleSpec; border: BorderType | null }): BorderType {
+  return s.border ?? s.spec.border ?? "plain";
 }

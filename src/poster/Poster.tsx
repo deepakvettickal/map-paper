@@ -3,7 +3,7 @@ import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { buildMapStyle, registerPatternProvider } from "../engine/buildMapStyle";
 import { drawOverlay, loadFonts } from "./drawOverlay";
-import { activeEffects, formatCoords, usePoster } from "../store";
+import { activeBorder, activeEffects, formatCoords, usePoster } from "../store";
 import { EffectsRenderer } from "../engine/effects";
 import { SIZES } from "../config/sizes";
 
@@ -29,6 +29,8 @@ export function Poster() {
   const textScale = usePoster((s) => s.textScale);
   const center = usePoster((s) => s.view.center);
   const showLabels = usePoster((s) => s.showLabels);
+  const border = usePoster((s) => s.border);
+  const borderScale = usePoster((s) => s.borderScale);
   const fxOn = usePoster((s) => s.fxOn);
   const fxAmount = usePoster((s) => s.fxAmount);
   const fx = useMemo(() => activeEffects({ spec, fxOn, fxAmount }), [spec, fxOn, fxAmount]);
@@ -120,13 +122,15 @@ export function Poster() {
         coords: showCoords ? formatCoords(center) : null,
         show: showText,
         scale: textScale,
+        border: activeBorder({ spec, border }),
+        borderScale,
       });
       scheduleFx.current();
     });
     return () => {
       cancelled = true;
     };
-  }, [box, spec, title, subtitle, showCoords, showText, textScale, center]);
+  }, [box, spec, title, subtitle, showCoords, showText, textScale, border, borderScale, center]);
 
   // Art renderer: composite map + overlay through the effects shader, at most once per frame.
   const scheduleFx = useRef<() => void>(() => {});
