@@ -3,6 +3,8 @@ import type { EffectsSpec, StyleSpec } from "./config/types";
 import { hasEffects, scaleEffects } from "./engine/effects";
 import { DEFAULT_SIZE_ID, SIZES } from "./config/sizes";
 import { BORDERS, type BorderType } from "./poster/borders";
+import { PLACES } from "./config/places";
+import { shiftColor } from "./engine/color";
 import { DEFAULT_STYLE_ID, STYLES } from "./styles";
 
 export interface ViewState {
@@ -18,6 +20,7 @@ type Editable =
   | "showLabels"
   | "border"
   | "borderScale"
+  | "uiTheme"
   | "showText"
   | "textScale"
   | "fxOn"
@@ -39,6 +42,8 @@ interface PosterStore {
   border: BorderType | null;
   /** Multiplier on the style's border thickness. */
   borderScale: number;
+  /** Light or dark chrome around the poster. */
+  uiTheme: "light" | "dark";
   showText: boolean;
   textScale: number;
   /** Art renderer on/off and overall strength (0–2). */
@@ -56,6 +61,8 @@ interface PosterStore {
   setPatternColor: (layer: keyof NonNullable<StyleSpec["patterns"]>, value: string) => void;
   setRoadColor: (cls: string, value: string) => void;
   set: (patch: Partial<Pick<PosterStore, Editable>>) => void;
+  /** New style, new place, and a fresh but still harmonious recolour. */
+  randomise: () => void;
 }
 
 const clone = <T,>(v: T): T => JSON.parse(JSON.stringify(v));
@@ -89,6 +96,7 @@ export const usePoster = create<PosterStore>((set) => ({
     ? (params.get("border") as BorderType)
     : null,
   borderScale: 1,
+  uiTheme: (localStorage.getItem("ui-theme") as "light" | "dark") ?? "dark",
   showText: true,
   textScale: 0.6,
   fxOn: true,
@@ -127,7 +135,55 @@ export const usePoster = create<PosterStore>((set) => ({
     })),
   setRoadColor: (cls, value) =>
     set((s) => ({ spec: { ...s.spec, roadColors: { ...s.spec.roadColors, [cls]: value } } })),
-  set: (patch) => set(patch),
+  set: (patch) => {
+    if (patch.uiTheme) localStorage.setItem("ui-theme", patch.uiTheme);
+    set(patch);
+  },
+  randomise: () =>
+    set((s) => {
+      const pick = <T,>(xs: readonly T[]) => xs[Math.floor(Math.random() * xs.length)];
+      const spec = clone(pick(STYLES));
+      const place = pick(PLACES);
+      // Rotate the whole palette by one hue angle and nudge its chroma. Shifting
+      // every colour together keeps the style's own contrast, so the result still
+      // looks composed rather than random.
+      const shift = {
+        rotate: Math.random() * 360,
+        chroma: 0.75 + Math.random() * 0.7,
+        lighten: (Math.random() - 0.5) * 0.06,
+      };
+      const recolor = (hex: string) => shiftColor(hex, shift);
+      const colors = Object.fromEntries(
+        Object.entries(spec.colors).map(([k, v]) => [
+          k,
+          Array.isArray(v) ? v.map(recolor) : recolor(v as string),
+        ]),
+      ) as typeof spec.colors;
+      spec.colors = colors;
+      if (spec.roadColors) {
+        spec.roadColors = Object.fromEntries(
+          Object.entries(spec.roadColors).map(([k, v]) => [k, recolor(v as string)]),
+        );
+      }
+      if (spec.patterns) {
+        spec.patterns = Object.fromEntries(
+          Object.entries(spec.patterns).map(([k, p]) => [k, { ...p!, color: recolor(p!.color) }]),
+        );
+      }
+      if (spec.roadGlow) spec.roadGlow = { ...spec.roadGlow, color: recolor(spec.roadGlow.color) };
+      if (spec.grid) spec.grid = { ...spec.grid, color: recolor(spec.grid.color) };
+      if (spec.effects?.paperColor) {
+        spec.effects = { ...spec.effects, paperColor: recolor(spec.effects.paperColor) };
+      }
+      return {
+        spec,
+        view: { ...s.view, center: [...place.center] as [number, number], zoom: place.zoom },
+        jumpToken: s.jumpToken + 1,
+        title: place.title,
+        subtitle: place.subtitle,
+        border: pick(BORDERS),
+      };
+    }),
 }));
 
 if (import.meta.env.DEV) (window as unknown as { __store: unknown }).__store = usePoster;

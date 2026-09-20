@@ -27,6 +27,9 @@ Then:
 3. **Choose a size.** A4, A3, square, phone, or 4K desktop. Paper sizes also have a DPI setting.
 4. **Hit Download PNG** and the file goes to your downloads folder.
 
+In a hurry, or just browsing? **Surprise me** picks a style, a city and a fresh palette for you. The sun and
+moon button in the corner switches the interface between light and dark.
+
 You can link straight to a style and a place: `?style=nolli&lat=51.5&lng=-0.12&zoom=14&size=desktop`.
 
 Other commands:

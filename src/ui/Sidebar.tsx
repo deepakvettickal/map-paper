@@ -132,7 +132,16 @@ export function Sidebar() {
 
   return (
     <aside className="sidebar">
-      <h1>map-paper</h1>
+      <header className="brand">
+        <h1>map-paper</h1>
+        <button
+          className="icon"
+          title={s.uiTheme === "dark" ? "Switch to light" : "Switch to dark"}
+          onClick={() => s.set({ uiTheme: s.uiTheme === "dark" ? "light" : "dark" })}
+        >
+          {s.uiTheme === "dark" ? "☀" : "☾"}
+        </button>
+      </header>
 
       <section>
         <h2>Location</h2>
@@ -332,6 +341,13 @@ export function Sidebar() {
             </label>
           ))}
         </div>
+      </section>
+
+      <section>
+        <button className="surprise" onClick={s.randomise}>
+          🎲 Surprise me
+        </button>
+        <div className="hint">New style, new city, new palette.</div>
       </section>
 
       <section>

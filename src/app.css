@@ -1,14 +1,34 @@
 :root {
-  --bg: #1b1d1f;
-  --panel: #232629;
-  --line: #34383c;
-  --text: #e8e6e1;
-  --muted: #9a9892;
-  --accent: #ff5e5b;
+  /* Dark: warm charcoal rather than pure black, so the posters stay the brightest thing. */
+  --bg: #17191b;
+  --panel: #202326;
+  --raise: #272b2f;
+  --line: #33383d;
+  --text: #ecebe6;
+  --muted: #9b9a94;
+  --accent: #ff6b5e;
+  --accent-ink: #1b1d1f;
+  --shadow: 0 12px 44px rgba(0, 0, 0, 0.55);
+
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 13px;
   color: var(--text);
   background: var(--bg);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  /* Light: pearl paper with a warm grey rule, the same coral accent. */
+  --bg: #efece5;
+  --panel: #faf8f4;
+  --raise: #ffffff;
+  --line: #e0dad0;
+  --text: #2b2724;
+  --muted: #7d766d;
+  --accent: #e2574c;
+  --accent-ink: #fffaf8;
+  --shadow: 0 12px 36px rgba(60, 50, 40, 0.18);
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -31,14 +51,14 @@ html, body, #root { margin: 0; height: 100%; }
 input:not([type]), input[type="text"], select, button {
   font: inherit;
   color: var(--text);
-  background: var(--bg);
+  background: var(--raise);
   border: 1px solid var(--line);
   border-radius: 4px;
   padding: 7px 8px;
   width: 100%;
 }
 button { cursor: pointer; }
-button.primary { background: var(--accent); border-color: var(--accent); color: #1b1d1f; font-weight: 500; }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 500; }
 button:disabled { opacity: 0.6; cursor: progress; }
 button.link { background: none; border: none; padding: 0; width: auto; color: var(--muted); text-align: left; text-decoration: underline; }
 
@@ -50,7 +70,8 @@ button.link { background: none; border: none; padding: 0; width: auto; color: va
 .results {
   position: absolute; z-index: 10; left: 0; right: 0; top: 100%;
   list-style: none; margin: 4px 0 0; padding: 0;
-  background: var(--bg); border: 1px solid var(--line); border-radius: 4px;
+  background: var(--raise); border: 1px solid var(--line); border-radius: 4px;
+  box-shadow: var(--shadow);
   max-height: 300px; overflow-y: auto;
 }
 .results li { padding: 8px; cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
@@ -62,7 +83,7 @@ button.link { background: none; border: none; padding: 0; width: auto; color: va
 .colors input[type="color"] { width: 26px; height: 22px; padding: 0; border: 1px solid var(--line); background: none; }
 
 .poster-wrap { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.poster { position: relative; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
+.poster { position: relative; box-shadow: var(--shadow); }
 .poster-map, .poster-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
 .poster-overlay { pointer-events: none; }
 .range { display: flex; align-items: center; gap: 8px; }
@@ -74,3 +95,19 @@ button.link { background: none; border: none; padding: 0; width: auto; color: va
 .poster.fx-on .poster-overlay, .poster.fx-on .poster-map canvas { opacity: 0; }
 .field { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
 .field select { color: var(--text); }
+
+.brand { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.brand h1 { margin: 0; }
+button.icon {
+  width: 30px; height: 30px; padding: 0; border-radius: 50%;
+  display: grid; place-items: center; font-size: 14px; line-height: 1;
+  color: var(--muted);
+}
+button.icon:hover { color: var(--text); border-color: var(--muted); }
+
+button.surprise {
+  background: linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 55%, #7b5cff));
+  border: none; color: var(--accent-ink); font-weight: 500; padding: 10px 8px; letter-spacing: 0.02em;
+}
+button.surprise:hover { filter: brightness(1.07); }
+.poster-wrap { background: var(--bg); }
