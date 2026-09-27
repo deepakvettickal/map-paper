@@ -17,6 +17,8 @@
 //   --title --subtitle  overlay text (blank hides it)
 //   --width --height    output pixels (default 3840x2160)
 //   --labels            draw place names (default off)
+//   --border [type]     draw the style's frame with no title (optional border type,
+//                       e.g. plain/double/mat/ticks/deco); a title implies a border
 //   --grain --paper --paperColor --vignette --wobble --misregister --pixelate
 //                       override the art-renderer effects (e.g. weather-driven);
 //                       any of these forces the effects on for this render
@@ -90,7 +92,7 @@ for (const k of fxKeys) {
 }
 
 const b64 = await page.evaluate(
-  async ([w, h, water, waterDots, title, subtitle, labels, fxOverrides]) => {
+  async ([w, h, water, waterDots, title, subtitle, labels, fxOverrides, borderArg]) => {
     const { renderPoster } = await import("/src/engine/exportPng.ts");
     const { usePoster, activeEffects, activeBorder } = await import("/src/store.ts");
     const s = usePoster.getState();
@@ -100,6 +102,11 @@ const b64 = await page.evaluate(
     if (waterDots) spec.colors.waterDots = waterDots;
     const el = document.querySelector(".poster");
     const show = Boolean(title || subtitle);
+    // Draw the frame when a title shows or --border is passed (border without title).
+    const wantBorder = show || borderArg !== "";
+    const borderType = typeof borderArg === "string" && borderArg && borderArg !== "true"
+      ? borderArg
+      : activeBorder(s);
     // Merge effect overrides onto the style's effects; presence forces fx on.
     const hasOverride = Object.keys(fxOverrides).length > 0;
     const fx = hasOverride
@@ -114,8 +121,8 @@ const b64 = await page.evaluate(
         coords: null,
         show,
         scale: 1,
-        border: activeBorder(s),
-        borderScale: show ? 1 : 0,
+        border: borderType,
+        borderScale: wantBorder ? 1 : 0,
       },
       previewWidth: el.clientWidth,
       previewHeight: el.clientHeight,
@@ -138,6 +145,7 @@ const b64 = await page.evaluate(
     args.subtitle ?? "",
     Boolean(args.labels),
     fxOverrides,
+    args.border === undefined ? "" : String(args.border),
   ],
 );
 
