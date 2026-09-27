@@ -17,6 +17,9 @@
 //   --title --subtitle  overlay text (blank hides it)
 //   --width --height    output pixels (default 3840x2160)
 //   --labels            draw place names (default off)
+//   --grain --paper --paperColor --vignette --wobble --misregister --pixelate
+//                       override the art-renderer effects (e.g. weather-driven);
+//                       any of these forces the effects on for this render
 //   --out <file>        output PNG path (default out.png)
 //   --base <url>        dev server base (default http://localhost:5173)
 import puppeteer from "puppeteer-core";
@@ -77,8 +80,17 @@ await page.waitForFunction(() => window.__map?.areTilesLoaded(), { timeout: 9000
 await page.evaluate(() => document.fonts.ready);
 await new Promise((r) => setTimeout(r, 1500));
 
+// Effect overrides (e.g. weather-driven): only keys passed are applied, merged
+// onto the style's own effects. Any override forces the art renderer on.
+const fxKeys = ["grain", "paper", "paperColor", "vignette", "wobble", "misregister", "pixelate"];
+const fxOverrides = {};
+for (const k of fxKeys) {
+  if (args[k] === undefined) continue;
+  fxOverrides[k] = k === "paperColor" ? args[k] : Number(args[k]);
+}
+
 const b64 = await page.evaluate(
-  async ([w, h, water, waterDots, title, subtitle, labels]) => {
+  async ([w, h, water, waterDots, title, subtitle, labels, fxOverrides]) => {
     const { renderPoster } = await import("/src/engine/exportPng.ts");
     const { usePoster, activeEffects, activeBorder } = await import("/src/store.ts");
     const s = usePoster.getState();
@@ -88,6 +100,11 @@ const b64 = await page.evaluate(
     if (waterDots) spec.colors.waterDots = waterDots;
     const el = document.querySelector(".poster");
     const show = Boolean(title || subtitle);
+    // Merge effect overrides onto the style's effects; presence forces fx on.
+    const hasOverride = Object.keys(fxOverrides).length > 0;
+    const fx = hasOverride
+      ? { ...(s.spec.effects ?? {}), ...(activeEffects(s) ?? {}), ...fxOverrides }
+      : activeEffects(s);
     const blob = await renderPoster({
       spec,
       view: s.view,
@@ -104,7 +121,7 @@ const b64 = await page.evaluate(
       previewHeight: el.clientHeight,
       width: w,
       height: h,
-      fx: activeEffects(s),
+      fx,
       labels,
     });
     const buf = new Uint8Array(await blob.arrayBuffer());
@@ -120,6 +137,7 @@ const b64 = await page.evaluate(
     args.title ?? "",
     args.subtitle ?? "",
     Boolean(args.labels),
+    fxOverrides,
   ],
 );
 
