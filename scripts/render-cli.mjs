@@ -55,7 +55,14 @@ if (args.zoom != null) url.searchParams.set("zoom", String(args.zoom));
 const browser = await puppeteer.launch({
   executablePath: CHROME,
   headless: "new",
-  args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
+  // --no-sandbox is required on CI runners (GitHub Actions) where the SUID sandbox
+  // helper is not root-configured; harmless for local headless rendering.
+  args: [
+    "--use-angle=swiftshader",
+    "--enable-unsafe-swiftshader",
+    "--no-sandbox",
+    "--disable-setuid-sandbox",
+  ],
   defaultViewport: { width: 1400, height: 900 },
 });
 
