@@ -20,6 +20,8 @@
 //   --border [type]     draw the style's frame with no title (optional border type,
 //                       e.g. plain/double/mat/ticks/deco); a title implies a border
 //   --borderScale <n>   scale the frame width (1 = style default, 0.1 = a tenth)
+//   --hueShift <deg>    rotate the whole palette in OKLCH (like "Surprise me")
+//   --chroma <mult>     multiply palette chroma (1 = unchanged); --lighten <n> nudges lightness
 //   --grain --paper --paperColor --vignette --wobble --misregister --pixelate
 //                       override the art-renderer effects (e.g. weather-driven);
 //                       any of these forces the effects on for this render
@@ -93,12 +95,20 @@ for (const k of fxKeys) {
 }
 
 const b64 = await page.evaluate(
-  async ([w, h, water, waterDots, title, subtitle, labels, fxOverrides, borderArg, borderScaleArg]) => {
+  async ([w, h, water, waterDots, title, subtitle, labels, fxOverrides, borderArg, borderScaleArg, hueShift, chroma, lighten]) => {
     const { renderPoster } = await import("/src/engine/exportPng.ts");
     const { usePoster, activeEffects, activeBorder } = await import("/src/store.ts");
     const s = usePoster.getState();
     // Clone the spec and override only the water colours for this render.
     const spec = { ...s.spec, colors: { ...s.spec.colors } };
+    // Optional OKLCH palette shift (experiments) — recolour the whole palette, like randomise().
+    if (hueShift || chroma !== 1 || lighten) {
+      const { shiftColor } = await import("/src/engine/color.ts");
+      const sh = (hex) => shiftColor(hex, { rotate: hueShift, chroma, lighten });
+      const rec = (v) => (Array.isArray(v) ? v.map(sh) : sh(v));
+      spec.colors = Object.fromEntries(Object.entries(spec.colors).map(([k, v]) => [k, rec(v)]));
+      if (spec.effects?.paperColor) spec.effects = { ...spec.effects, paperColor: sh(spec.effects.paperColor) };
+    }
     if (water) spec.colors.water = water;
     if (waterDots) spec.colors.waterDots = waterDots;
     const el = document.querySelector(".poster");
@@ -149,6 +159,9 @@ const b64 = await page.evaluate(
     fxOverrides,
     args.border === undefined ? "" : String(args.border),
     args.borderScale === undefined ? 0 : Number(args.borderScale),
+    args.hueShift === undefined ? 0 : Number(args.hueShift),
+    args.chroma === undefined ? 1 : Number(args.chroma),
+    args.lighten === undefined ? 0 : Number(args.lighten),
   ],
 );
 
